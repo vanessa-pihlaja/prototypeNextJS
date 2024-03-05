@@ -1,0 +1,23 @@
+.recipeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content */
+    padding: 15px; /* Add some padding around */
+  }
+  
+  .recipeImage {
+    max-width: 100%; /* Make image width responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 800px; /* Optional: you can set a max height */
+  }
+  
+  h1 {
+    font-size: 30px;
+  }
+
+  @media (max-width: 768px) {
+    .recipeImage {
+      max-height: 700px; /* Smaller height on smaller screens */
+    }
+  }
+  
