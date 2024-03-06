@@ -31,100 +31,7 @@ header h1 {
   font-size: 100px; /* Or specify a specific font size */
 }
 
-.feed-container {
-  /* Adjust the gap and number of columns as desired */
-  column-gap: 1rem;
-  column-count: 3; /* You can adjust this number based on your desired layout */
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-.recipe-card {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-  background-color: rgb(232, 223, 211);
-  text-align: center;
-}
-
-.recipe-card a, .recipe-card a:visited {
-  text-decoration: none;
-  color: rgba(81,135,218,255);
-}
-
-.recipe-card h2 {
-  margin-top: 0.1rem;
-  margin-bottom: 0.3rem;
-  padding: 1px;
-  font-size: 18px;
-  font-family: "Noto Serif Hebrew", serif;
-  font-weight: 600;
-}
-
-/* Responsive adjustments */
-
-@media (min-width: 1924px) {
-  .recipe-card h2 {
-    font-size: 26px
-  }
-}
-/* desktop */
-@media (min-width: 1624px) {
-  .feed-container {
-    column-count: 3;
-    max-width: 1980px;
-  }
-}
-/* Laptop size is here in the middle, where all basic css applies*/
-
-/* font fix before going iPad size*/
-@media (max-width: 1224px) {
-  .recipe-card h2 {
-    font-size: 20px
-  }
-}
-
-/* iPad */
-@media (max-width: 1124px) {
-  .feed-container {
-    column-count: 2;
-  }
-
-  #root {
-    padding: 3rem 3rem;
-  }
-}
-/* mobile */
-@media (max-width: 650px) {
-  #root {
-    padding: 1rem 0.1rem;
-  }
-  .feed-container {
-    column-count: 2;
-    column-gap: 0.45rem;
-  }
-  .recipe-card {
-    text-align: center;
-  }
-  .recipe-card h2 {
-    margin-top: 0.1rem;
-    margin-bottom: 0.3rem;
-    padding: 0px;
-    font-size: 16px
-  }
-  header h1 {
-    margin-top: 0rem; /* Adjust as needed */
-    margin-bottom: 0.rem; /* Adjust as needed */
-    font-size: 60px; /* Or specify a specific font size */
-  }
-}
-
-.recipe-image {
-  width: 100%;
-  display: block; /* Ensures that the image scales correctly */
-  border-radius: 10px; /* Rounded corners for images */
-}
-
-/* Keep your existing styles for h1, body, p, footer */
+* Keep your existing styles for h1, body, p, footer */
 
 
 /* Existing styles */
@@ -163,29 +70,19 @@ h1 {
 }
 
 
+/* Responsiveness for header and footer*/
 
 
-/**/
-
-.recipeContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center the content */
-  padding: 15px; /* Add some padding around */
-}
-
-.recipeImage {
-  max-width: 100%; /* Make image width responsive */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 800px; /* Optional: you can set a max height */
-}
-
-h1 {
-  font-size: 30px;
-}
-
-@media (max-width: 768px) {
-  .recipeImage {
-    max-height: 700px; /* Smaller height on smaller screens */
+@media (max-width: 650px) {
+  #root {
+    padding: 1rem 0.1rem;
   }
+  header h1 {
+      margin-top: 0rem; /* Adjust as needed */
+      margin-bottom: 0.rem; /* Adjust as needed */
+      font-size: 60px; /* Or specify a specific font size */
+    }
 }
+
+/* MOVE TO feed.module.css*/
+

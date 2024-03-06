@@ -1,4 +1,4 @@
-.recipeContainer {
+  .recipeContainer {
     display: flex;
     flex-direction: column;
     align-items: center; /* Center the content */
@@ -11,7 +11,7 @@
     max-height: 800px; /* Optional: you can set a max height */
   }
 
-  .recipe-title {
+  .recipeTitle {
     font-size: 30px;
   }
   
@@ -20,4 +20,3 @@
       max-height: 700px; /* Smaller height on smaller screens */
     }
   }
-  

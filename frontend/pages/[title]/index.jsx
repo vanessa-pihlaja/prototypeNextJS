@@ -46,7 +46,7 @@ export default function Recipe () {
         <div>
             <header><h1>miamia</h1></header>
         <div className={styles.recipeContainer}>
-            <h1 className="recipe-title">{recipe.title}</h1>
+            <h1 className={styles.recipeTitle}>{recipe.title}</h1>
             <img className={styles.recipeImage} src={getFirstImageUrl(recipe.images)} alt={recipe.title} />
             {renderContent(recipe.content)}
             <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import feedService from '../src/services/feed';
-// import styles from '../styles/feed.module.css';
+import styles from '../styles/feed.module.css';
 
 export default function Feed () {
   const [recipes, setRecipes] = useState([]);
@@ -23,19 +23,20 @@ export default function Feed () {
   };
 
   return (
-    <div className="feed-container">
-      {recipes.map(recipe => (
-        <div className="recipe-card" key={recipe.title}>
-          
-          <img className="recipe-image" src={getFirstImageUrl(recipe.images)} alt={recipe.title
-          } />
-          <h2>
-            <Link href={`/${recipe.title}`}>{recipe.title}</Link>
-          </h2>
-          {/* You can add more recipe details here */}
-        </div>
-      ))}
-    </div>
+    <div>
+      <div className={styles.feedcontainer}>
+        {recipes.map(recipe => (
+          <div className={styles.recipeCard} key={recipe.title}>
+            
+            <img className={styles.recipeImage} src={getFirstImageUrl(recipe.images)} alt={recipe.title} />
+            <h2>
+              <Link href={`/${recipe.title}`}>{recipe.title}</Link>
+            </h2>
+            {/* You can add more recipe details here */}
+          </div>
+        ))}
+      </div>
+      </div>
   );
 }
 
