@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import recipeService from '../../src/services/recipe'; 
-//import '../styles/Recipe.css';
+import styles from '../../styles/recipe.module.css';
+
 
 export default function Recipe () {
     const [recipe, setRecipe] = useState(null);
@@ -42,11 +43,15 @@ export default function Recipe () {
     }
 
     return (
-        <div className="recipeContainer">
-            <h1>{recipe.title}</h1>
-            <img className="recipeImage" src={getFirstImageUrl(recipe.images)} alt={recipe.title} />
+        <div>
+            <header><h1>miamia</h1></header>
+        <div className={styles.recipeContainer}>
+            <h1 className="recipe-title">{recipe.title}</h1>
+            <img className={styles.recipeImage} src={getFirstImageUrl(recipe.images)} alt={recipe.title} />
             {renderContent(recipe.content)}
             <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
+        </div>
+        <footer></footer>
         </div>
     );
 };

@@ -10,11 +10,11 @@
     height: auto; /* Maintain aspect ratio */
     max-height: 800px; /* Optional: you can set a max height */
   }
-  
-  h1 {
+
+  .recipe-title {
     font-size: 30px;
   }
-
+  
   @media (max-width: 768px) {
     .recipeImage {
       max-height: 700px; /* Smaller height on smaller screens */

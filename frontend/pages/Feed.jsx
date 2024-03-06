@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import feedService from '../src/services/feed';
+// import styles from '../styles/feed.module.css';
 
 export default function Feed () {
   const [recipes, setRecipes] = useState([]);
