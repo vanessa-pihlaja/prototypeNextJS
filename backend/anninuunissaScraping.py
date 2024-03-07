@@ -195,15 +195,18 @@ def scrape_recipe(url):
     # Initialize content storage
     content_elements = []
     
-    if ohje_tag:
-        content_elements.append(str(ohje_tag))
-        
+  # Find the <h2> element that matches the title
+    h2_tag = soup.find('h2', string=title)
+    
+    if h2_tag:
         # Get all next siblings and filter by <p>, <ul>, and <ol> tags
-        for sibling in ohje_tag.find_next_siblings():
+        for sibling in h2_tag.find_next_siblings():
             if sibling.name in ['p', 'ul', 'ol']:
                 content_elements.append(str(sibling))
             else:
                 break  # Stop if the next sibling is not a <p>, <ul>, or <ol>
+    else:
+        print(f"No matching <h2> element found for title '{title}' in {url}")
     
     # Concatenate all elements into a single string
     all_content_html = "".join(content_elements)
@@ -233,11 +236,16 @@ def scrape_recipe(url):
 # List to store the content of each recipe
 recipes_content = []
 
+recipe_count = 0
+
 # Iterate through URLs and scrape content, title, and images for each, excluding specific images
 for url in recipe_urls:
     print(f"Scraping content from {url}")
     recipe_data = scrape_recipe(url)
     recipes_content.append(recipe_data)
+    recipe_count += 1 
+
+print(f"Total number of recipes scraped: {recipe_count}")
 
 # Convert the list of recipe data to JSON
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
