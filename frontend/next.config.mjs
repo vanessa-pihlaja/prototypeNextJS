@@ -1,8 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['www.anninuunissa.fi', 'images.squarespace-cdn.com'],
-    },
+        remotePatterns: [
+            {
+                hostname: 'images.squarespace-cdn.com'
+            },
+            {
+                hostname: 'www.anninuunissa.fi'
+            }
+        ]
+    }
 };
 
 export default nextConfig;
