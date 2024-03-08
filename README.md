@@ -1,2 +1,1 @@
-# prototypeNextJS
-# prototypeNextJS
+# Welcome to MiaMia prototype
