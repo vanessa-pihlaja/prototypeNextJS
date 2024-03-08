@@ -30,7 +30,7 @@ nextApp.prepare().then(() => {
     }
 
     // Load and filter recipes
-    let recipesContent = loadAndFilterRecipes('recipes_content.json');
+    let recipesContent = loadAndFilterRecipes('bellatable.json');
     let anninuunissaRecipes = loadAndFilterRecipes('anninuunissa.json');
     let recipes = [...recipesContent, ...anninuunissaRecipes]; // Combine and filter
 
