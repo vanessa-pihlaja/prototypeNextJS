@@ -14,12 +14,10 @@ nextApp.prepare().then(() => {
     app.use(cors());
     app.use(express.json());
 
-    // Assuming your Recipe model and mongoose connection setup are correct
     const Recipe = require('./models/recipe');
 
-    // Adjusted function to correctly locate your JSON files within the /api directory
     function loadAndFilterRecipes(fileName) {
-        const filePath = path.join(__dirname, fileName); // Correctly locate the JSON file
+        const filePath = path.join(__dirname, fileName);
         try {
             let recipes = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
             return recipes.filter(recipe => recipe.title && recipe.content && recipe.images && recipe.images.length > 0);
@@ -29,20 +27,31 @@ nextApp.prepare().then(() => {
         }
     }
 
-    // Load and filter recipes
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    // Load, filter, and shuffle recipes
     let bellatableContent = loadAndFilterRecipes('bellatable.json');
     let anninuunissaRecipes = loadAndFilterRecipes('anninuunissa.json');
     let liemessaRecipes = loadAndFilterRecipes('liemessa.json');
     let viimeistamuruamyotenRecipes = loadAndFilterRecipes('viimeistamuruamyoten.json');
-    let recipes = [...bellatableContent, ...viimeistamuruamyotenRecipes, ...anninuunissaRecipes, ...liemessaRecipes]; // Combine and filter
+    let recipes = [...bellatableContent, ...viimeistamuruamyotenRecipes, ...anninuunissaRecipes, ...liemessaRecipes];
 
-    // API routes
+    // Shuffle once after loading
+    shuffleArray(recipes);
+
     app.get('/api/recipes', (req, res) => {
+        // Serve the pre-shuffled recipes
+        // You can implement pagination or slicing here based on query parameters if needed
         res.json(recipes);
     });
 
     app.get('/api/recipes/:title', (req, res) => {
-        const title = req.params.title.toLowerCase(); // Assuming titles are case-insensitive
+        const title = req.params.title.toLowerCase();
         const recipe = recipes.find(r => r.title.toLowerCase() === title);
 
         if (recipe) {
@@ -70,7 +79,6 @@ nextApp.prepare().then(() => {
         });
     });
 
-    // Next.js page handling
     app.all('*', (req, res) => {
         return handle(req, res);
     });
