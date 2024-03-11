@@ -32,8 +32,9 @@ nextApp.prepare().then(() => {
     // Load and filter recipes
     let bellatableContent = loadAndFilterRecipes('bellatable.json');
     let anninuunissaRecipes = loadAndFilterRecipes('anninuunissa.json');
-    let liemessaRecipes = loadAndFilterRecipes('liemessa_recipes.json');
-    let recipes = [...bellatableContent, ...anninuunissaRecipes, ...liemessaRecipes]; // Combine and filter
+    let liemessaRecipes = loadAndFilterRecipes('liemessa.json');
+    let viimeistamuruamyotenRecipes = loadAndFilterRecipes('viimeistamuruamyoten.json');
+    let recipes = [...bellatableContent, ...viimeistamuruamyotenRecipes, ...anninuunissaRecipes, ...liemessaRecipes]; // Combine and filter
 
     // API routes
     app.get('/api/recipes', (req, res) => {

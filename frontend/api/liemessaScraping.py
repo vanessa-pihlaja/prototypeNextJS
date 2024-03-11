@@ -496,5 +496,5 @@ print(f"Total number of recipes scraped: {len(recipes_content)}")
 
 # Convert the list of recipe data to JSON and save
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
-with open('liemessa_recipes.json', 'w', encoding='utf-8') as f:
+with open('liemessa.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

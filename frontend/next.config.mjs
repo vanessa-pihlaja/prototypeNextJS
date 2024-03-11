@@ -10,6 +10,9 @@ const nextConfig = {
             },
             {
                 hostname: 'liemessa.fi'
+            },
+            {
+                hostname: 'viimeistamuruamyoten.com'
             }
         ]
     }
