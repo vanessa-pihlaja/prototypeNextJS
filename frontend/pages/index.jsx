@@ -1,34 +1,31 @@
 import Feed from '../components/Feed';
 import feedService from '../src/services/feed';
 
-// import TestComponent from './components/TestComponent';
-
-export default function App({ recipes }) {
+export default function App({ batches }) {
   return (
     <div>
       <header>
         <h1>miamia</h1>
       </header>
-          <Feed recipes={recipes}/>
+      <Feed batches={batches} />
       <footer>
       </footer>
     </div>
   );
 };
 
-
 export async function getStaticProps() {
-  
-  // Fetch data from external API
-  // const res = await fetch(`http://localhost:3000/api/recipes`)
-  // const data = await res.json()
-
+  // Fetch data from external API or service
   const data = await feedService.getAll();
 
-  const subData = data.slice(0,400)
-  //console.log(subData.length)
- 
-  // Pass data to the page via props
-  return { props: { recipes: subData } }
 
+  // Create batches of 200 recipes
+  const batchSize = 50;
+  const batches = [];
+  for (let i = 0; i < data.length; i += batchSize) {
+    batches.push(data.slice(i, i + batchSize));
+  }
+
+  // Pass data to the page via props in the form of batches
+  return { props: { batches } };
 }

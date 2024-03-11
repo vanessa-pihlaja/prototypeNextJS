@@ -2,6 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&family=Oswald:wght@200..700&family=Poppins:wght@400;900&display=swap');
 
 
+/*testing image optimization*/
+/* Additional visibility control classes */
+.hidden {
+  visibility: hidden; /*to keep the space allocated */
+}
+
+.visible {
+  display: block; /* Or the appropriate display type for your content */
+}
+
+
+
 /*Feed recipes*/
 
   .feedcontainer {
