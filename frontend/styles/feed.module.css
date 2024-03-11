@@ -2,18 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&family=Oswald:wght@200..700&family=Poppins:wght@400;900&display=swap');
 
 
-/*testing image optimization*/
-/* Additional visibility control classes */
-.hidden {
-  visibility: hidden; /*to keep the space allocated */
-}
-
-.visible {
-  display: block; /* Or the appropriate display type for your content */
-}
-
-
-
 /*Feed recipes*/
 
   .feedcontainer {
@@ -47,13 +35,30 @@
   }
 
   
-  
- 
 
   .recipeImage{
       width: 100%;
       display: block;
       border-radius: 10px;
+  }
+
+
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .loadMoreButton {
+    font-family: "Noto Serif Hebrew", serif;
+    font-weight: 600;
+    color: rgba(81,135,218,255);
+    padding: 10px 20px; /* Example padding */
+    border: none; /* Example border removal */
+    font-size: 1rem; /* Example font size */
+    cursor: pointer; /* Changes cursor to indicate button */
+    border-radius: 5px; /* Rounds corners of the button */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
   }
 
   /* Responsive adjustments */
