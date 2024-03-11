@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime;
 from bs4 import BeautifulSoup
 import json
 import re
@@ -379,7 +380,7 @@ recipe_urls = [
     "https://liemessa.fi/2023/10/pasta-et-fagioli-eli-papupasta/",
     "https://liemessa.fi/2023/02/maapahkinavoicurry/",
     "https://liemessa.fi/2007/08/pipe-rigate-alle-lammas-ricotta/",
-  #  "https://liemessa.fi/2012/05/brunssi-menu/",
+    "https://liemessa.fi/2012/05/brunssi-menu/",
     "https://liemessa.fi/2016/04/instagram-hinkkausta-ja-arkiruokahaaste/",
     "https://liemessa.fi/2016/02/nakkikastike-ja-kolmas-lapsi/",
     "https://liemessa.fi/2016/02/uuniveriappelsiinit/",
@@ -410,76 +411,90 @@ recipe_urls = [
     "https://liemessa.fi/2018/05/lohi-pesto-nakuvoileipakakku/"
 ]
 
+# Helper function to format titles
+def format_title(title):
+    words = title.split()
+    formatted_words = [word.capitalize() if word.lower() not in ['eli', 'ja'] else word.lower() for word in words]
+    return ' '.join(formatted_words)
 
+# Function to check if the URL is from 2015 or later
+def is_recent(url):
+    year = int(url.split('/')[3])
+    return year >= 2015
+
+# Function to scrape and process content from a recipe URL
 def scrape_recipe(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     
-    # Scrape the title of the recipe
+    # Find and format the recipe title
     title_tag = soup.find('h1', class_='entry-title')
-    title = title_tag.get_text(strip=True) if title_tag else 'No Title Found'
+    title = format_title(title_tag.text) if title_tag else "No Title Found"
     
-    # Find the <p> element that contains "Ohje"
-    ohje_tag = soup.find('p', string=re.compile('ohje', re.IGNORECASE))
-    
-    # Initialize content storage
     content_elements = []
+    found_matching_h1_or_h2 = False
+    excluded_words = {'eli', 'ja'}
+    entry_title_words = set(title_tag.text.lower().split()) - excluded_words
     
-  # Find the <h2> element that matches the title
-    h2_tag = soup.find('h2', string=title)
-    
-    if h2_tag:
-        # Get all next siblings and filter by <p>, <ul>, and <ol> tags
-        for sibling in h2_tag.find_next_siblings():
-            if sibling.name in ['p', 'ul', 'ol']:
-                content_elements.append(str(sibling))
-            else:
-                break  # Stop if the next sibling is not a <p>, <ul>, or <ol>
-    else:
-        print(f"No matching <h2> element found for title '{title}' in {url}")
-    
-    # Concatenate all elements into a single string
-    all_content_html = "".join(content_elements)
-    
-    # Find the container <div> with class "entry-content single-content"
-    content_div = soup.find('div', class_='entry-content single-content')
-    
-    # Initialize an empty list for image URLs
+    # Scrape images within the specified div
     image_urls = []
-    
-    # If the container is found
+    content_div = soup.find('div', class_='post-area col span_9')
     if content_div:
-        # Find all <img> elements with a class attribute within the container
         images = content_div.find_all('img', class_=lambda x: x and x.startswith('wp'))
-        
-        # Extract the 'src' attribute of each <img> tag
         image_urls = [img['src'] for img in images]
 
+
+    # Iterate through elements to capture relevant content
+    for elem in soup.find_all(['h1', 'h2', 'p']):
+        # Check for matching <h1> or <h2>
+        if elem.name in ['h1', 'h2'] and not found_matching_h1_or_h2:
+            element_words = set(elem.get_text(strip=True).lower().split())
+            if element_words & entry_title_words:
+                found_matching_h1_or_h2 = True
+                continue  # Skip the matching <h1> or <h2> itself
+        
+        if found_matching_h1_or_h2:
+            # Only add text content, excluding <img> tags
+            if elem.name == 'p':
+                # Create a copy of the element to manipulate
+                elem_copy = BeautifulSoup(str(elem), 'html.parser')
+                for img_tag in elem_copy.find_all('img'):
+                    img_tag.decompose()  # Remove <img> tags
+                content_elements.append(str(elem_copy))
+            else:
+                content_elements.append(str(elem))
     
+    # Joining content elements into a single string
+    content = ' '.join(content_elements)
+
     return {
         'url': url,
         'title': title,
-        'content': all_content_html,
-        'images': image_urls  # Direct URLs of the images, excluding the specified one
+        'content': content,
+        'images': image_urls  # Direct URLs of the images
     }
 
-# List to store the content of each recipe
+
+# Main script to scrape the recipes
 recipes_content = []
 
-recipe_count = 0
+unique_recipe_urls = set()
+        
 
-# Iterate through URLs and scrape content, title, and images for each, excluding specific images
+# Scrape each recipe
 for url in recipe_urls:
+    if is_recent(url):
+        unique_recipe_urls.add(url)
+
+for url in unique_recipe_urls:
     print(f"Scraping content from {url}")
     recipe_data = scrape_recipe(url)
     recipes_content.append(recipe_data)
-    recipe_count += 1 
 
-print(f"Total number of recipes scraped: {recipe_count}")
+# Print total number of recipes scraped
+print(f"Total number of recipes scraped: {len(recipes_content)}")
 
-# Convert the list of recipe data to JSON
+# Convert the list of recipe data to JSON and save
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
-
-# Optionally, save the JSON to a file
-with open('anninuunissa.json', 'w', encoding='utf-8') as f:
+with open('liemessa_recipes.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

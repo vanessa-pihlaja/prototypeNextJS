@@ -7,6 +7,9 @@ const nextConfig = {
             },
             {
                 hostname: 'www.anninuunissa.fi'
+            },
+            {
+                hostname: 'liemessa.fi'
             }
         ]
     }

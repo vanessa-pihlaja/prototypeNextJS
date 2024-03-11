@@ -15,8 +15,11 @@
     "fs": "^0.0.1-security",
     "mongoose": "^8.2.1",
     "next": "14.1.2",
+    "pip": "^0.0.1",
+    "python": "^0.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "requests": "^0.3.0"
   },
   "devDependencies": {
     "eslint": "^8",

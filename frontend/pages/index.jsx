@@ -25,10 +25,10 @@ export async function getStaticProps() {
 
   const data = await feedService.getAll();
 
-  //const subData = data.slice(0,200)
+  const subData = data.slice(0,400)
   //console.log(subData.length)
  
   // Pass data to the page via props
-  return { props: { recipes: data } }
+  return { props: { recipes: subData } }
 
 }

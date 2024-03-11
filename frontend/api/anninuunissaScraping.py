@@ -189,9 +189,6 @@ def scrape_recipe(url):
     title_tag = soup.find('h1', class_='entry-title')
     title = title_tag.get_text(strip=True) if title_tag else 'No Title Found'
     
-    # Find the <p> element that contains "Ohje"
-    ohje_tag = soup.find('p', string=re.compile('ohje', re.IGNORECASE))
-    
     # Initialize content storage
     content_elements = []
     
