@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Utilize environment variable for the base URL
-const baseUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/recipes`;
+const baseUrl = 'api/recipes';
 
 const findRecipe = async ({ title }) => {
   console.log(baseUrl); 
@@ -12,4 +12,5 @@ const findRecipe = async ({ title }) => {
   
 };
 
-export default { findRecipe };
+const recipeService = { findRecipe };
+export default recipeService;

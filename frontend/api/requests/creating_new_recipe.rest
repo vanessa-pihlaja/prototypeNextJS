@@ -1,7 +1,0 @@
-POST http://localhost:3001/api/recipes
-Content-Type: application/json
-
-{
-    "name": "tomaattirisotto täytetyillä paprikoilla",
-    "content": "Raaka-aineet..."
-}

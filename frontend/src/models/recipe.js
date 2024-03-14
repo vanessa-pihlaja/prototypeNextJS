@@ -1,5 +1,4 @@
-const mongoose = require('mongoose')
-
+import mongoose from "mongoose";
 
 const recipeSchema = new mongoose.Schema({
   url: String,
@@ -16,4 +15,5 @@ recipeSchema.set('toJSON', {
 })
 
 
+// voi koittaa toista tapaa jos ei toimi
 module.exports = mongoose.model('Recipe', recipeSchema)

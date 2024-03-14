@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node api/index.js",
+    "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node api/index.js"
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^1.6.7",
@@ -20,7 +20,8 @@
     "python": "^0.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "requests": "^0.3.0"
+    "requests": "^0.3.0",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "eslint": "^8",
