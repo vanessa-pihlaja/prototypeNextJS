@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Router from 'next/router';
+import styles from '../styles/signing.module.css';
+
 
 export default function CreateProfile() {
   const [user, setUser] = useState({
@@ -50,44 +52,47 @@ export default function CreateProfile() {
   };
 
   return (
-    <div>
-      <h1>Create Your Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={user.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={user.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Create Profile</button>
-      </form>
+    <div className={styles.container}>
+      <h1 className={styles.title}>MiaMia</h1>
+      <div className={styles.formContainer}>
+        <h2> Welcome to your culinary journey</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={user.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={user.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={user.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit">Create Profile</button>
+        </form>
+      </div>
     </div>
   );
 }
