@@ -37,6 +37,8 @@ export function getAllRecipes() {
     return recipes;
   }
   
+
+  // MUUUTA TÄMÄ MYÖHEMMIN! HALUTAAN HAKEA YKSITTÄINEN RESEPTISIVU MYÖS DBsta
   // Function to get a recipe by title
   export function getRecipeByTitle(title) {
     const allRecipes = getAllRecipes();
