@@ -3,7 +3,7 @@ import Feed from '../components/Feed';
 // import feedService from '../src/services/feed';
 import styles from '../styles/feed.module.css';
 import dbConnect from '../src/utils/dbConnect';
-import Recipe from '../src/models/Recipe'; // Adjust the import path if necessary
+import Recipe from '../src/models/recipe'; // Adjust the import path if necessary
 
 
 

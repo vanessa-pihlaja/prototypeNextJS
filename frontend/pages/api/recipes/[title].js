@@ -1,12 +1,28 @@
-import { getRecipeByTitle } from '../../../src/utils/recipes';
+import dbConnect from '../../../src/utils/dbConnect';
+import Recipe from '../../../src/models/recipe';
 
-export default function handler(req, res) {
-  const { title } = req.query;
-  const recipe = getRecipeByTitle(title);
+export default async function handler(req, res) {
+  const {
+    query: { title },
+    method,
+  } = req;
 
-  if (recipe) {
-    res.status(200).json(recipe);
-  } else {
-    res.status(404).json({ error: 'Recipe not found' });
+  await dbConnect();
+
+  switch (method) {
+    case 'GET':
+      try {
+        const recipe = await Recipe.findOne({ title: decodeURIComponent(title) });
+        if (!recipe) {
+          return res.status(404).json({ success: false });
+        }
+        res.status(200).json({ success: true, data: recipe });
+      } catch (error) {
+        res.status(400).json({ success: false });
+      }
+      break;
+    default:
+      res.setHeader('Allow', ['GET']);
+      res.status(405).end(`Method ${method} Not Allowed`);
   }
 }

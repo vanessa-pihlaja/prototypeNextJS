@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from 'mongoose';
 
 // Define the schema for the recipe
 const recipeSchema = new mongoose.Schema({
@@ -25,6 +25,7 @@ const recipeSchema = new mongoose.Schema({
 });
 
 // Create a model from the schema
-const Recipe = mongoose.model('Recipe', recipeSchema);
+// Use mongoose.models to avoid error on hot reload during development
+const Recipe = mongoose.models.Recipe || mongoose.model('Recipe', recipeSchema);
 
-module.exports = Recipe;
+export default Recipe;
