@@ -27,8 +27,13 @@ export default function Recipe() {
         return Array.isArray(images) && images.length > 0 ? images[0] : '';
     };
 
+    function stripHtml(html) {
+        // This is a simplistic method and might not handle all edge cases.
+        return html.replace(/<[^>]*>?/gm, '')
+      }      
+
     const renderContent = (content) => {
-        const lines = content.split('\n').filter(line => line.trim() !== '');
+        const lines = stripHtml(content).split('\n').filter(line => line.trim() !== '');
         return lines.map((line, index) => <p key={index}>{line}</p>);
     };
 
@@ -38,14 +43,23 @@ export default function Recipe() {
 
     return (
         <div className={styles.recipeContainer}>
-            <h1 className={styles.recipeTitle}>{recipe.title}</h1>
-            {recipe.images && recipe.images[0] && (
-                <div className={styles.recipeImage}>
-                    <Image src={getFirstImageUrl(recipe.images)} alt={recipe.title} width={500} height={300} layout='responsive' />
-                </div>
-            )}
-            {renderContent(recipe.content)}
-            <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
+          <h1 className={styles.recipeTitle}>{recipe.title}</h1>
+          {recipe.images && recipe.images.length > 0 && (
+        <div className={styles.recipeImage}>
+          <Image
+            src={getFirstImageUrl(recipe.images)} // Use your utility function
+            alt={recipe.title}
+            width={150}
+            height={300}
+            layout="responsive"
+            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+            placeholder="blur"
+            priority
+          />
         </div>
-    );
+      )}
+          <p className={styles.recipeContent}>{renderContent(recipe.content)}</p>
+          <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
+        </div>
+      )
 }
