@@ -4,6 +4,7 @@ import Feed from '../components/Feed';
 import styles from '../styles/feed.module.css';
 import dbConnect from '../src/utils/dbConnect';
 import Recipe from '../src/models/recipe'; // Adjust the import path if necessary
+import LogoutButton from '@/components/Logout';
 
 
 
@@ -22,6 +23,7 @@ export default function App({ initialBatches }) {
     <div>
       <header>
         <h1>miamia</h1>
+        <LogoutButton/>
       </header>
       <Feed batches={visibleBatches} />
       <div className={styles.loadMoreContainer}>
@@ -29,7 +31,8 @@ export default function App({ initialBatches }) {
         <button className={styles.loadMoreButton} onClick={loadMore}>Load More</button>
       )}
         </div>
-      <footer></footer>
+      <footer>
+      </footer>
     </div>
   );
 };
