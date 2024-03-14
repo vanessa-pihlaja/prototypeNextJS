@@ -4,6 +4,23 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 const next = require('next');
+const mongoose = require('mongoose')
+const bcrypt = require('bcrypt')
+const User = require('./models/user')
+
+mongoose.set('strictQuery', false)
+
+const url = process.env.MONGODB_URI
+
+mongoose.connect(url)
+
+  .then(result => {
+    console.log('connected to MongoDB')
+  })
+  .catch(error => {
+    console.log('error connecting to MongoDB:', error.message)
+    console.log("MongoDB URI:", process.env.MONGODB_URI);
+  })
 
 const dev = process.env.NODE_ENV !== 'production';
 const nextApp = next({ dev });
@@ -78,6 +95,42 @@ nextApp.prepare().then(() => {
             res.json(savedRecipe);
         });
     });
+
+    //User registering
+    app.post('/api/users/register', async (req, res) => {
+        try {
+          const { username, name, password } = req.body;
+          if (!password || password.length < 3) {
+            return response.status(400).json({ error: 'password missing or too short' })
+          }        
+          const hashedPassword = await bcrypt.hash(password, 10);
+          const user = new User({ 
+            username,
+            name,
+            password: hashedPassword
+         })
+
+          const savedUser = await user.save()
+          res.status(201).json(savedUser)
+        } catch (error) {
+          res.status(500).json({ error: error.message })
+        }
+      });
+      
+    // User login
+      app.post('/api/users/login', async (req, res) => {
+        try {
+          const { username, password } = req.body;
+          const user = await User.findOne({ username });
+          if (user && await bcrypt.compare(password, user.password)) {
+            // Implement session or token generation logic here
+          } else {
+            res.status(400).json({ error: 'Invalid credentials' });
+          }
+        } catch (error) {
+          res.status(500).json({ error: error.message });
+        }
+      });
 
     app.all('*', (req, res) => {
         return handle(req, res);
