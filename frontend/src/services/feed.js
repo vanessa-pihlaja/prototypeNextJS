@@ -2,16 +2,12 @@ import axios from 'axios';
 
 // Use the environment variable, default to '/api/recipes' if not set.
 // This allows flexibility and fallback in case the environment variable is missing.
-const baseUrl = 'api/recipes';
+const baseUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/recipes`;
 
 const getAll = async () => {
-    try {
-        const response = await axios.get(baseUrl);
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error; // Rethrow the error to be handled by the caller
-    }
+    console.log(baseUrl);
+    const request = await axios.get(baseUrl);
+    return request.data;
 };
 
 const feedService = { getAll };
