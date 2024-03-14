@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const connection = {}; // To prevent multiple db connections
 
-export default async function dbConnect() {
+async function dbConnect() {
   if (connection.isConnected) {
     console.log('Using existing database connection'); // Log for existing connection
     return;
@@ -21,3 +21,5 @@ export default async function dbConnect() {
     console.log('Database connection failed'); // Log for failed connection
   }
 }
+
+module.exports = dbConnect;

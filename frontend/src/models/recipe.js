@@ -1,19 +1,30 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
+// Define the schema for the recipe
 const recipeSchema = new mongoose.Schema({
-  url: String,
-  title: String,
-  content: String,
-})
+  title: {
+    type: String,
+    required: true
+  },
+  content: {
+    type: String,
+    required: true
+  },
+  images: {
+    type: [String], // Assuming multiple image URLs per recipe
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  },
+  category: {
+    type: String,
+    required: false
+  },
+});
 
-recipeSchema.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
-  }
-})
+// Create a model from the schema
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
-
-// voi koittaa toista tapaa jos ei toimi
-module.exports = mongoose.model('Recipe', recipeSchema)
+module.exports = Recipe;
