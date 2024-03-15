@@ -51,44 +51,51 @@ const SignupComponent = () => {
       };
     
       return (
-        <div>
-          <h1>Create Your Profile</h1>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="username">Username</label>
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={user.username}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={user.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={user.password}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <button type="submit">Create Profile</button>
-          </form>
+        <div className={styles.container}>
+          <h1 className={styles.title}>MiaMia</h1>
+          <div className={styles.formContainer}>
+            <h2 className={styles.secondtitle}> Welcome to your culinary journey</h2>
+            <h3 className={styles.thirdtitle}>Sign up</h3>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <div>
+                <label className={styles.label} htmlFor="username">Username</label>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={user.username}
+                  onChange={handleChange}
+                  className= {styles.inputfield}
+                  required
+                />
+              </div>
+              <div>
+                <label className={styles.label} htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={user.name}
+                  onChange={handleChange}
+                  className= {styles.inputfield}
+                  required
+                />
+              </div>
+              <div>
+                <label className={styles.label} htmlFor="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleChange}
+                  className= {styles.inputfield}
+                  required
+                />
+              </div>
+              <button className={styles.submitButton} type="submit">Create Profile</button>
+            </form>
+          </div>
         </div>
       );
 };

@@ -1,0 +1,111 @@
+/* Base styles for the container that will hold both the title and the form */
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+
+/* Styles for the form container */
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px; /* Increased padding for larger look */
+    padding-bottom: 150px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 80vh;
+    width: 100vh;
+  }
+
+/* Styles for the title (h1) */
+.title {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 15em; /* Adjust size as needed */
+    margin-right: 2rem; /* Spacing between the title and the form */
+    color: rgb(255, 66, 9);
+  }
+
+.secondtitle {
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 5em;
+    padding: 0em 1.5em;
+    color: rgba(81,135,218,255);
+  }
+
+.thirdtitle {
+    color: rgb(100, 7, 7);
+    font-size: 2em;
+  }
+
+.form {
+    font-size: 20px;
+    color: rgba(81,135,218,255);
+  }
+
+.label {
+    padding: 0em;
+    display: block;
+}
+
+.inputfield {
+    width: 100%; /* Make input take full width of its parent container */
+    padding: 0.3em; /* Adjust padding as needed */
+    margin: 0em 0em 0.5em 0em ; /* Adjusted margin to only be vertical */
+    border: 0.05px solid rgba(81, 135, 218, 1); /* Blue border color */
+    border-radius: 4px; /* Optional: Adds rounded corners to the input field */
+    font-size: 1em; /* Adjust font size as needed */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+
+/* New class for the form control group */
+.formControl {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start of the flex container */
+    margin-bottom: 1em; /* Add some space below each form control group */
+  }
+
+.submitButton {
+    display: block;
+    width: 80%; /* Width of the button */
+    padding: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(255, 66, 9);
+    color: white;
+    cursor: pointer;
+    font-size: 17px;
+    margin-top: 25px;
+    margin-left: auto; /* Center the button horizontally */
+    margin-right: auto; /* Center the button horizontally */
+  }
+  
+  
+
+
+/* Media query for mobile screens */
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .title {
+      writing-mode: horizontal-tb;
+      transform: rotate(0deg);
+      margin-right: 0;
+      margin-bottom: 1rem; /* Spacing between the title and the form on mobile */
+    }
+  
+    .formContainer {
+      width: 90%; /* Adjust width as needed */
+    }
+  }
