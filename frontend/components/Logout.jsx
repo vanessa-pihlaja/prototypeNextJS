@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/logout.module.css';
 
 const LogoutButton = () => {
   const logout = async () => {
