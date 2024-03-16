@@ -38,6 +38,7 @@ export default function Feed({ batches }) {
                   className={styles.recipeImage} 
                   src={getFirstImageUrl(recipe.images)} 
                   alt={recipe.title}
+                  layout="responsive"
                   blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
                   placeholder='blur'
                   priority

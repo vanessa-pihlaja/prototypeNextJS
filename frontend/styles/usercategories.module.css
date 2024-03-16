@@ -1,0 +1,44 @@
+/* UserCategories.module.css */
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Adjust the gap between items as needed */
+    margin: 20px; /* Add some margin around the grid */
+  }
+  
+  .categoryItem {
+    /* Style for each category item */
+    padding: 10px; /* Example padding */
+    border-radius: 8px; /* Example border-radius */
+    text-align: center; /* Center the text */
+  }
+  
+  .categoryImageWrapper {
+    width: 100%; /* Full width of the container */
+    padding-top: 100%; /* Padding-top as a percentage of the width creates a square */
+    position: relative; /* Relative positioning for the absolute child */
+    border-radius: 8px; /* Optional: round corners for the wrapper */
+    overflow: hidden; /* Ensures the image does not overflow the square */
+  }
+  
+  .categoryImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without losing its aspect ratio */
+  }
+  
+  .categoryTitle {
+    cursor: pointer;
+    margin-top: 10px; /* Space between the image and the title */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .gridContainer {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+  }
+  

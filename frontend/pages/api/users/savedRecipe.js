@@ -9,8 +9,6 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const { userId, recipeId, category } = req.body;
-      console.log(`UserID: ${userId}, RecipeID: ${recipeId}, Category: ${category}`);
-
 
       const recipe = await Recipe.findById(recipeId);
       if (!recipe) {
