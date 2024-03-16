@@ -1,6 +1,9 @@
+import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/feed.module.css';
 import Image from 'next/image';
+import SaveRecipeModal from './SaveRecipeModal';
+
 
 // Utility function to get the first image URL
 const getFirstImageUrl = (images) => {
@@ -11,6 +14,16 @@ const getFirstImageUrl = (images) => {
 };
 
 export default function Feed({ batches }) {
+
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState(null);
+
+  const handleSaveClick = (recipe) => {
+    setCurrentRecipe(recipe);
+    setShowSaveModal(true);
+  };
+
+
   return (
     <div>
       {batches.map((recipes, batchIndex) => (
@@ -33,12 +46,14 @@ export default function Feed({ batches }) {
                 <h2>
                   <Link href={`/${recipe.title}`}>{recipe.title}</Link>
                 </h2>
-                {/* You can add more recipe details here */}
+                <button onClick={() => handleSaveClick(recipe)}>Tallenna</button>
               </div>
             ))}
           </div>
         </div>
       ))}
+      {/* Modal or dropdown for saving the recipe to a category */}
+      {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
     </div>
   );
 }

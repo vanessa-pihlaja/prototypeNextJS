@@ -29,12 +29,14 @@ export default async function handler(req, res) {
       // Setting the JWT in an HTTP-only cookie
       res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/; Secure; SameSite=Strict; Max-Age=${60 * 60};`);
 
+      console.log(`token: ${token}`)
+
       res.status(200).json({ username: user.username, name: user.name });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
   } else {
     res.setHeader('Allow', ['POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+    res.status(405).end(`Method ${req.method} Not Allowed`)
   }
 }

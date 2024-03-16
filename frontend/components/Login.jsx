@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import styles from '../styles/login.module.css';
+import { useUser } from '../contexts/UserContext';
 
 const LoginComponent = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const { fetchUser } = useUser()
   
     async function handleSubmit(e) {
       e.preventDefault();
@@ -16,7 +18,7 @@ const LoginComponent = () => {
       });
   
       if (loginResponse.ok) {
-        // Redirect to homepage or dashboard upon successful login
+        await fetchUser();
         Router.push('/');
       } else {
         const errorData = await loginResponse.json();
