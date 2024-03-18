@@ -31,7 +31,7 @@
     font-size: 13em; /* Adjust size as needed */
     padding-right: 0.15em;
     margin: 0rem; /* Spacing between the title and the form */
-    color: rgb(253, 81, 19);
+    color: rgb(255, 72, 6);
   }
 
 .secondtitle {
@@ -39,7 +39,8 @@
     text-align: center;
     font-size: 5.5em;
     padding: 0em 1.2em;
-    color: rgb(253, 81, 19);
+    color: rgb(255, 72, 6);
+    font-family: "Abril Fatface";
   }
 
 .thirdtitle {
@@ -198,7 +199,7 @@
         padding: 0.7em;
         padding-left: 1.5em;
         padding-right: 1.5em;
-        padding-bottom: 0.5em;
+        padding-bottom: 0.4em;
       }
 
     .thirdtitle {
@@ -215,7 +216,7 @@
       }
 
     .form {
-        font-size: 17px;
+        font-size: 19px;
         text-align: left;
       }
     
