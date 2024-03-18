@@ -1,0 +1,23 @@
+.nav {
+    padding: 1em;
+    background: #f0f0f0;
+  }
+  
+  .ulList {
+    list-style: none;
+    display: flex;
+  }
+  
+  .liItem {
+    margin-right: 20px;
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

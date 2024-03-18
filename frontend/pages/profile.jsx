@@ -1,12 +1,13 @@
 import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import UserCategories from '@/components/UserCategories'
-
+import Navbar from '@/components/Navbar';
 
 export default function ProfilePage({ savedRecipes }) {
     return (
       <div>
         <header>
+          <Navbar/>
           <h1>Your profile</h1>
         </header>
         <UserCategories savedRecipes={savedRecipes} />
