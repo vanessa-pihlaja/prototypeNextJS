@@ -1,13 +1,15 @@
-import Navbar from "@/components/Navbar";
 import axios from 'axios';
+import LogoutButton from '@/components/Logout';
+import Navbar from '@/components/Navbar';
 
 export default function SearchPage() {
     return (
       <div>
+        <LogoutButton/>
         <header>
-          <Navbar/>
-          <h1>Kategoriat ja haku</h1>
+          <h1>miamia</h1>
         </header>
+        <Navbar/>
         <footer></footer>
       </div>
     );
