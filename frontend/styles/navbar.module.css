@@ -1,11 +1,13 @@
 .nav {
     padding: 1em;
-    background: #f0f0f0;
+    margin: 2em;
+    border-radius: 5px;
   }
   
   .ulList {
     list-style: none;
     display: flex;
+    background: rgb(4, 19, 175);
   }
   
   .liItem {

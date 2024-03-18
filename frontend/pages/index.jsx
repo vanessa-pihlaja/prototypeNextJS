@@ -21,11 +21,11 @@ export default function App({ initialBatches }) {
 
   return (
     <div>
+      <LogoutButton/>
       <header>
-        <Navbar/>
         <h1>miamia</h1>
-        <LogoutButton/>
       </header>
+      <Navbar/>
       <Feed batches={visibleBatches} />
       <div className={styles.loadMoreContainer}>
       {visibleBatches.length < loadedBatches.length && (

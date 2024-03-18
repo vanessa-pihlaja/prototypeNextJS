@@ -27,32 +27,36 @@ const LoginComponent = () => {
     }
   
     return (
-        <div className={styles.container}> 
-            <form onSubmit={handleSubmit} className={styles.form}>
-            <h1 className={styles.title}>Login</h1>
-            <div>
-                <label htmlFor="username" className={styles.label}>Username</label>
-                <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                className={styles.inputField}
-                />
+        <div className={styles.container}>
+            <h1 className={styles.title}>miamia</h1> 
+            <div className={styles.formContainer}>
+            <h2 className={styles.secondtitle}> Lets bring magic back to the kitchen</h2>
+            <h3 className={styles.thirdtitle}>Login</h3>
+              <form onSubmit={handleSubmit} className={styles.form}>
+              <div>
+                  <label htmlFor="username" className={styles.label}>Username</label>
+                  <input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className={styles.inputfield}
+                  />
+              </div>
+              <div>
+                  <label htmlFor="password" className={styles.label}>Password</label>
+                  <input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className={styles.inputfield}
+                  />
+              </div>
+              <button type="submit" className={styles.submitButton}>Log In</button>
+              {error && <p className={styles.errorMessage}>{error}</p>}
+              </form>
             </div>
-            <div>
-                <label htmlFor="password" className={styles.label}>Password</label>
-                <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className={styles.inputField}
-                />
-            </div>
-            <button type="submit" className={styles.submitButton}>Log In</button>
-            {error && <p className={styles.errorMessage}>{error}</p>}
-            </form>
         </div>
       );
 };
