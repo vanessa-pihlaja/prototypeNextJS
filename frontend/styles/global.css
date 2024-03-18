@@ -43,10 +43,10 @@ h1, body, p, footer {
 /*   Elements   */
 
 body {
-  background-color: rgb(232, 223, 211);
+  background-color: rgb(255, 252, 238);
   padding-top: 0px; /* Adjust this value based on the height of your header */
 }
-
+/*rgb(43, 21, 167)*/
 p {
   font-family: "Abril Fatface";
   color: black;
@@ -65,7 +65,7 @@ footer {
 
 h1 {
   font-family: "Abril Fatface", serif;
-  color: rgb(255, 66, 9);
+  color: rgb(253, 81, 19);
   font-size: 200px;
   z-index: 1010;
 }

@@ -1,6 +1,8 @@
 .nav {
     padding: 1em;
-    background: #f0f0f0;
+    background: rgb(26, 0, 175);
+    margin: 2em;
+    border-radius: 5px;
   }
   
   .ulList {

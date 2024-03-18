@@ -52,7 +52,7 @@ const SignupComponent = () => {
     
       return (
         <div className={styles.container}>
-          <h1 className={styles.title}>MiaMia</h1>
+          <h1 className={styles.title}>miamia</h1>
           <div className={styles.formContainer}>
             <h2 className={styles.secondtitle}> Welcome to your culinary journey</h2>
             <h3 className={styles.thirdtitle}>Sign up</h3>

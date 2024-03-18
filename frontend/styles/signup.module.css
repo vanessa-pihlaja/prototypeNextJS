@@ -5,8 +5,6 @@
     align-items: stretch; /* This will stretch the child elements to fill the container */
     justify-content: center;
     height: 100vh;
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
@@ -20,8 +18,8 @@
     justify-content: flex-start;
     padding: 50px; 
     padding-bottom: 150px; /* Consider reducing this if you want the form to stretch to the bottom */
-    background-color: rgb(255, 255, 255);
-    border-radius: 0 8px 8px 0; /* Round only the top-right and bottom-right corners */
+    background-color: rgb(43, 21, 167);
+    border-radius: 15px 0px 0px 15px; /* Round only the top-right and bottom-right corners */
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     overflow: auto; /* Add scroll if content is larger than the screen */
 }
@@ -30,29 +28,29 @@
     text-align: center;
     writing-mode: vertical-lr;
     transform: rotate(180deg);
-    font-family: "Noto Serif Hebrew", serif;
-    font-size: 15em; /* Adjust size as needed */
-    margin-right: 2rem; /* Spacing between the title and the form */
-    color: rgb(255, 66, 9);
+    font-size: 13em; /* Adjust size as needed */
+    padding-right: 0.15em;
+    margin: 0rem; /* Spacing between the title and the form */
+    color: rgb(253, 81, 19);
   }
 
 .secondtitle {
     justify-content: flex-start;
     text-align: center;
-    font-size: 5em;
+    font-size: 5.5em;
     padding: 0em 1.2em;
-    color: rgba(81,135,218,255);
+    color: rgb(253, 81, 19);
   }
 
 .thirdtitle {
-    color: rgb(100, 7, 7);
+    color: rgb(253, 81, 19);
     font-size: 2em;
     padding-top: 3em;
   }
 
 .form {
     font-size: 20px;
-    color: rgba(81,135,218,255);
+    color: rgb(255, 252, 238);
     width: 30%;
   }
 
@@ -65,7 +63,7 @@
     width: 100%; /* Make input take full width of its parent container */
     padding: 0.3em; /* Adjust padding as needed */
     margin: 0em 0em 0.5em 0em ; /* Adjusted margin to only be vertical */
-    border: 0.05px solid rgba(81, 135, 218, 1); /* Blue border color */
+    border: 0.05px solid rgb(0, 0, 0); /* Blue border color */
     border-radius: 4px; /* Optional: Adds rounded corners to the input field */
     font-size: 1em; /* Adjust font size as needed */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
@@ -85,7 +83,7 @@
     padding: 10px 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(255, 66, 9);
+    background-color: rgb(253, 81, 19);
     color: white;
     cursor: pointer;
     font-size: 17px;
@@ -105,18 +103,15 @@
     .title {
       font-size: 17em; /* Adjust size as needed */
       margin-right: 2rem; /* Spacing between the title and the form */
-      color: rgb(255, 66, 9);
     }
 
     .secondtitle {
       font-size: 7em;
       padding: 0em 2.5em;
-      color: rgba(81,135,218,255);
     }
 
     .form {
       font-size: 20px;
-      color: rgba(81,135,218,255);
       width: 18%;
     }
   }
@@ -139,16 +134,21 @@
 
   @media (max-width: 1124px) {
     .title {
-        font-size: 10em;
-        margin-right: 0rem; /* Spacing between the title and the form */
+        font-size: 12em;
+        padding-right: 0em;
     }
 
     .formContainer {
         padding: 30px
     }
 
+    .form {
+      font-size: 17px;
+      width: 40%;
+    }
+
     .secondtitle {
-      font-size: 4em;
+      font-size: 4.5em;
       padding: 0em 0.5em;
     }
 
@@ -208,7 +208,6 @@
         flex-direction: column;
         align-items: center;
         padding: 0px; /* Increased padding for larger look */
-        background-color: rgb(255, 255, 255);
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
       }
