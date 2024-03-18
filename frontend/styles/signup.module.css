@@ -18,7 +18,7 @@
     justify-content: flex-start;
     padding: 50px; 
     padding-bottom: 150px; /* Consider reducing this if you want the form to stretch to the bottom */
-    background-color: rgb(43, 21, 167);
+    background-color: rgb(4, 19, 175);
     border-radius: 15px 0px 0px 15px; /* Round only the top-right and bottom-right corners */
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     overflow: auto; /* Add scroll if content is larger than the screen */
@@ -196,9 +196,9 @@
     .secondtitle {
         font-size: 2.6em;
         padding: 0.7em;
-        padding-left: 2em;
-        padding-right: 2em;
-        padding-bottom: 0.6em;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+        padding-bottom: 0.5em;
       }
 
     .thirdtitle {
