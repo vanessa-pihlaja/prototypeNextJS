@@ -30,7 +30,7 @@ const LoginComponent = () => {
         <div className={styles.container}>
             <h1 className={styles.title}>miamia</h1> 
             <div className={styles.formContainer}>
-            <h2 className={styles.secondtitle}> Let's bring magic back to the kitchen</h2>
+            <h2 className={styles.secondtitle}> Lets bring magic back to the kitchen</h2>
             <h3 className={styles.thirdtitle}>Login</h3>
               <form onSubmit={handleSubmit} className={styles.form}>
               <div>
