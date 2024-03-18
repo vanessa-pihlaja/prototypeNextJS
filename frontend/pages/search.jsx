@@ -1,15 +1,15 @@
+import Navbar from "@/components/Navbar";
 import axios from 'axios';
-import LogoutButton from '@/components/Logout';
-import Navbar from '@/components/Navbar';
+import CategoriesComponent from "@/components/SearchCategories";
 
-export default function SearchPage() {
+export default function SearchPage({categories}) {
     return (
       <div>
-        <LogoutButton/>
         <header>
-          <h1>miamia</h1>
+          <Navbar/>
+          <h1>Kategoriat ja haku</h1>
         </header>
-        <Navbar/>
+        <CategoriesComponent categories={categories} />
         <footer></footer>
       </div>
     );
@@ -20,22 +20,13 @@ export default function SearchPage() {
 
 export async function getServerSideProps(context) {
   try {
-
-
-    // Here, you don't need to decode the token to get the userId since the server should do that.
-    const apiUrl = `http://localhost:3000/api/users/savedRecipe`; 
-    const response = await axios.get(apiUrl, {
-    });
-
-    console.log(`the token: ${token}`)
-    const savedRecipes = response.data;
-    console.log(savedRecipes)
-    return { props: { savedRecipes } };
+    const res = await axios.get('http://localhost:3000/api/search/categories');
+    const categories = res.data;
+  
+    return { props: { categories } };
 
   } catch (error) {
     console.error(error);
-    // Depending on the error, handle it accordingly
-    // For example, you might want to redirect to a login page on authentication failure
-    return { props: { savedRecipes: [] } };
+    return { props: { categories: [] } };
   }
 }
