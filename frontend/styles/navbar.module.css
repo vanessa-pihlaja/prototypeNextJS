@@ -1,25 +1,88 @@
-.nav {
-    padding: 1em;
-    margin: 2em;
-    border-radius: 5px;
-  }
-  
-  .ulList {
-    list-style: none;
-    display: flex;
-    background: rgb(4, 19, 175);
-  }
+    .nav {
+      display: flex;
+      justify-content: center;
+      width: 100%; /* Ensures it takes the full width */
+    }
+   
+   .ulList {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 10px;
+      border-bottom: 2px solid rgb(255, 72, 6);
+      width: 88%;
+      text-align: center;
+    }
   
   .liItem {
-    margin-right: 20px;
+    padding: 3px 20px 3px 20px;
+    border-radius: 20px;
   }
   
   .link {
     text-decoration: none;
-    color: #333;
+    color: rgb(255, 159, 124);
+    font-family: "Noto Serif Hebrew", serif;
+    font-weight: 600;
+    
   }
-  
+
+  .link.active {
+    color: rgb(255, 72, 6); 
+    font-weight: 1000;
+  }
+
   .link:hover {
-    text-decoration: underline;
+    color: rgb(255, 72, 6); 
+    font-weight: 1000;
+    padding: 0 3px 0 3px
   }
+
+  /* Hamburger Menu 
+.hamburger {
+  display: none; 
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 25px; 
+  width: 30px;
+}
+
+.hamburgerLine {
+  background-color: #000; 
+  height: 2px;
+  width: 100%;
+}
+
+     desktop 
+@media (min-width: 1950px ) {
+  .ulList {
+    width: 62%;
+  }
+}
+
+
+
+
+ Mobile view 
+@media (max-width: 768px) {
+  .ulList {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ulList.show {
+    display: flex; 
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
   
+
+
+*/
