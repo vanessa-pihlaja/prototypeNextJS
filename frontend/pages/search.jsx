@@ -1,14 +1,17 @@
 import Navbar from "@/components/Navbar";
 import axios from 'axios';
 import CategoriesComponent from "@/components/SearchCategories";
+import LogoutButton from '@/components/Logout';
+
 
 export default function SearchPage({categories}) {
     return (
       <div>
+        <LogoutButton/>
         <header>
-        <h1>Kategoriat ja haku</h1>
-          <Navbar/>
+          <h1>Miamia</h1>
         </header>
+        <Navbar/>
         <CategoriesComponent categories={categories} />
         <footer></footer>
       </div>
