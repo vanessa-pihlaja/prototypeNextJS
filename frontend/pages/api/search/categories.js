@@ -7,9 +7,11 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     try {
       const categoriesWithRecipes = await Recipe.aggregate([
+        { $match: { category: { $ne: null } } }, // Ensure the category exists
         {
           $group: {
             _id: "$category",
+            coverImage: { $first: { $arrayElemAt: ["$images", 0] } }, // Get the first image of the first recipe
             recipes: {
               $push: {
                 id: "$_id",
@@ -19,10 +21,12 @@ export default async function handler(req, res) {
             }
           }
         },
+        { $match: { "_id": { $ne: "" } } }, // Exclude empty string categories
         {
           $project: {
             _id: 0,
             category: "$_id",
+            coverImage: 1,
             recipes: 1
           }
         }

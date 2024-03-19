@@ -6,8 +6,8 @@ export default function SearchPage({categories}) {
     return (
       <div>
         <header>
+        <h1>Kategoriat ja haku</h1>
           <Navbar/>
-          <h1>Kategoriat ja haku</h1>
         </header>
         <CategoriesComponent categories={categories} />
         <footer></footer>
