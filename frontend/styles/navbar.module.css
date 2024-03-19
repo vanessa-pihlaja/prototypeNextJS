@@ -11,7 +11,7 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 10px;
-      border-bottom: 2px solid rgb(255, 72, 6);
+      border-bottom: 2px solid rgb(255, 59, 0);
       width: 88%;
       text-align: center;
     }
@@ -30,7 +30,7 @@
   }
 
   .link.active {
-    color: rgb(255, 72, 6); 
+    color: rgb(255, 59, 0); 
     font-weight: 1000;
   }
 
