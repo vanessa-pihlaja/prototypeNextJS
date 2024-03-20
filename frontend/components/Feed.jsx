@@ -5,6 +5,7 @@ import Image from 'next/image';
 import SaveRecipeModal from './SaveRecipeModal';
 
 
+
 // Utility function to get the first image URL
 const getFirstImageUrl = (images) => {
   if (Array.isArray(images) && images.length > 0) {
@@ -30,24 +31,24 @@ export default function Feed({ batches }) {
         <div key={batchIndex} className={styles.batchContainer}>
           <div className={styles.feedcontainer}>
             {recipes.map(recipe => (
-              <div className={styles.recipeCard} key={recipe.title}>
-                <Image
-                  width={200}
-                  height={500}
-                  style={{ width: '100%', height: '100%' }}
-                  className={styles.recipeImage} 
-                  src={getFirstImageUrl(recipe.images)} 
-                  alt={recipe.title}
-                  layout="responsive"
-                  blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
-                  placeholder='blur'
-                  priority
-                  // unoptimized
-                />
-                <h2>
-                  <Link href={`/${recipe.title}`}>{recipe.title}</Link>
-                </h2>
-                <button onClick={() => handleSaveClick(recipe)}>Tallenna</button>
+              <div className={styles.recipeBlock}>
+                <div className={styles.recipeCard} key={recipe.title}>
+                  <Image
+                    width={200}
+                    height={500}
+                    style={{ width: '100%', height: '100%' }}
+                    className={styles.recipeImage} 
+                    src={getFirstImageUrl(recipe.images)} 
+                    alt={recipe.title}
+                    layout="responsive"
+                    blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
+                    placeholder='blur'
+                    priority
+                    // unoptimized
+                  />
+                  <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
+                </div>
+                <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
               </div>
             ))}
           </div>
