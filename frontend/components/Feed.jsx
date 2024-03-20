@@ -31,8 +31,8 @@ export default function Feed({ batches }) {
         <div key={batchIndex} className={styles.batchContainer}>
           <div className={styles.feedcontainer}>
             {recipes.map(recipe => (
-              <div className={styles.recipeBlock}>
-                <div className={styles.recipeCard} key={recipe.title}>
+              <div className={styles.recipeBlock} key={recipe.title}>
+                <div className={styles.recipeCard} >
                   <Image
                     width={200}
                     height={500}
