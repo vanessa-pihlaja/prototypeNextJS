@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import styles from '../styles/SaveRecipeModal.module.css'
+import styles from '../styles/SaveButton.module.css'
 import { useUser } from '../contexts/UserContext';
 
 
