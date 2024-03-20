@@ -2,9 +2,13 @@ import Navbar from "@/components/Navbar";
 import axios from 'axios';
 import CategoriesComponent from "@/components/SearchCategories";
 import LogoutButton from '@/components/Logout';
+import dbConnect from '../src/utils/dbConnect';
+import Recipe from '../src/models/recipe';
+import mongoose from 'mongoose';
 
 
-export default function SearchPage({categories}) {
+
+export default function SearchPage({categoriesWithRecipes}) {
     return (
       <div>
         <LogoutButton/>
@@ -12,24 +16,69 @@ export default function SearchPage({categories}) {
           <h1>Miamia</h1>
         </header>
         <Navbar/>
-        <CategoriesComponent categories={categories} />
+        <CategoriesComponent categories={categoriesWithRecipes} />
         <footer></footer>
       </div>
     );
   }
 
 
+  const objectIdToString = (value) => {
+    if (Array.isArray(value)) {
+      return value.map(v => objectIdToString(v));
+    } else if (value && typeof value === 'object') {
+      if (value instanceof mongoose.Types.ObjectId) {
+        return value.toString();
+      }
+      return Object.keys(value).reduce((acc, key) => {
+        acc[key] = objectIdToString(value[key]);
+        return acc;
+      }, {});
+    }
+    return value;
+  };
 
-
-export async function getServerSideProps(context) {
-  try {
-    const res = await axios.get('http://localhost:3000/api/search/categories');
-    const categories = res.data;
+  export async function getStaticProps() {
+    await dbConnect(); 
   
-    return { props: { categories } };
+    const aggregationPipeline = [
+      { $match: { category: { $ne: null } } }, 
+      {
+        $group: {
+          _id: "$category",
+          coverImage: { $first: { $arrayElemAt: ["$images", 0] } }, // Get the first image of the first recipe
+          recipes: {
+            $push: {
+              id: "$_id",
+              title: "$title",
+              firstImage: { $arrayElemAt: ["$images", 0] }
+            }
+          }
+        }
+      },
+      { $match: { "_id": { $ne: "" } } }, // Exclude empty string categories
+      {
+        $project: {
+          _id: 0,
+          category: "$_id",
+          coverImage: 1,
+          recipes: 1
+        }
+      }
+    ];
+  
+    // Execute the aggregation pipeline
+    let categoriesWithRecipes = [];
+    try {
+      categoriesWithRecipes = await Recipe.aggregate(aggregationPipeline);
+      categoriesWithRecipes = objectIdToString(categoriesWithRecipes); // Convert all ObjectIds to strings
+    } catch (error) {
+      console.error("Failed to aggregate data from the database", error);
 
-  } catch (error) {
-    console.error(error);
-    return { props: { categories: [] } };
+    }
+
+  return { 
+    props: { categoriesWithRecipes }, 
+    revalidate: 10
+  };
   }
-}

@@ -25,6 +25,7 @@
   
   .categoryImage {
     position: absolute;
+    cursor: pointer;
     top: 0;
     left: 0;
     width: 100%;
@@ -35,7 +36,7 @@
   .categoryTitle {
     cursor: pointer;
     margin-top: 20px; /* Adjusted for more space above the title */
-    font-size: 24px; /* Larger font size */
+    font-size: 28px; /* Larger font size */
     line-height: 1.2; /* Adjust line height for better readability */
   }
   
@@ -76,7 +77,35 @@
     display: block;
     border-radius: 10px;
   }
+
+  .buttonContainer {
+    position: relative; /* Creates a positioning context */
+    /* Ensure the container fills the intended area, possibly adjusting width and height */
+  }
   
+  .backButton {
+    position: fixed;
+    top: 300px; /* Adjust as needed */
+    left: 120px; /* Adjust as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;/* Ensure it's above other content */
+    padding: 8px;
+    color: rgb(255, 59, 0);
+  }
+  
+  .backIcon {
+    fill: none; /* Ensure the arrow is outlined */
+    /* Adjust color, size, etc., as needed */
+  }
+
+  .recipeLink {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Keeps text color consistent with the rest of your design */
+  }
+
+
  /* Adjustments for smaller screens */
 @media (max-width: 1124px) {
     .recipesGrid {
