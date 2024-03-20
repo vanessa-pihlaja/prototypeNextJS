@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/feed.module.css';
 import Image from 'next/image';
-import SaveRecipeModal from './SaveRecipeModal';
+import SaveRecipeModal from './SaveButton';
 
 
 
