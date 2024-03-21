@@ -14,15 +14,16 @@ const SearchComponent = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.searchContainer}>
+    <form onSubmit={handleSubmit} className={styles.searchbar}>
       <input
         type="text"
-        placeholder="Etsi resepti..."
+        placeholder="Hae reseptejä..."
         value={searchTerm}
         onChange={handleSearchChange}
         className={styles.searchInput}
+        required // Ensures that the button shows up even if input is not focused but has content
       />
-      <button type="submit" className={styles.searchButton}>Search</button>
+      <button type="submit" className={styles.searchButton}></button>
     </form>
   );
 };

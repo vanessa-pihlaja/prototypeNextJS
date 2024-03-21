@@ -1,0 +1,51 @@
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto; /* Center the search bar horizontally */
+    width: 100%; /* Adjust as needed */
+    max-width: 600px; /* Maximum width of the search bar */
+    position: relative; /* For positioning the magnifier icon */
+  }
+  
+  .searchInput {
+    width: 100%;
+    padding: 10px 10px 10px 40px; /* Make space for the magnifier icon */
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px; /* Adjust as needed */
+    position: relative; /* Ensure the input is above the pseudo-element */
+  }
+  
+  .searchInput::before {
+    content: "\1F50D"; /* Unicode for magnifier symbol */
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px; /* Adjust as needed */
+    color: #ccc; /* Color of the magnifier symbol */
+  }
+  
+  .searchButton {
+    display: none; /* Initially hide the button */
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* Adjust as needed */
+  }
+  
+  .searchInput:focus + .searchButton,
+  .searchInput:not(:placeholder-shown) + .searchButton {
+    display: block; /* Show button when input is focused or not empty */
+  }
+  
+  .searchButton::before {
+    content: "\27A4"; /* Unicode for arrow symbol */
+    color: #000; /* Color of the arrow */
+  }
+  
