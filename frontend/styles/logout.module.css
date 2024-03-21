@@ -1,0 +1,13 @@
+.logoutbutton {
+    position: fixed;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1200;/* Ensure it's above other content */
+    padding: 8px;
+    color: rgb(4, 19, 175);
+    font-size: 15px;
+    font-weight: 600;
+}
