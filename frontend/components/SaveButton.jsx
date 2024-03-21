@@ -1,46 +1,43 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import axios from 'axios';
-import styles from '../styles/SaveButton.module.css'
+import styles from '../styles/SaveButton.module.css';
 import { useUser } from '../contexts/UserContext';
-
-
 
 const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [newCategory, setNewCategory] = useState('');
-  const { user } = useUser(); 
-  console.log(user);
+  const { user } = useUser(); // Using user context
 
-  // Include your suggested categories here
-  // This could also come from props or state if you want it to be more dynamic
+  // Suggested categories (static list)
   const suggestedCategories = [
-    { name: 'Vege' },
-    { name: 'Nopeat arkiruoat' },
-    { name: 'Pastat' },
+    'Vege',
+    'Nopeat arkiruoat',
+    'Pastat',
     // Add more categories as needed
   ];
 
+  // Use user's categories directly from the user object
+  const userCategories = user?.categories || [];
+
+  // Merge user categories with suggested categories and ensure uniqueness
+  const allCategories = useMemo(() => Array.from(new Set([
+    ...suggestedCategories,
+    ...userCategories
+  ])), [userCategories, suggestedCategories]);
+
   const handleSave = async () => {
     try {
-      // Logic to handle saving the recipe with the selected or new category
-      console.log(`Saving ${recipe._id} to category:`, selectedCategory || newCategory);
-      console.log('Recipe title:', recipe.title);
       const categoryName = selectedCategory === 'new' ? newCategory : selectedCategory;
-      // Access user information from context
 
-
-      console.log("UserID:", user?.id);
       await axios.post('/api/users/savedRecipe', {
         userId: user.id,
         recipeId: recipe._id,
         category: categoryName,
       });
-      
-      // Reset modal state
+
       setSelectedCategory('');
       setNewCategory('');
       setShowSaveModal(false);
-
     } catch (error) {
       console.error('Error saving recipe:', error);
       alert('Failed to save recipe.');
@@ -53,8 +50,8 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
         <h2>Tallenna resepti</h2>
         <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value="">Valitse kategoria</option>
-          {suggestedCategories.map((category) => (
-            <option key={category.name} value={category.name}>{category.name}</option>
+          {allCategories.map((categoryName) => (
+            <option key={categoryName} value={categoryName}>{categoryName}</option>
           ))}
           <option value="new">+ Uusi kategoria</option>
         </select>
