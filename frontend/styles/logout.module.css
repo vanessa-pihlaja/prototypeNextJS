@@ -11,3 +11,31 @@
     font-size: 15px;
     font-weight: 600;
 }
+
+.logoutbutton:hover {
+    font-size: 16px;
+}
+
+
+  /* desktop */
+  @media (min-width: 1924px) {
+    .logoutbutton {
+      top: 14px; /* Adjust as needed */
+      right: 18px; /* Adjust as needed */
+    }
+  }
+
+
+/* mobile */
+@media (max-width: 768px) {
+    .logoutbutton {
+        font-size: 10px;
+        top: 7px; /* Adjust as needed */
+        right: 4px; /* Adjust as needed */
+    }
+
+    .logoutbutton:hover {
+        font-size: 10px;
+    }
+    
+}
