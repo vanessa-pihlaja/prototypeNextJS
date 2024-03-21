@@ -6,17 +6,14 @@ import { useUser } from '../contexts/UserContext';
 const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [newCategory, setNewCategory] = useState('');
-  const { user } = useUser(); // Using user context
+  const { user } = useUser(); 
 
-  // Suggested categories (static list)
   const suggestedCategories = [
-    'Vege',
     'Nopeat arkiruoat',
-    'Pastat',
-    // Add more categories as needed
-  ];
+    'Jälkkärit',
+    'Brunssi',
+  ]
 
-  // Use user's categories directly from the user object
   const userCategories = user?.categories || [];
 
   // Merge user categories with suggested categories and ensure uniqueness

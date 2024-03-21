@@ -38,6 +38,7 @@
     margin-top: 20px; /* Adjusted for more space above the title */
     font-size: 28px; /* Larger font size */
     line-height: 1.2; /* Adjust line height for better readability */
+    color: rgba(81,135,218,255);
   }
   
 
@@ -63,13 +64,13 @@
     color: rgba(81,135,218,255);
   }
   
-  .recipeItem h2 {
-    margin-top: 0.1rem;
-    margin-bottom: 0.3rem;
-    padding: 1px;
-    font-size: 18px; /* Adjust as needed */
+  .recipeTitle {
+    font-size: 19px;
     font-family: "Noto Serif Hebrew", serif;
     font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    margin: 3px 0 20px 0;
   }
   
   .recipeImage {
@@ -85,19 +86,18 @@
   
   .backButton {
     position: fixed;
-    top: 300px; /* Adjust as needed */
-    left: 120px; /* Adjust as needed */
+    top: 300px; 
+    left: 120px; 
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1000;/* Ensure it's above other content */
+    z-index: 1000;
     padding: 8px;
     color: rgb(255, 59, 0);
   }
   
   .backIcon {
-    fill: none; /* Ensure the arrow is outlined */
-    /* Adjust color, size, etc., as needed */
+    fill: none;
   }
 
   .recipeLink {
@@ -106,18 +106,53 @@
   }
 
 
+
  /* Adjustments for smaller screens */
+ @media (max-width: 1224px) {
+  .recipeCard h2 {
+    font-size: 20px
+  }
+
+}
 @media (max-width: 1124px) {
     .recipesGrid {
       column-count: 2;
       padding: 0rem 2rem;
     }
+    .backButton {
+      top: 250px; 
+      left: 60px; 
+    }
+
   }
   
   @media (max-width: 768px) {
-    .recipesGrid {
-      column-count: 1;
-      padding: 0rem 1rem;
+    .backButton {
+      top: 250px; 
+      left: 60px; 
+    }
+    .recipeImage {
+      max-height: 700px; /* Smaller height on smaller screens */
     }
   }
   
+  @media (max-width: 650px) {
+    .backButton {
+      top: 250px; 
+      left: 60px; 
+    }
+    .recipesGrid {
+      column-count: 2;
+      column-gap: 0.45rem;
+      padding: 1rem 0.1rem;
+    }
+    .recipeCard {
+      text-align: center;
+    }
+    .recipeCard h2 {
+      margin-top: 0.1rem;
+      margin-bottom: 0.3rem;
+      padding: 0px;
+      font-size: 16px
+    }
+  }

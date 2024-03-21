@@ -19,7 +19,7 @@
   }
   
   .recipeCard {
-    position: relative; /* Added this line */
+    position: relative; 
     margin-bottom: 0rem;
     background-color: #f3efe7;
     text-align: center;
