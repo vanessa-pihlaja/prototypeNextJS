@@ -4,7 +4,6 @@ import Feed from '../components/Feed';
 import styles from '../styles/feed.module.css';
 import dbConnect from '../src/utils/dbConnect';
 import Recipe from '../src/models/recipe'; // Adjust the import path if necessary
-import LogoutButton from '@/components/Logout';
 import Navbar from '@/components/Navbar';
 
 
@@ -21,7 +20,6 @@ export default function App({ initialBatches }) {
 
   return (
     <div>
-      <LogoutButton/>
       <header>
         <h1>miamia</h1>
       </header>
