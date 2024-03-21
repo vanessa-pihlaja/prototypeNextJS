@@ -127,7 +127,7 @@
     .feedcontainer {
       column-count: 2;
       column-gap: 0.45rem;
-      padding: 1rem 0.1rem;
+      padding: 1rem 0rem;
     }
     .recipeCard {
       text-align: center;

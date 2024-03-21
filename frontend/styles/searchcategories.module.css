@@ -3,7 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px; /* Adjust the gap between items as needed */
-    margin: 20px auto; /* Add some margin around the grid */
+    margin: 20px auto;
+    justify-content: center; 
   }
   
   .categoryItem {
@@ -12,6 +13,7 @@
     padding: 10px; 
     border-radius: 8px;
     text-align: center; 
+    width: fit-content;
   }
   
   .categoryImageWrapper {
@@ -137,14 +139,20 @@
   }
   
   @media (max-width: 650px) {
+    .gridContainer{
+      gap: 0px; 
+    }
+    .categoryItem{
+      padding: 5px; 
+    }
     .backButton {
-      top: 250px; 
-      left: 60px; 
+      left: 15px; 
     }
     .recipesGrid {
       column-count: 2;
       column-gap: 0.45rem;
-      padding: 1rem 0.1rem;
+      padding: 1rem 0rem;
+      justify-content: center;
     }
     .recipeCard {
       text-align: center;
@@ -154,5 +162,9 @@
       margin-bottom: 0.3rem;
       padding: 0px;
       font-size: 16px
+    }
+    .categoryTitle {
+      margin-top: 5px;
+
     }
   }
