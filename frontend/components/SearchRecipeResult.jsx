@@ -9,7 +9,7 @@ const SearchResultsComponent = ({ searchResults }) => {
     <div className={styles.recipesGrid}>
       {searchResults.map((recipe) => (
         <div key={recipe._id} className={styles.recipeCard}>
-          <Link href={`/recipe/${recipe._id}`} passHref>
+          <Link href={`/${recipe.title}`} passHref>
             <div className={styles.recipeImageWrapper}>
               {recipe.images && recipe.images[0] && (
                 <Image
