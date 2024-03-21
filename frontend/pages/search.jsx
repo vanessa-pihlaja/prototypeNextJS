@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import axios from 'axios';
 import CategoriesComponent from "@/components/SearchCategories";
-import LogoutButton from '@/components/Logout';
 import dbConnect from '../src/utils/dbConnect';
 import Recipe from '../src/models/recipe';
 import mongoose from 'mongoose';
@@ -11,7 +10,6 @@ import mongoose from 'mongoose';
 export default function SearchPage({categoriesWithRecipes}) {
     return (
       <div>
-        <LogoutButton/>
         <header>
           <h1>Miamia</h1>
         </header>
