@@ -31,7 +31,7 @@ export default function SearchPage({ categoriesWithRecipes }) {
 
   return (
     <div>
-      <header><h1>Miamia</h1></header>
+      <header><h1>miamia</h1></header>
       <Navbar />
       <SearchComponent onSearch={handleSearch} />
       {searchResults.length > 0 ? (

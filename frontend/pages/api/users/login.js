@@ -23,7 +23,7 @@ export default async function handler(req, res) {
 
       // Replace 'your_jwt_secret' with your actual secret key
       const token = jwt.sign({ id: user._id, username: user.username }, 'ba67b720d047a8c39ebe8c751167ccd7', {
-        expiresIn: '1h', // Token expires in 1 hour
+        expiresIn: '168h',
       });
 
       // Setting the JWT in an HTTP-only cookie

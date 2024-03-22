@@ -5,7 +5,6 @@ import Link from 'next/link';
 
 function CategoriesComponent({ categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [buttonStyle, setButtonStyle] = useState({ top: '300px' });
 
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
@@ -15,18 +14,7 @@ function CategoriesComponent({ categories }) {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setButtonStyle({ top: '150px' });
-      } else {
-        setButtonStyle({ top: '300px' });
-      }
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <div className={styles.gridContainer}>
@@ -37,7 +25,6 @@ function CategoriesComponent({ categories }) {
           className={`${styles.backButton} ${selectedCategory ? '' : styles.hidden}`}
           onClick={() => setSelectedCategory(null)}
           aria-label="Back to categories"
-          style={buttonStyle} // Apply dynamic style based on scroll position
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.backIcon}>
             <path d="M19 12H5"></path>
