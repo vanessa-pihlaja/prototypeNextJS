@@ -17,12 +17,15 @@
   font-family: "Ibarra Real Nova", serif;
   font-weight: 700;
   font-size: 38px;
+  text-align: center;
 }
 
 .recipeContent {
   width: 100%; 
   text-align: start; 
   margin-top: 20px;
+  margin-left: 5px;
+
 }
 .recipeContent p {
   font-family: "Ibarra Real Nova", serif;
@@ -46,7 +49,7 @@
 
 @media (max-width: 768px) {
   .recipeTitle {
-    font-size: 30px;
+    font-size: 26px;
   }
   .recipeImage {
     max-height: 700px; /* Smaller height on smaller screens */
