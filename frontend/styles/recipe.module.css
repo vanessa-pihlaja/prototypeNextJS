@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the content */
-  padding: 15px; /* Add some padding around */
+  max-width: 800px; /* Matches the image's max width */
+  margin: 0 auto;
 }
 
 .recipeImage {
@@ -33,7 +34,8 @@
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
-  color: rgba(68, 126, 214, 255)
+  color: rgba(68, 126, 214, 255);
+  line-height: 1.4;
 }
 
 .recipeContainer a {
@@ -56,5 +58,7 @@
   }
   .recipeContent p {
     font-size: 18px;
+    margin-left: 7px;
+    margin-right: 5px;
   }
 }
