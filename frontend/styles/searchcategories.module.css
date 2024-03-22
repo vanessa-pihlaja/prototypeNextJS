@@ -88,7 +88,7 @@
   
   .backButton {
     position: fixed;
-    top: 300px; 
+    top: 72px; 
     left: 120px; 
     background: none;
     border: none;
@@ -122,7 +122,6 @@
       padding: 0rem 2rem;
     }
     .backButton {
-      top: 250px; 
       left: 60px; 
     }
 
@@ -130,7 +129,7 @@
   
   @media (max-width: 768px) {
     .backButton {
-      top: 250px; 
+      top: 70px;
       left: 60px; 
     }
     .recipeImage {
@@ -142,6 +141,9 @@
   }
   
   @media (max-width: 650px) {
+    .backButton{
+      top: 30px;
+    }
     .gridContainer{
       gap: 0px; 
     }
