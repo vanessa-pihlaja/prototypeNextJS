@@ -33,6 +33,7 @@ export default function Feed({ batches }) {
             {recipes.map(recipe => (
               <div className={styles.recipeBlock} key={recipe.title}>
                 <div className={styles.recipeCard} >
+                <Link href={`/${recipe.title}`}>
                   <Image
                     width={200}
                     height={500}
@@ -46,6 +47,7 @@ export default function Feed({ batches }) {
                     priority
                     // unoptimized
                   />
+                  </Link>
                   <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
                 </div>
                 <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
