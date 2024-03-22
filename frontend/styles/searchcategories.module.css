@@ -136,6 +136,9 @@
     .recipeImage {
       max-height: 700px; /* Smaller height on smaller screens */
     }
+    .recipeTitle {
+      font-size: 15px;
+    }
   }
   
   @media (max-width: 650px) {
@@ -165,6 +168,7 @@
     }
     .categoryTitle {
       margin-top: 5px;
+      font-size: 22px;
 
     }
   }

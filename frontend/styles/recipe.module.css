@@ -1,12 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
+
 .recipeContainer {
   display: flex;
   flex-direction: column;
   align-items: center; /* Center the content */
   padding: 15px; /* Add some padding around */
-  font-family: "Noto Serif Hebrew", serif;
-  font-size: 20px;
-  font-weight: 100;
-  
 }
 
 .recipeImage {
@@ -16,24 +14,44 @@
 }
 
 .recipeTitle {
-  font-size: 30px;
+  font-family: "Ibarra Real Nova", serif;
+  font-weight: 700;
+  font-size: 38px;
 }
 
 .recipeContent {
-  width: 60%; /* Ensures the text content takes full width */
-  font-weight: 100; /* Lighter font-weight for content */
-  text-align: center; /* Optionally center the text */
-  margin-top: 20px; /* Add some space between the image and the text */
+  width: 100%; 
+  text-align: start; 
+  margin-top: 20px;
+}
+.recipeContent p {
+  font-family: "Ibarra Real Nova", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  color: rgba(68, 126, 214, 255)
 }
 
-
-.recipeContent p {
-  font-weight: 100; /* Lighter font-weight for content */
+.recipeContainer a {
+  text-decoration: none;
+  font-family: "Ibarra Real Nova", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
   color: rgba(81,135,218,255);
+
 }
 
 @media (max-width: 768px) {
+  .recipeTitle {
+    font-size: 30px;
+  }
   .recipeImage {
     max-height: 700px; /* Smaller height on smaller screens */
+  }
+  .recipeContent p {
+    font-size: 18px;
   }
 }

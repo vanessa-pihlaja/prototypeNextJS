@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 .searchbar {
     display: flex;
     justify-content: center;
@@ -7,6 +8,7 @@
     max-width: 600px; /* Maximum width of the search bar */
     position: relative; /* For positioning the magnifier icon */
   }
+
   
   .searchInput {
     width: 100%;
@@ -14,6 +16,8 @@
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 16px; /* Adjust as needed */
+    font-family: "Ibarra Real Nova", serif;
+    font-weight: 600;
     position: relative; /* Ensure the input is above the pseudo-element */
   }
   
