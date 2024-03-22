@@ -6,6 +6,7 @@
   align-items: center; /* Center the content */
   max-width: 800px; /* Matches the image's max width */
   margin: 0 auto;
+  padding: 15px;
 }
 
 .recipeImage {
