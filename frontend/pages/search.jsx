@@ -8,23 +8,20 @@ import Recipe from '../src/models/recipe';
 import mongoose from 'mongoose';
 
 export default function SearchPage({ categoriesWithRecipes }) {
-  // State to hold the search results
   const [searchResults, setSearchResults] = useState([]);
 
-  // Function to handle the search; called when a search is performed in the SearchComponent
   const handleSearch = async (query) => {
     if (!query.trim()) {
-      setSearchResults([]); // Clear results if the query is empty
+      setSearchResults([]);
       return;
     }
 
-    // Fetch the search results from your API
     try {
       const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
       const data = await response.json();
-      setSearchResults(data); // Update the state with the fetched results
+      setSearchResults(data);
     } catch (error) {
-      console.error("Error fetching search results: ", error);
+      console.error("Error fetching search results:", error);
       setSearchResults([]);
     }
   };
@@ -44,7 +41,6 @@ export default function SearchPage({ categoriesWithRecipes }) {
   );
 }
 
-// Helper function to convert MongoDB ObjectIds to strings
 const objectIdToString = (value) => {
   if (Array.isArray(value)) {
     return value.map(v => objectIdToString(v));
@@ -99,6 +95,6 @@ export async function getStaticProps() {
 
   return {
     props: { categoriesWithRecipes },
-    revalidate: 10
+    revalidate: 10 // Revalidate at most once every 10 seconds
   };
 }
