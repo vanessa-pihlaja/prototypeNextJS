@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   // Function to update the user state by fetching from the API
   const fetchUser = async () => {
     try {
-      const res = await fetch('/api/users/user')
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/users/user`)
       if (res.status === 200) {
         const data = await res.json();
         setUser(data.user)
