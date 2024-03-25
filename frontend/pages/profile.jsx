@@ -5,9 +5,10 @@ import Navbar from '@/components/Navbar';
 
 
 
-export default function ProfilePage({ savedRecipes }) {
+export default function ProfilePage({ savedRecipes, debugMessages }) {
 
   console.log(`saved recipes on profile page ${savedRecipes}`)
+  console.log('Debug messages:', debugMessages);
 
     return (
       <div>
@@ -24,40 +25,44 @@ export default function ProfilePage({ savedRecipes }) {
   
 
 
-export async function getServerSideProps(context) {
-  try {
-    const { req } = context;
-    const { token } = req.cookies; 
-
-    console.log(`token from cookies: ${token}`)
-    
-    if (!token) {
+  export async function getServerSideProps(context) {
+    let debugMessages = []; // Initialize an array to hold debug messages
+  
+    try {
+      const { req } = context;
+      const { token } = req.cookies; 
+  
+      debugMessages.push(`token from cookies: ${token}`);
+      
+      if (!token) {
+        return {
+          props: { savedRecipes: [], debugMessages }, // Pass the debug messages as a prop
+          redirect: {
+            destination: '/login',
+            permanent: false,
+          },
+        };
+      }
+  
+      const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+      const baseUrl = process.env.VERCEL_URL ? `${protocol}://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+      const apiUrl = `${baseUrl}/api/users/savedRecipe`;
+  
+      const response = await axios.get(apiUrl, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+  
+      debugMessages.push(`API URL: ${apiUrl}`);
+      const savedRecipes = response.data;
+  
+      return { props: { savedRecipes, debugMessages } }; // Pass debug messages to the component
+  
+    } catch (error) {
+      console.error(error);
+      debugMessages.push(`Error: ${error.message}`);
       return {
-        redirect: {
-          destination: '/login',
-          permanent: false,
-        },
+        props: { savedRecipes: [], debugMessages }, // Include debug messages in the case of an error
       };
     }
-
-    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
-    const baseUrl = process.env.VERCEL_URL ? `${protocol}://${process.env.VERCEL_URL}` : 'http://localhost:3000';
-    const apiUrl = `${baseUrl}/api/users/savedRecipe`;
-
-    const response = await axios.get(apiUrl, {
-      headers: {
-        'Authorization': `Bearer ${token}`,
-      },
-    });
-
-    console.log(`the token: ${token}`)
-    const savedRecipes = response.data;
-    return { props: { savedRecipes } };
-
-  } catch (error) {
-    console.error(error);
-    return {
-      props: { savedRecipes: [] }
-    };
   }
-}
+  
