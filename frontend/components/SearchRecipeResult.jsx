@@ -25,9 +25,9 @@ export default function SearchResultsComponent ({ searchResults }) {
   return (
     <div className={styles.recipesGrid}>
       {searchResults.map((recipe) => (
-        <div key={recipe._id} className={styles.recipeCard}>
-  
-            <div className={styles.recipeImageWrapper}>
+        <div className={styles.recipeBlock}>
+          <div key={recipe._id} className={styles.recipeCard}>
+            <div className={styles.recipeImage} style={{ position: 'relative' }}>
               <Link href={`/${recipe.title}`}>
                 <Image
                   width={200}
@@ -40,12 +40,13 @@ export default function SearchResultsComponent ({ searchResults }) {
                   blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
                   placeholder='blur'
                   priority
-                  // unoptimized
                 />
               </Link>
               <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
             </div>
-            <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
+          </div>
+          <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
+
         </div>
       ))}
       {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}

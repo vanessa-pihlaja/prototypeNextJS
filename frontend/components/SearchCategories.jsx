@@ -1,10 +1,20 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/searchcategories.module.css';
 import Link from 'next/link';
+import SaveRecipeModal from './SaveButton'
+
+const getFirstImageUrl = (images) => {
+  if (Array.isArray(images) && images.length > 0) {
+    return images[0]; // Return the first image if it's an array with at least one URL
+  }
+  return images; // Return the image if it's not an array or is an empty array
+};
 
 function CategoriesComponent({ categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showSaveModal, setShowSaveModal] = useState(false);
+  const [currentRecipe, setCurrentRecipe] = useState(null);
 
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
@@ -12,6 +22,11 @@ function CategoriesComponent({ categories }) {
     } else {
       setSelectedCategory(category); // Open the clicked category
     }
+  };
+
+  const handleSaveClick = (recipe) => {
+    setCurrentRecipe(recipe);
+    setShowSaveModal(true);
   };
 
 
@@ -70,25 +85,29 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && (
               <div className={styles.recipesGrid}>
                 {categoryData.recipes.map((recipe) => (
-                  <div key={recipe.id} className={styles.recipeCard}>
-                    <Link href={`/${recipe.title}`}>
-                      {recipe.firstImage && (
-                        <div className={styles.recipeImageWrapper}>
-                          <Image
-                            width={200}
-                            height={500}
-                            src={recipe.firstImage}
-                            alt={recipe.title}
-                            layout="responsive"
-                            className={styles.recipeImage}
-                          />
-                        </div>
-                      )}
-                      <h3 className={styles.recipeTitle}>{recipe.title}</h3>
+                  <div className={styles.recipeBlock}>
+                    <div key={recipe.id} className={styles.recipeCard} style={{ position: 'relative' }}>
+                      <Link href={`/${recipe.title}`}>
+                        {recipe.firstImage && (
+                          <div className={styles.recipeImageWrapper}>
+                            <Image
+                              width={200}
+                              height={500}
+                              src={recipe.firstImage}
+                              alt={recipe.title}
+                              layout="responsive"
+                              className={styles.recipeImage}
+                            />
+                          </div>
+                        )}
+                      </Link>
+                      <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
+                    </div>
+                    <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
 
-                  </Link>
                   </div>
                 ))}
+                {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
               </div>
             )}
           </div>
