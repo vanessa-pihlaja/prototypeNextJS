@@ -40,7 +40,7 @@ export async function getServerSideProps(context) {
       };
     }
 
-    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/savedRecipe`
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/users/savedRecipe`
     const response = await axios.get(apiUrl, {
       headers: {
         'Authorization': `Bearer ${token}`,
