@@ -47,8 +47,23 @@
   font-style: normal;
   font-size: 20px;
   color: rgba(81,135,218,255);
-
 }
+
+.buttonAtFirst {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(4, 19, 175);
+  color: white;
+  font-size: 17px;
+  font-weight: 300;
+  width: 80px;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  border: none;
+  border-radius: 30px;
+}
+
 
 @media (max-width: 768px) {
   .recipeTitle {

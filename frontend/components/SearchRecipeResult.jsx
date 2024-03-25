@@ -25,8 +25,8 @@ export default function SearchResultsComponent ({ searchResults }) {
   return (
     <div className={styles.recipesGrid}>
       {searchResults.map((recipe) => (
-        <div className={styles.recipeBlock}>
-          <div key={recipe._id} className={styles.recipeCard}>
+        <div key={recipe._id} className={styles.recipeBlock}> {/* Move key prop here */}
+          <div className={styles.recipeCard}>
             <div className={styles.recipeImage} style={{ position: 'relative' }}>
               <Link href={`/${recipe.title}`}>
                 <Image
@@ -46,9 +46,9 @@ export default function SearchResultsComponent ({ searchResults }) {
             </div>
           </div>
           <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
-
         </div>
       ))}
+
       {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
     </div>
   );

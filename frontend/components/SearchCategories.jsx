@@ -85,8 +85,8 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && (
               <div className={styles.recipesGrid}>
                 {categoryData.recipes.map((recipe) => (
-                  <div className={styles.recipeBlock}>
-                    <div key={recipe.id} className={styles.recipeCard} style={{ position: 'relative' }}>
+                  <div key={recipe.id} className={styles.recipeBlock}> {/* Move key prop here */}
+                    <div className={styles.recipeCard} style={{ position: 'relative' }}>
                       <Link href={`/${recipe.title}`}>
                         {recipe.firstImage && (
                           <div className={styles.recipeImageWrapper}>
@@ -104,7 +104,6 @@ function CategoriesComponent({ categories }) {
                       <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
                     </div>
                     <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
-
                   </div>
                 ))}
                 {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}

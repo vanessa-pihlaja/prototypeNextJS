@@ -2,11 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styles from '../styles/recipe.module.css';
 import Image from 'next/image';
+import SaveRecipeModal from './SaveButton';
 
 export default function Recipe() {
     const [recipe, setRecipe] = useState(null);
     const router = useRouter();
+    const [showSaveModal, setShowSaveModal] = useState(false);
+    const [currentRecipe, setCurrentRecipe] = useState(null);
     const { title } = router.query;
+
+    const handleSaveClick = (recipe) => {
+      setCurrentRecipe(recipe);
+      setShowSaveModal(true);
+    };
 
     useEffect(() => {
         if (title) {
@@ -56,7 +64,10 @@ export default function Recipe() {
             placeholder="blur"
             priority
           />
+          <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>Tallenna</button>
+          {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
         </div>
+        
       )}
           <p className={styles.recipeContent}>{renderContent(recipe.content)}</p>
           <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
