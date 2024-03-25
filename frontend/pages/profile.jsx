@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import axios from 'axios';
 import UserCategories from '@/components/UserCategories'
 import LogoutButton from '@/components/Logout';
@@ -7,6 +6,9 @@ import Navbar from '@/components/Navbar';
 
 
 export default function ProfilePage({ savedRecipes }) {
+
+  console.log(`saved recipes on profile page ${savedRecipes}`)
+
     return (
       <div>
         <LogoutButton/>
@@ -25,22 +27,23 @@ export default function ProfilePage({ savedRecipes }) {
 export async function getServerSideProps(context) {
   try {
     const { req } = context;
-    const { token } = req.cookies; // Extract the token from the request cookies
+    const { token } = req.cookies; 
 
     console.log(`token from cookies: ${token}`)
     
     if (!token) {
-      // Handle the case where the token is not present. For example:
-      // Redirect to login page or return an empty props object
       return {
         redirect: {
-          destination: '/login', // Assuming you have a login page
+          destination: '/login',
           permanent: false,
         },
       };
     }
 
-    const apiUrl = `/api/users/savedRecipe`
+    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+    const baseUrl = process.env.VERCEL_URL ? `${protocol}://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+    const apiUrl = `${baseUrl}/api/users/savedRecipe`;
+
     const response = await axios.get(apiUrl, {
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -49,7 +52,6 @@ export async function getServerSideProps(context) {
 
     console.log(`the token: ${token}`)
     const savedRecipes = response.data;
-    console.log(savedRecipes)
     return { props: { savedRecipes } };
 
   } catch (error) {
