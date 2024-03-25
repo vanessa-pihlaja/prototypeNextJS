@@ -41,7 +41,7 @@ export async function getServerSideProps(context) {
     }
 
     // Here, you don't need to decode the token to get the userId since the server should do that.
-    const apiUrl = `http://localhost:3000/api/users/savedRecipe`; 
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/savedRecipe`
     const response = await axios.get(apiUrl, {
       headers: {
         'Authorization': `Bearer ${token}`,
