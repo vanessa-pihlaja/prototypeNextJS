@@ -5,10 +5,10 @@ import styles from '../styles/usercategories.module.css';
 const UserCategories = ({ savedRecipes = [] }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   console.log(`saved recipes: ${savedRecipes}`)
-  // This structure holds the first image for each category
+  
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
     if (!acc[recipe.category] && recipe.images?.length > 0) {
-      acc[recipe.category] = recipe.images[0]; // Store the first image of the first recipe encountered in each category
+      acc[recipe.category] = recipe.images[0]; 
     }
     return acc;
   }, {});

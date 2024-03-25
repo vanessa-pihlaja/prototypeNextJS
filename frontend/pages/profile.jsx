@@ -46,7 +46,7 @@ export default function ProfilePage({ savedRecipes, debugMessages }) {
   
       const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
       const baseUrl = process.env.VERCEL_URL ? `${protocol}://${process.env.VERCEL_URL}` : 'http://localhost:3000';
-      const apiUrl = `${baseUrl}/api/users/savedRecipe`;
+      const apiUrl = `/api/users/savedRecipe`;
   
       const response = await axios.get(apiUrl, {
         headers: { 'Authorization': `Bearer ${token}` },
