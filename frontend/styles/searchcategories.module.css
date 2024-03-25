@@ -6,6 +6,11 @@
     margin: 20px auto;
     justify-content: center; 
   }
+
+  .recipeBlock {
+    break-inside: avoid; /* Prevent this block from being split across columns */
+    margin-bottom: 1rem; /* Adjust as needed */
+  }
   
   .categoryItem {
     display: flex;
@@ -67,12 +72,17 @@
   }
   
   .recipeTitle {
-    font-size: 19px;
+    font-size: 20px;
     font-family: "Noto Serif Hebrew", serif;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
     margin: 3px 0 20px 0;
+  }
+
+  .recipeTitle a, .recipeTitle a:visited {
+    text-decoration: none;
+    color: rgba(81,135,218,255);
   }
   
   .recipeImage {
