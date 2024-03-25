@@ -60,9 +60,6 @@ export default function Recipe() {
             width={150}
             height={300}
             layout="responsive"
-            blurDataURL="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
-            placeholder="blur"
-            priority
           />
           <div className={styles.buttonContainer}>
             <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>Tallenna</button>
