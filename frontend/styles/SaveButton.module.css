@@ -1,36 +1,68 @@
-
 .modalBackdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 175, 175, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1050;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 175, 175, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1050;
   }
   
-  .modal {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1051;
-    /* Prevent modal content from expanding beyond the viewport */
-    max-height: 90vh;
-    overflow-y: auto;
-    /* Add more styling as needed */
+.modal {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1051;
+  /* Prevent modal content from expanding beyond the viewport */
+  max-height: 90vh;
+  overflow-y: auto;
+  /* Add more styling as needed */
   }
+
+.categoryList {
+  background-color: white;
+  padding: 4px 6px 4px 6px;
+  border-color: rgba(81,135,218,255);
+  border-radius: 4px ;
+  color: rgba(81,135,218,255);
+}
+
+.title {
+  color: rgba(81,135,218,255);
+}
 
 .saveButton {
   margin: 0 3px 0 15px;
+  padding: 5px 9px 5px 9px;
+  background-color: rgba(81,135,218,255);
   color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 14px;
+}
+.saveButton:hover {
+  font-size: 15px;
 }
 
 .backButton {
   margin: 0 3px 0 3px;
+  padding: 5px 9px 5px 9px;
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(245, 200, 189);
+  color: white;
+  font-size: 14px;
 }
+
+.backButton:hover {
+  font-size: 15px;
+}
+
+
+
 
   

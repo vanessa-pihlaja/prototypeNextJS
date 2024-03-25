@@ -44,11 +44,11 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   return (
     <div className={styles.modalBackdrop} onClick={() => setShowSaveModal(false)}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <h2>Tallenna resepti</h2>
-        <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+        <h2 className={styles.title}>Tallenna resepti</h2>
+        <select className={styles.categoryList} value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value="">Valitse kategoria</option>
           {allCategories.map((categoryName) => (
-            <option key={categoryName} value={categoryName}>{categoryName}</option>
+            <option className={styles.categoryList} key={categoryName} value={categoryName} >{categoryName}</option>
           ))}
           <option value="new">+ Uusi kategoria</option>
         </select>
