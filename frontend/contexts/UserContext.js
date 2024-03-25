@@ -14,7 +14,6 @@ export const UserProvider = ({ children }) => {
       if (res.status === 200) {
         const data = await res.json();
         setUser(data.user)
-        console.log(user)
       } else {
         throw new Error('Failed to fetch user.');
       }

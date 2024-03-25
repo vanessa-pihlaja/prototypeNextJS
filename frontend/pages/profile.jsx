@@ -40,7 +40,6 @@ export async function getServerSideProps(context) {
       };
     }
 
-    // Here, you don't need to decode the token to get the userId since the server should do that.
     const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/users/savedRecipe`
     const response = await axios.get(apiUrl, {
       headers: {
@@ -55,8 +54,12 @@ export async function getServerSideProps(context) {
 
   } catch (error) {
     console.error(error);
-    // Depending on the error, handle it accordingly
-    // For example, you might want to redirect to a login page on authentication failure
-    return { props: { savedRecipes: [] } };
+    return {
+      redirect: {
+        destination: '/login', 
+        permanent: false,
+      },
+      props: { savedRecipes: [] }
+    };
   }
 }
