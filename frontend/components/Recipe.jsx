@@ -64,7 +64,9 @@ export default function Recipe() {
             placeholder="blur"
             priority
           />
-          <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>Tallenna</button>
+          <div className={styles.buttonContainer}>
+            <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>Tallenna</button>
+          </div>
           {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
         </div>
         
