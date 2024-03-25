@@ -55,10 +55,6 @@ export async function getServerSideProps(context) {
   } catch (error) {
     console.error(error);
     return {
-      redirect: {
-        destination: '/login', 
-        permanent: false,
-      },
       props: { savedRecipes: [] }
     };
   }
