@@ -32,11 +32,15 @@ const UserCategories = () => {
 
   
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
-    if (!acc[recipe.category] && recipe.images?.length > 0) {
-      acc[recipe.category] = recipe.images[0]; 
+    if (recipe.images?.length > 0) {
+      acc[recipe.category] = recipe.images[0]
     }
     return acc;
   }, {});
+
+  const categoriesWithRecipes = Object.keys(categoryImages).filter(category =>
+    savedRecipes.some(recipe => recipe.category === category)
+  );
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(selectedCategory === category ? null : category); // Toggle selection
@@ -51,7 +55,7 @@ const UserCategories = () => {
 
   return (
     <div className={styles.gridContainer}>
-      {Object.keys(categoryImages).map((category, index) => (
+      {categoriesWithRecipes.map((category, index) => (
         <div key={index} className={styles.categoryItem}>
           <h2 onClick={() => handleCategoryClick(category)} style={{ cursor: 'pointer' }} className={styles.categoryTitle}>
             {category}
