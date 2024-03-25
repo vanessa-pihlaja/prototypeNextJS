@@ -1,39 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import styles from '../styles/usercategories.module.css';
+import styles from '../styles/searchcategories.module.css'; // Use the same style sheet
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
+import Link from 'next/link';
 
 const UserCategories = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [savedRecipes, setSavedRecipes] = useState([]); // State to store fetched recipes
-  const { user } = useUser(); // Access user context
+  const [savedRecipes, setSavedRecipes] = useState([]);
+  const { user } = useUser();
 
   useEffect(() => {
     const fetchSavedRecipes = async () => {
-      // Exit early if no user ID is available
       if (!user?.id) return;
-
       try {
-        // Replace '/api/users/savedRecipe' with your actual API endpoint that expects a user ID
-        // Adjust headers or params as per your API's authentication mechanism
         const response = await axios.get('/api/users/savedRecipe', {
           headers: { 'X-User-ID': user.id },
         });
-        setSavedRecipes(response.data); // Update state with fetched recipes
+        setSavedRecipes(response.data);
       } catch (error) {
         console.error('Failed to fetch saved recipes:', error);
-        setSavedRecipes([]); // Reset or handle error state as needed
+        setSavedRecipes([]);
       }
     };
-
     fetchSavedRecipes();
-  }, [user?.id]); // Re-fetch recipes whenever the user ID changes
+  }, [user?.id]);
 
-  
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
     if (recipe.images?.length > 0) {
-      acc[recipe.category] = recipe.images[0]
+      acc[recipe.category] = recipe.images[0];
     }
     return acc;
   }, {});
@@ -43,55 +38,81 @@ const UserCategories = () => {
   );
 
   const handleCategoryClick = (category) => {
-    setSelectedCategory(selectedCategory === category ? null : category); // Toggle selection
-  };
-
-  const getFirstImageUrl = (images) => {
-    if (Array.isArray(images) && images.length > 0) {
-      return images[0]; // Return the first image if it's an array with at least one URL
-    }
-    return images; // Return the image if it's not an array or is an empty array
+    setSelectedCategory(selectedCategory === category ? null : category);
   };
 
   return (
     <div className={styles.gridContainer}>
-      {categoriesWithRecipes.map((category, index) => (
-        <div key={index} className={styles.categoryItem}>
-          <h2 onClick={() => handleCategoryClick(category)} style={{ cursor: 'pointer' }} className={styles.categoryTitle}>
-            {category}
-          </h2>
-          {selectedCategory === null && (
-            <div className={styles.categoryImageWrapper}>
-              <Image
-                src={categoryImages[category]}
-                alt={`${category}`}
-                layout="fill" // This tells Next.js to fill the parent div
-                className={styles.categoryImage}
-                objectFit="cover" // Adjust how the image fits within its box
-              />
-            </div>
-          )}
-         
-          {selectedCategory === category && (
-            <div>
-              {savedRecipes.filter(recipe => recipe.category === category).map((recipe, recipeIndex) => (
-                <div key={recipeIndex}>
-                  <h3>{recipe.title}</h3>
-                  <Image
-                  width={200}
-                  height={500}
-                  style={{ width: '100%', height: '100%' }}
-                  src={getFirstImageUrl(recipe.images)} 
-                  alt={recipe.title}
-                  layout="responsive"
-                  priority
+      {selectedCategory && (
+        <button
+          id="backButton"
+          className={`${styles.backButton} ${selectedCategory ? '' : styles.hidden}`}
+          onClick={() => setSelectedCategory(null)}
+          aria-label="Back to categories"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.backIcon}>
+            <path d="M19 12H5"></path>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </button>
+      )}
+      {categoriesWithRecipes.map((category, index) => {
+        if (selectedCategory && selectedCategory !== category) {
+          return null;
+        }
+
+        return (
+          <div key={index} className={styles.categoryItem}>
+            <h2 
+              className={styles.categoryTitle} 
+              onClick={() => handleCategoryClick(category)} 
+              role="button" 
+              tabIndex={0}
+            >
+              {category}
+            </h2>
+
+            {(!selectedCategory || selectedCategory === category) && categoryImages[category] && (
+              <div 
+                className={styles.categoryImageWrapper} 
+                onClick={() => handleCategoryClick(category)} 
+                role="button" 
+                tabIndex={0}
+              >
+                <Image
+                  src={categoryImages[category]}
+                  alt={`${category} cover`}
+                  layout="fill"
+                  objectFit="cover"
+                  className={styles.categoryImage}
                 />
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
+              </div>
+            )}
+
+            {selectedCategory === category && (
+              <div className={styles.recipesGrid}>
+                {savedRecipes.filter(recipe => recipe.category === category).map((recipe, recipeIndex) => (
+                  <div key={recipeIndex} className={styles.recipeBlock}>
+                    <div className={styles.recipeCard} style={{ position: 'relative' }}>
+                      <Link href={`/${recipe.title}`}>
+                        <Image
+                          width={200}
+                          height={500}
+                          src={recipe.images?.[0]}
+                          alt={recipe.title}
+                          layout="responsive"
+                          className={styles.recipeImage}
+                        />
+                      </Link> 
+                    </div>
+                    <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 };

@@ -39,24 +39,29 @@ export default async function handler(req, res) {
   } else if (req.method === 'GET') {
     const userId = req.headers['x-user-id']
     try {
-       const user = await User.findById(userId)
+      const user = await User.findById(userId)
       .populate({
         path: 'savedRecipes.recipeId',
-        model: 'Recipe'
-      })
+        model: 'Recipe',
+  
+      });
 
       if (!user) {
         return res.status(404).json({ error: 'User not found' });
       }
-  
-      const savedRecipes = user.savedRecipes.map(({ recipeId, category }) => ({
+
+      // Filter out any saved recipes where the recipeId is null (indicating the recipe no longer exists)
+      const validSavedRecipes = user.savedRecipes.filter(({ recipeId }) => recipeId !== null);
+
+      // Map over the filtered list to construct the response
+      const savedRecipes = validSavedRecipes.map(({ recipeId, category }) => ({
         title: recipeId.title,
         content: recipeId.content,
         images: recipeId.images,
         url: recipeId.url,
         category
       }));
-  
+
       res.status(200).json(savedRecipes);
     } catch (error) {
       res.status(500).json({ error: error.message });
