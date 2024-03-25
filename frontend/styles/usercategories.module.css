@@ -1,16 +1,15 @@
-/* UserCategories.module.css */
+
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* Adjust the gap between items as needed */
-    margin: 20px; /* Add some margin around the grid */
+    gap: 20px; 
+    margin: 20px; 
   }
   
   .categoryItem {
-    /* Style for each category item */
-    padding: 10px; /* Example padding */
-    border-radius: 8px; /* Example border-radius */
-    text-align: center; /* Center the text */
+    padding: 10px;
+    border-radius: 8px; 
+    text-align: center; 
   }
   
   .categoryImageWrapper {
@@ -36,10 +35,21 @@
     color: rgba(81,135,218,255);
   }
   
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .gridContainer {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-    }
+ /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
   }
-  
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: repeat(1, 1fr); /* 1 column for very small screens */
+  }
+}

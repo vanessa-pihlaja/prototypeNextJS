@@ -49,7 +49,7 @@ export default async function handler(req, res) {
        const user = await User.findById(userId)
       .populate({
         path: 'savedRecipes.recipeId',
-        model: 'Recipe' // Ensure this matches the name of your recipe model
+        model: 'Recipe'
       })
 
       if (!user) {
