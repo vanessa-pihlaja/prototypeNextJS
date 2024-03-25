@@ -4,12 +4,6 @@ import styles from '../styles/searchcategories.module.css';
 import Link from 'next/link';
 import SaveRecipeModal from './SaveButton'
 
-const getFirstImageUrl = (images) => {
-  if (Array.isArray(images) && images.length > 0) {
-    return images[0]; // Return the first image if it's an array with at least one URL
-  }
-  return images; // Return the image if it's not an array or is an empty array
-};
 
 function CategoriesComponent({ categories }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -56,6 +50,7 @@ function CategoriesComponent({ categories }) {
 
         return (
           <div key={index} className={styles.categoryItem}>
+            <div className={styles.catgoryWrapper}>
             <h2 
               className={styles.categoryTitle} 
               onClick={() => handleCategoryClick(categoryData.category)} 
@@ -81,6 +76,7 @@ function CategoriesComponent({ categories }) {
                 />
               </div>
             )}
+            </div>
 
             {selectedCategory === categoryData.category && (
               <div className={styles.recipesGrid}>
