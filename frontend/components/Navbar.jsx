@@ -31,7 +31,7 @@ const Navbar = () => {
         </li>
         <li className={styles.liItem}>
           <Link href="/profile" className={`${styles.link} ${router.pathname === "/profile" ? styles.active : ""}`}>
-            Profiili
+            Tallennetut
           </Link>
         </li>
       </ul>

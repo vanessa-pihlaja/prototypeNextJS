@@ -47,6 +47,10 @@
     line-height: 1.2; /* Adjust line height for better readability */
     color: rgba(81,135,218,255);
   }
+
+  .categoryTitle:hover {
+    font-size: 30px; /* Larger font size */
+  }
   
 
   .recipesGrid {
@@ -159,28 +163,42 @@
 
   }
   
-  @media (max-width: 768px) {
-    .backButton {
-      top: 70px;
-      left: 60px; 
-    }
-    .recipeImage {
-      max-height: 700px; /* Smaller height on smaller screens */
-    }
-    .recipeTitle {
-      font-size: 15px;
-    }
-  }
   
   @media (max-width: 650px) {
+    .gridContainer {
+      flex-wrap: wrap;
+      gap: 15px; /* Adjusted for a more consistent gap between items */
+      margin: 0 auto; /* Center the content while maintaining a margin on the sides */
+      justify-content: center; /* Ensure items are centered */
+    }
+    .recipesGrid {
+      column-count: 2;
+      padding: 0rem 2rem;
+    }
     .backButton{
       top: 30px;
     }
     .gridContainer{
       gap: 0px; 
     }
-    .categoryItem{
-      padding: 5px; 
+    .categoryItem {
+      width: calc(50% - 15px); /* Adjust the width to fit two items per row, accounting for gap */
+      margin: 0; /* Reset margin to use gap from gridContainer */
+      padding: 5px; /* Keep padding to ensure content is not too cramped */
+      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
+    .catgoryWrapper{
+      width: 100%; /* Adjust width to fit two items per row, accounting for a small gap */
+      margin: 0; /* Small margin to ensure there is space around items */
+      padding: 5px;
+    }
+    .categoryImageWrapper {
+      width: 100%; /* Ensure it takes the full width of its parent */
+      height: 0; /* Reset the height */
+      padding-top: 100%; /* Maintain a 1:1 aspect ratio */
+      position: relative;
+      border-radius: 8px; /* Maintain rounded corners */
+      overflow: hidden; /* Ensure the image does not overflow its wrapper */
     }
     .backButton {
       left: 15px; 
@@ -200,9 +218,16 @@
       padding: 0px;
       font-size: 16px
     }
+    .recipeImage {
+      max-height: 700px; /* Smaller height on smaller screens */
+    }
     .categoryTitle {
       margin-top: 5px;
+      margin-bottom: 10px;
       font-size: 22px;
+    }
+    .categoryTitle:hover {
+      font-size: 23px; /* Larger font size */
     }
     .buttonAtFirst {
       bottom: 2px; 
