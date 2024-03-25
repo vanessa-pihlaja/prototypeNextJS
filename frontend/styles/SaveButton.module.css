@@ -23,4 +23,14 @@
     overflow-y: auto;
     /* Add more styling as needed */
   }
+
+.saveButton {
+  margin: 0 3px 0 15px;
+  color: white;
+}
+
+.backButton {
+  margin: 0 3px 0 3px;
+}
+
   

@@ -60,8 +60,8 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
             onChange={(e) => setNewCategory(e.target.value)}
           />
         )}
-        <button onClick={handleSave}>Tallenna</button>
-        <button onClick={() => setShowSaveModal(false)}>Peruuta</button>
+        <button className={styles.saveButton} onClick={handleSave}>Tallenna</button>
+        <button className={styles.backButton} onClick={() => setShowSaveModal(false)}>Peruuta</button>
       </div>
     </div>
   );

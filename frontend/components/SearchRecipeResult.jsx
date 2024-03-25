@@ -37,9 +37,6 @@ export default function SearchResultsComponent ({ searchResults }) {
                   src={getFirstImageUrl(recipe.images)} 
                   alt={recipe.title}
                   layout="responsive"
-                  blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
-                  placeholder='blur'
-                  priority
                 />
               </Link>
               <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
