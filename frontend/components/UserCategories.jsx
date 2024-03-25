@@ -72,7 +72,8 @@ const UserCategories = () => {
               {category}
             </h2>
 
-            {(!selectedCategory || selectedCategory === category) && categoryImages[category] && (
+            {/* Conditional rendering to not show the category image if this category is selected */}
+            {!selectedCategory && categoryImages[category] && (
               <div 
                 className={styles.categoryImageWrapper} 
                 onClick={() => handleCategoryClick(category)} 
