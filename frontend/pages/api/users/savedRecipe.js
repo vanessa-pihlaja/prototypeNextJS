@@ -37,15 +37,8 @@ export default async function handler(req, res) {
     }
 
   } else if (req.method === 'GET') {
+    const userId = req.headers['x-user-id']
     try {
-      const token = req.headers.authorization?.split(' ')[1]
-      if (!token) {
-        return res.status(401).json({ error: 'Token not provided' });
-      }
-  
-      const decoded = jwt.verify(token, 'ba67b720d047a8c39ebe8c751167ccd7');
-      const userId = decoded.id;
-  
        const user = await User.findById(userId)
       .populate({
         path: 'savedRecipes.recipeId',
@@ -66,9 +59,6 @@ export default async function handler(req, res) {
   
       res.status(200).json(savedRecipes);
     } catch (error) {
-      if (error.name === "JsonWebTokenError") {
-        return res.status(403).json({ error: "Invalid token" });
-      }
       res.status(500).json({ error: error.message });
     }
   }

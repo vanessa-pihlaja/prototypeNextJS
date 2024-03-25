@@ -5,10 +5,10 @@ import Navbar from '@/components/Navbar';
 
 
 
-export default function ProfilePage({ savedRecipes, debugMessages }) {
+export default function ProfilePage() {
 
-  console.log(`saved recipes on profile page ${savedRecipes}`)
-  console.log('Debug messages:', debugMessages);
+  //console.log(`saved recipes on profile page ${savedRecipes}`)
+  //console.log('Debug messages:', debugMessages);
 
     return (
       <div>
@@ -17,7 +17,7 @@ export default function ProfilePage({ savedRecipes, debugMessages }) {
           <h1>miamia</h1>
         </header>
         <Navbar/>
-        <UserCategories savedRecipes={savedRecipes} />
+        <UserCategories/>
         <footer></footer>
       </div>
     );
@@ -25,7 +25,7 @@ export default function ProfilePage({ savedRecipes, debugMessages }) {
   
 
 
-  export async function getServerSideProps(context) {
+  /*export async function getServerSideProps(context) {
     let debugMessages = []; // Initialize an array to hold debug messages
   
     try {
@@ -64,5 +64,5 @@ export default function ProfilePage({ savedRecipes, debugMessages }) {
         props: { savedRecipes: [], debugMessages }, // Include debug messages in the case of an error
       };
     }
-  }
+  }*/
   

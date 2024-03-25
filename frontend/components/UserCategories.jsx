@@ -1,10 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from '../styles/usercategories.module.css';
+import { useUser } from '../contexts/UserContext';
+import axios from 'axios';
 
-const UserCategories = ({ savedRecipes = [] }) => {
+const UserCategories = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
-  console.log(`saved recipes: ${savedRecipes}`)
+  const [savedRecipes, setSavedRecipes] = useState([]); // State to store fetched recipes
+  const { user } = useUser(); // Access user context
+
+  useEffect(() => {
+    const fetchSavedRecipes = async () => {
+      // Exit early if no user ID is available
+      if (!user?.id) return;
+
+      try {
+        // Replace '/api/users/savedRecipe' with your actual API endpoint that expects a user ID
+        // Adjust headers or params as per your API's authentication mechanism
+        const response = await axios.get('/api/users/savedRecipe', {
+          headers: { 'X-User-ID': user.id },
+        });
+        setSavedRecipes(response.data); // Update state with fetched recipes
+      } catch (error) {
+        console.error('Failed to fetch saved recipes:', error);
+        setSavedRecipes([]); // Reset or handle error state as needed
+      }
+    };
+
+    fetchSavedRecipes();
+  }, [user?.id]); // Re-fetch recipes whenever the user ID changes
+
   
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
     if (!acc[recipe.category] && recipe.images?.length > 0) {
