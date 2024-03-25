@@ -33,6 +33,7 @@
   .categoryTitle {
     cursor: pointer;
     margin-top: 10px; /* Space between the image and the title */
+    color: rgba(81,135,218,255);
   }
   
   /* Responsive adjustments */
