@@ -45,7 +45,6 @@ export default function Feed({ batches }) {
                     blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
                     placeholder='blur'
                     priority
-
                   />
                   </Link>
                   <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>

@@ -5,7 +5,11 @@ const SearchComponent = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+    const newSearchTerm = e.target.value;
+    setSearchTerm(newSearchTerm);
+    if (newSearchTerm.trim() === '') {
+      onSearch(''); // Immediately invoke onSearch with an empty string when search term is erased
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -21,7 +25,7 @@ const SearchComponent = ({ onSearch }) => {
         value={searchTerm}
         onChange={handleSearchChange}
         className={styles.searchInput}
-        required // Ensures that the button shows up even if input is not focused but has content
+        required
       />
       <button type="submit" className={styles.searchButton}></button>
     </form>
