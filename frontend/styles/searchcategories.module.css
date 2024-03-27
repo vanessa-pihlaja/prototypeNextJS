@@ -51,7 +51,6 @@
   .categoryTitle:hover {
     font-size: 30px; /* Larger font size */
   }
-  
 
   .recipesGrid {
     column-gap: 1rem;
@@ -184,10 +183,10 @@
   
   @media (max-width: 650px) {
     .gridContainer {
-      width: 100%;
-      flex-wrap: wrap;
-      gap: 0px; /* Adjust the gap between items as needed */
-      margin: 0px auto;
+      width: 100%; /* Use the full viewport width */
+      padding: 0; /* Reset any horizontal padding */
+      margin: 0 auto; /* Center the container */
+      justify-content: center; /* Center flex items horizontally */
     }
     .backButton{
       top: 30px;
@@ -204,7 +203,7 @@
       margin: 0; /* Small margin to ensure there is space around items */
       padding: 5px;
     }
-    .categoryImageWrapper {
+    .categoryImageWrapper { 
       width: 100%; /* Ensure it takes the full width of its parent */
       height: 0; /* Reset the height */
       padding-top: 100%; /* Maintain a 1:1 aspect ratio */
@@ -213,11 +212,17 @@
       overflow: hidden; /* Ensure the image does not overflow its wrapper */
     }
     .recipesGrid {
-      column-gap: 0.45rem;
-      padding: 0rem 1rem 0rem 1rem;
+      column-count: 2; /* Maintain two columns */
+      column-gap: 0.45rem; /* Adjust the gap as needed, but keep it small */
+      padding: 0 1rem; /* Adjust padding to ensure it doesn't cause alignment issues */
+      margin: 0 auto; /* Center the grid within its container */
+      max-width: 100%; /* Ensure the grid does not exceed the viewport width */
+      box-sizing: border-box; /* Include padding in the width calculation */
     }
     .recipeCard {
-      text-align: center;
+      break-inside: avoid-column; /* Ensure cards are not split across columns */
+      margin-bottom: 1rem; /* Keep consistent spacing between cards */
+      width: 100%; /* Ensure cards do not exceed the column width */
     }
     .recipeCard h2 {
       margin-top: 0.1rem;
