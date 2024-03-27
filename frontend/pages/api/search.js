@@ -19,12 +19,11 @@ export default async function handler(req, res) {
         text: {
           query: query,
           path: ['title', 'content'], // Specify the fields you want to search in
-          fuzzy: {}
         }
       }
     },
     {
-      $limit: 20 // Limit the number of results (adjust as needed)
+      $limit: 500
     },
     {
       $project: { title: 1, description: 1, images: 1 } // Specify which fields to include in the results

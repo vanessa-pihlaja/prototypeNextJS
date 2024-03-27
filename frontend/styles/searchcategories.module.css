@@ -107,7 +107,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1100;
     padding: 8px;
     color: rgb(255, 59, 0);
   }
@@ -141,6 +141,24 @@
   .buttonAtFirst:hover {
     font-size: 50px;
     font-weight: 500;
+  }
+
+  .loadMoreContainer {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .loadMoreButton {
+    font-family: "Noto Serif Hebrew", serif;
+    font-weight: 600;
+    color: rgba(81,135,218,255);
+    padding: 10px 20px; /* Example padding */
+    border: none; /* Example border removal */
+    font-size: 1rem; /* Example font size */
+    cursor: pointer; /* Changes cursor to indicate button */
+    border-radius: 5px; /* Rounds corners of the button */
+    transition: background-color 0.3s; /* Smooth transition for background color change */
   }
 
 
