@@ -1,10 +1,10 @@
 .gridContainer {
     width: 100%;
     display: flex;
+    justify-content: center; /* Ensure items are centered */
     flex-wrap: wrap;
     gap: 30px; /* Adjust the gap between items as needed */
     margin: 20px auto;
-    justify-content: center; 
   }
 
   .recipeBlock {
@@ -58,7 +58,7 @@
     column-count: 3; /* Adjust based on desired layout */
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0rem 4rem;
+    padding: 0rem 4rem 0rem 4rem;
   }
   
   .recipeCard {
@@ -173,7 +173,7 @@
 @media (max-width: 1124px) {
     .recipesGrid {
       column-count: 2;
-      padding: 0rem 2rem;
+      padding: 0rem 2rem 0rem 2rem;
     }
     .backButton {
       left: 60px; 
@@ -184,24 +184,17 @@
   
   @media (max-width: 650px) {
     .gridContainer {
+      width: 100%;
       flex-wrap: wrap;
-      gap: 15px; /* Adjusted for a more consistent gap between items */
-      margin: 0 auto; /* Center the content while maintaining a margin on the sides */
-      justify-content: center; /* Ensure items are centered */
-    }
-    .recipesGrid {
-      column-count: 2;
-      padding: 0rem 2rem;
+      gap: 0px; /* Adjust the gap between items as needed */
+      margin: 0px auto;
     }
     .backButton{
       top: 30px;
       left: 15px; 
     }
-    .gridContainer{
-      gap: 0px; 
-    }
     .categoryItem {
-      width: calc(50% - 15px); /* Adjust the width to fit two items per row, accounting for gap */
+      width: 100%; /* Adjust the width to fit two items per row, accounting for gap */
       margin: 0; /* Reset margin to use gap from gridContainer */
       padding: 5px; /* Keep padding to ensure content is not too cramped */
       box-sizing: border-box; /* Include padding and border in the element's total width and height */
@@ -220,10 +213,8 @@
       overflow: hidden; /* Ensure the image does not overflow its wrapper */
     }
     .recipesGrid {
-      column-count: 2;
       column-gap: 0.45rem;
-      padding: 1rem 0rem;
-      justify-content: center;
+      padding: 0rem 1rem 0rem 1rem;
     }
     .recipeCard {
       text-align: center;

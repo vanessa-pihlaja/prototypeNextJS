@@ -81,7 +81,7 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && (
               <div className={styles.recipesGrid}>
                 {categoryData.recipes.map((recipe) => (
-                  <div key={recipe.id} className={styles.recipeBlock}> {/* Move key prop here */}
+                  <div key={recipe.id} className={styles.recipeBlock}>
                     <div className={styles.recipeCard} style={{ position: 'relative' }}>
                       <Link href={`/${recipe.title}`}>
                         {recipe.firstImage && (
