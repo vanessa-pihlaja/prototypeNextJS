@@ -201,7 +201,7 @@
     }
     .catgoryWrapper{
       width: 100%; /* Adjust width to fit two items per row, accounting for a small gap */
-      margin: 0; /* Small margin to ensure there is space around items */
+      margin: 10px 0 0 0; /* Small margin to ensure there is space around items */
       padding: 5px;
     }
     .categoryImageWrapper { 
@@ -251,7 +251,7 @@
       bottom: 2px; 
       right: 1px; 
       font-size: 25px;
-      font-weight: 300;
+      font-weight: 400;
       width: 20px;
       height: 20px;
       display: flex;
