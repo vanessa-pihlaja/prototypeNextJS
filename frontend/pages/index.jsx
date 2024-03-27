@@ -58,7 +58,7 @@ export async function getStaticProps() {
   }));
 
   // Assume we divide all recipes into batches of 50
-  const batchSize = 50;
+  const batchSize = 40;
   const batches = [];
   for (let i = 0; i < data.length; i += batchSize) {
     batches.push(data.slice(i, i + batchSize));

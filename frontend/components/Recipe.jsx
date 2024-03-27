@@ -55,7 +55,7 @@ export default function Recipe() {
           {recipe.images && recipe.images.length > 0 && (
         <div className={styles.recipeImage}>
           <Image
-            src={getFirstImageUrl(recipe.images)} // Use your utility function
+            src={getFirstImageUrl(recipe.images)}
             alt={recipe.title}
             width={150}
             height={300}
