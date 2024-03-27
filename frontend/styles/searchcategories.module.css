@@ -222,7 +222,7 @@
     }
     .recipeCard {
       break-inside: avoid-column; /* Ensure cards are not split across columns */
-      margin-bottom: 1rem; /* Keep consistent spacing between cards */
+      margin-bottom: 0rem; /* Keep consistent spacing between cards */
       width: 100%; /* Ensure cards do not exceed the column width */
     }
     .recipeCard h2 {
