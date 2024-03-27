@@ -7,9 +7,6 @@ import Navbar from '@/components/Navbar';
 
 export default function ProfilePage() {
 
-  //console.log(`saved recipes on profile page ${savedRecipes}`)
-  //console.log('Debug messages:', debugMessages);
-
     return (
       <div>
         <LogoutButton/>
