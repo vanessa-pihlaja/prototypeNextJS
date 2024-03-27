@@ -124,4 +124,9 @@
     font-weight: 300;
     margin: 10px 3px 0 0;
   }
+
+  .backButton{
+    top: 30px;
+    left: 15px; 
+  }
 }

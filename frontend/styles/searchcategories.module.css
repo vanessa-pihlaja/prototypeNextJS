@@ -195,6 +195,7 @@
     }
     .backButton{
       top: 30px;
+      left: 15px; 
     }
     .gridContainer{
       gap: 0px; 
@@ -217,9 +218,6 @@
       position: relative;
       border-radius: 8px; /* Maintain rounded corners */
       overflow: hidden; /* Ensure the image does not overflow its wrapper */
-    }
-    .backButton {
-      left: 15px; 
     }
     .recipesGrid {
       column-count: 2;
