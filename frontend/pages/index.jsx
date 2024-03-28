@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Feed from '../components/Feed';
 import styles from '../styles/feed.module.css';
 import Navbar from '@/components/Navbar';
+import jwt from 'jsonwebtoken';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,4 +54,31 @@ export default function App() {
       </footer>
     </div>
   );
+}
+
+
+export async function getServerSideProps(context) {
+  
+  const token = context.req.cookies.token;
+
+  try {
+    if (!token) {
+      return {
+        redirect: {
+          destination: '/login',
+          permanent: false,
+        },
+      };
+    }
+    jwt.verify(token, 'ba67b720d047a8c39ebe8c751167ccd7');
+    return { props: {} };
+  } catch (error) {
+    
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
 }

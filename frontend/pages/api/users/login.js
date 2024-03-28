@@ -26,8 +26,8 @@ export default async function handler(req, res) {
         expiresIn: '168h',
       });
 
-      // Setting the JWT in an HTTP-only cookie
-      res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/; Secure; SameSite=Strict; Max-Age=${60 * 60};`);
+      res.setHeader('Set-Cookie', `token=${token}; HttpOnly; Path=/; Secure; SameSite=Strict; Max-Age=604800;`);
+
 
       console.log(`token: ${token}`)
 
