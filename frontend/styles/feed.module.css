@@ -58,6 +58,8 @@
   }
 
   .loadMoreButton {
+    display: block;
+    margin: 20px auto 0;
     font-family: "Noto Serif Hebrew", serif;
     font-weight: 600;
     color: rgba(81,135,218,255);
