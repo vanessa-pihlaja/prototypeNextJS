@@ -143,9 +143,9 @@
 
     .buttonAtFirst {
       bottom: 2px; 
-      right: 4px; 
+      right: 1px; 
       font-size: 25px;
-      font-weight: 300;
+      font-weight: 400;
       width: 20px;
       height: 20px;
       display: flex;
