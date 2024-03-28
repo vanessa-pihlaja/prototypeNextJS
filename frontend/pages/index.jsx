@@ -4,10 +4,10 @@ import styles from '../styles/feed.module.css';
 import Navbar from '@/components/Navbar';
 
 export default function App() {
-  const [recipes, setRecipes] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [seed, setSeed] = useState('');
   const [batches, setBatches] = useState([]);
+  const [showLoadMore, setShowLoadMore] = useState(false);
 
 
   useEffect(() => {
@@ -15,7 +15,17 @@ export default function App() {
     const newSeed = Date.now().toString();
     setSeed(newSeed);
 
-    fetchRecipes(1, newSeed); // Fetch initial batch of recipes
+    const handleScroll = () => {
+      // Set showLoadMore to true if the page is scrolled, checking for any positive scrollY value
+      if (window.scrollY > 0) {
+        setShowLoadMore(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    fetchRecipes(1, newSeed); 
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const fetchRecipes = async (page, seed) => {
@@ -31,12 +41,14 @@ export default function App() {
 
   return (
     <div>
-            <header>
+      <header>
         <h1>miamia</h1>
       </header>
       <Navbar />
       <Feed batches={batches} />
+      {showLoadMore && (
       <button className={styles.loadMoreButton} onClick={loadMore}>Lataa lisää</button>
+      )}
       <footer>
       </footer>
     </div>
