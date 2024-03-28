@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import React, { useState } from 'react';
+import React, { useState, } from 'react';
 import CategoriesComponent from "@/components/SearchCategories";
 import SearchComponent from "@/components/SearchRecipes";
 import SearchResultsComponent from "@/components/SearchRecipeResult"; 

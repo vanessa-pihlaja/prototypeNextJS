@@ -43,7 +43,7 @@
   .categoryTitle {
     cursor: pointer;
     margin-top: 20px; /* Adjusted for more space above the title */
-    font-size: 28px; /* Larger font size */
+    font-size: 24px; /* Larger font size */
     line-height: 1.2; /* Adjust line height for better readability */
     color: rgba(81,135,218,255);
   }

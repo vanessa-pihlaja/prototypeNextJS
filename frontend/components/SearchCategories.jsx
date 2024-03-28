@@ -1,19 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/searchcategories.module.css'; // Ensure this is the correct path to your CSS module
-import SaveRecipeModal from './SaveButton'; // Ensure this is the correct path to your component
+import styles from '../styles/searchcategories.module.css'; 
+import SaveRecipeModal from './SaveButton'; 
+
+function shuffle(array) {
+  let currentIndex = array.length, randomIndex;
+
+  while (currentIndex !== 0) {
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
 
 function CategoriesComponent({ categories }) {
+  const [shuffledCategories, setShuffledCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [currentRecipe, setCurrentRecipe] = useState(null);
-  // State to manage the number of visible recipe sets (batches of 30 recipes)
   const [visibleRecipeSets, setVisibleRecipeSets] = useState({});
+
+  useEffect(() => {
+    // Shuffle categories
+    const shuffledCategories = categories.map(category => {
+      // Shuffle recipes within each category
+      const shuffledRecipes = shuffle([...category.recipes]);
+      
+      return {
+        ...category,
+        recipes: shuffledRecipes,
+        coverImage: shuffledRecipes[0] ? shuffledRecipes[0].firstImage : null // Use the first recipe's image as cover
+      };
+    });
+  
+    setShuffledCategories(shuffle(shuffledCategories)); 
+  }, [categories]);
+  
 
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
-      setSelectedCategory(null); // If the category is clicked again, it will close
+      setSelectedCategory(null); 
     } else {
       setSelectedCategory(category); // Open the clicked category
       // Initialize visible sets for a newly selected category if not already set
@@ -53,7 +87,7 @@ function CategoriesComponent({ categories }) {
           </button>
         )}
       </div>
-      {categories.map((categoryData, index) => {
+      {shuffledCategories.map((categoryData, index) => {
         // If a category is selected and it's not the current one, don't render it
         if (selectedCategory && selectedCategory !== categoryData.category) {
           return null;

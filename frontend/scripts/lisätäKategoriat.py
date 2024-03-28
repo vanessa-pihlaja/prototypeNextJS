@@ -28,7 +28,7 @@ def parse_recipe_file(file_path):
 
 recipe_ids = parse_recipe_file(file_path)
 
-category_name = 'Jälkkärit'
+category_name = 'Keitot'
 
 recipes_to_update = {
     category_name: recipe_ids,
