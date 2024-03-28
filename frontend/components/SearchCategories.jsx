@@ -118,6 +118,9 @@ function CategoriesComponent({ categories }) {
                     layout="fill"
                     objectFit="cover"
                     className={styles.categoryImage}
+                    blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
+                    placeholder='blur'
+                    priority
                   />
                 </div>
               )}
@@ -138,6 +141,9 @@ function CategoriesComponent({ categories }) {
                               alt={recipe.title}
                               layout="responsive"
                               className={styles.recipeImage}
+                              blurDataURL={'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=='}
+                              placeholder='blur'
+                              priority
                             />
                           </div>
                         </Link>
