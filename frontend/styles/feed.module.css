@@ -36,7 +36,7 @@
     font-weight: 600;
     text-align: center;
     text-decoration: none;
-    margin: 3px 0 20px 0;
+    margin: 12px 0 20px 0;
   }
 
   .recipeTitle a, .recipeTitle a:visited {
@@ -171,6 +171,7 @@
   
     .recipeTitle {
       font-size: 15px;
+      margin: 5px 0 20px 0;
     }
 
     .ownerName {

@@ -9,7 +9,7 @@
 
   .recipeBlock {
     break-inside: avoid; /* Prevent this block from being split across columns */
-    margin-bottom: 1rem; /* Adjust as needed */
+    margin-bottom: 0rem; /* Adjust as needed */
   }
   
   .categoryItem {
@@ -244,7 +244,7 @@
     .recipeTitle {
       font-size: 15px;
       font-weight: 600;
-      margin: 3px 0 20px 0;
+      margin: 5px 0 20px 0;
     }
     .categoryTitle {
       margin-top: 5px;
