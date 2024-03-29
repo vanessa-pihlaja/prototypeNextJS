@@ -1,11 +1,10 @@
 import React from 'react';
-import LoginComponent from '../components/Login'; // Adjust path as necessary
+import LoginComponent from '../components/Login'; 
 
 const LoginPage = () => {
   return (
     <div>
       <LoginComponent />
-      {/* Any other components or content you want on the login page */}
     </div>
   );
 };

@@ -23,7 +23,7 @@ export default function ProfilePage() {
   export async function getServerSideProps(context) {
   
     const token = context.req.cookies.token;
-  
+    const jwtSecret = process.env.JWT_SECRET
     try {
       if (!token) {
         return {
@@ -33,7 +33,7 @@ export default function ProfilePage() {
           },
         };
       }
-      jwt.verify(token, 'ba67b720d047a8c39ebe8c751167ccd7');
+      jwt.verify(token, jwtSecret);
       return { props: {} };
     } catch (error) {
       

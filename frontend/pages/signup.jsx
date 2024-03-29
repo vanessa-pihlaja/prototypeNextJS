@@ -5,7 +5,6 @@ const SignupPage = () => {
   return (
     <div>
       <SignupComponent />
-      {/* Any additional content or components */}
     </div>
   );
 };

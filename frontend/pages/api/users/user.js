@@ -11,7 +11,9 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: 'Not authorized' });
     }
 
-    const decoded = jwt.verify(token, 'ba67b720d047a8c39ebe8c751167ccd7');
+    const jwtSecret = process.env.JWT_SECRET
+
+    const decoded = jwt.verify(token, jwtSecret);
     const user = await User.findById(decoded.id).select('-password'); // Exclude password
 
     if (!user) {

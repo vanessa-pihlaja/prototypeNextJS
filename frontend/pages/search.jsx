@@ -97,6 +97,6 @@ export async function getStaticProps() {
 
   return {
     props: { categoriesWithRecipes },
-    revalidate: 10 // Revalidate at most once every 10 seconds
+    revalidate: 10
   };
 }
