@@ -89,6 +89,8 @@
   .buttonAtFirst:hover {
     font-size: 45px;
     font-weight: 500;
+    bottom: 7px; 
+    right: 6px; 
   }
 
   .ownerName {

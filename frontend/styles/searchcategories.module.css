@@ -136,8 +136,10 @@
   }
 
   .buttonAtFirst:hover {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 500;
+    bottom: 7px; 
+    right: 6px; 
   }
 
   .loadMoreContainer {
