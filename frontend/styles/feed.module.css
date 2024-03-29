@@ -74,7 +74,7 @@
   .buttonAtFirst {
     position: absolute;
     bottom: 4px; 
-    right: 6px; 
+    right: 4px; 
     background-color: transparent;
     color: rgb(4, 19, 175);
     font-size: 40px;
@@ -82,8 +82,6 @@
     width: 40px;
     height: 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0px 0px 4px 0px;
     border: none;
   }
@@ -155,15 +153,13 @@
     }
 
     .buttonAtFirst {
-      bottom: 1px; 
-      right: 0px; 
+      bottom: 3px; 
+      right: 3px; 
       font-size: 25px;
       font-weight: 500;
       width: 20px;
       height: 20px;
       display: flex;
-      align-items: center;
-      justify-content: center;
       margin: 0px 0px 4px 0px;
       border: none;
     }
