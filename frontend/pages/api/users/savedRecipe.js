@@ -59,7 +59,8 @@ export default async function handler(req, res) {
         content: recipeId.content,
         images: recipeId.images,
         url: recipeId.url,
-        category
+        category,
+        owner: recipeId.owner
       }));
 
       res.status(200).json(savedRecipes);

@@ -160,7 +160,16 @@
     transition: background-color 0.3s; /* Smooth transition for background color change */
   }
 
-
+  .ownerName {
+    position: absolute;
+    bottom: 12px; 
+    left: 8px;
+    color: #FFFFFF;
+    padding: 4px 8px; 
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
 
  /* Adjustments for smaller screens */
  @media (max-width: 1224px) {
@@ -264,5 +273,13 @@
     .buttonAtFirst:hover {
       font-size: 30px;
       font-weight: 500;
+    }
+    .ownerName {
+      position: absolute;
+      bottom: 8px; 
+      left: 8px;
+      padding: 0px 0px; 
+      font-size: 10px;
+      font-weight: 400;
     }
   }

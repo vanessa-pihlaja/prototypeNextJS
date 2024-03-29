@@ -147,6 +147,7 @@ function CategoriesComponent({ categories }) {
                             />
                           </div>
                         </Link>
+                        <div className={styles.ownerName}>{recipe.owner}</div>
                         <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
                       </div>
                       <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>

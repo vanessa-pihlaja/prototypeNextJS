@@ -34,6 +34,17 @@
     margin-top: 10px; /* Space between the image and the title */
     color: rgba(81,135,218,255);
   }
+
+  .ownerName {
+    position: absolute;
+    bottom: 12px; 
+    left: 8px;
+    color: #FFFFFF;
+    padding: 4px 8px; 
+    font-family: "Noto Serif Hebrew", serif;
+    font-size: 12px;
+    font-weight: 600;
+  }
   
  /* Responsive adjustments */
 @media (max-width: 1024px) {
@@ -49,5 +60,13 @@
 }
 
 @media (max-width: 650px) {
+  .ownerName {
+    position: absolute;
+    bottom: 8px; 
+    left: 8px;
+    padding: 0px 0px; 
+    font-size: 10px;
+    font-weight: 400;
+  }
 
 }

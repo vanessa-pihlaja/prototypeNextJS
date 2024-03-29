@@ -69,7 +69,8 @@ export async function getStaticProps() {
           $push: {
             id: "$_id",
             title: "$title",
-            firstImage: { $arrayElemAt: ["$images", 0] }
+            firstImage: { $arrayElemAt: ["$images", 0] },
+            owner: "$owner",
           }
         }
       }
@@ -80,7 +81,8 @@ export async function getStaticProps() {
         _id: 0,
         category: "$_id",
         coverImage: 1,
-        recipes: 1
+        recipes: 1,
+        owner: 1,
       }
     }
   ];

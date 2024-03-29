@@ -105,6 +105,7 @@ const UserCategories = () => {
                           className={styles.recipeImage}
                         />
                       </Link> 
+                      <div className={styles.ownerName}>{recipe.owner}</div>
                     </div>
                     <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
                   </div>

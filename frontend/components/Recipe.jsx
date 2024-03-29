@@ -77,12 +77,18 @@ export default function Recipe() {
                     />
                 </div>
             )}
+            <div className={styles.contentAfterImage}></div>
             <div className={styles.buttonContainer}>
+                <div className={styles.ownerName}>{recipe.owner}</div>
                 <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>Tallenna</button>
             </div>
             {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
+
             <p className={styles.recipeContent}>{renderContent(recipe.content)}</p>
-            <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
+
+            <div className={styles.recipeUrl}>
+                <p><a href={recipe.url} target="_blank" rel="noopener noreferrer">Katso alkuperäinen resepti</a></p>
+            </div>
         </div>
     );
 }
