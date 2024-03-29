@@ -43,6 +43,7 @@
   text-align: start; 
   margin-top: 10px;
   margin-left: 5px;
+
 }
 
 
@@ -112,9 +113,7 @@
   .recipeTitle {
     font-size: 26px;
   }
-  .recipeImage {
-    max-height: 700px; /* Smaller height on smaller screens */
-  }
+
   .recipeContent p {
     font-size: 18px;
     margin-left: 7px;

@@ -21,7 +21,6 @@ export default async function handler(req, res) {
         return res.status(401).json({ error: 'invalid username or password' });
       }
 
-      // Replace 'your_jwt_secret' with your actual secret key
       const token = jwt.sign({ id: user._id, username: user.username }, 'ba67b720d047a8c39ebe8c751167ccd7', {
         expiresIn: '168h',
       });
