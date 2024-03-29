@@ -28,7 +28,7 @@
   text-align: center;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
-  font-size: 13em; /* Adjust size as needed */
+  font-size: 11em; /* Adjust size as needed */
   padding-right: 0.15em;
   margin: 0rem; /* Spacing between the title and the form */
   color: rgb(255, 72, 6);
@@ -46,7 +46,7 @@
 .thirdtitle {
   color: rgb(253, 81, 19);
   font-size: 2em;
-  padding-top: 3em;
+  padding-top: 0em;
 }
 
 .form {
