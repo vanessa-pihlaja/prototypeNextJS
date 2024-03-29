@@ -18,7 +18,7 @@ export default async function handler(req, res) {
         index: 'default', // Use the name of the index you created
         text: {
           query: query,
-          path: ['title', 'content'], // Specify the fields you want to search in
+          path: ['title', 'content', 'owner'], // Specify the fields you want to search in
         }
       }
     },
