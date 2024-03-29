@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const Recipe = require('./src/models/recipe.js'); // Import your Mongoose model
+const Recipe = require('./src/models/recipe.js'); // Adjust the path as necessary
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -14,27 +14,23 @@ async function importRecipes() {
     // Ensure database connection is established
     await mongoose.connection;
 
-    // Get a list of JSON files in the /scripts directory
-    const scriptDir = path.join(process.cwd(), 'data');
-    const files = fs.readdirSync(scriptDir);
+    // Define the path to the JSON file directly
+    const filePath = path.join(process.cwd(), 'data/ottolenghi.json');
 
-    // Iterate through each JSON file and add its contents to the database
-    for (const file of files) {
-      const filePath = path.join(scriptDir, file);
-      const fileContents = fs.readFileSync(filePath, 'utf-8');
-      const recipes = JSON.parse(fileContents);
+    // Read the JSON file's content
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
+    const recipes = JSON.parse(fileContents);
 
-      // Add each valid recipe to the database
-      for (const recipe of recipes) {
-        // Check if the recipe meets the requirements
-        if (!recipe.title || !recipe.content || !recipe.images || recipe.images.length === 0) {
-          console.log(`Skipping recipe due to missing required fields.`);
-          continue; // Skip this recipe and move to the next one
-        }
-
-        const savedRecipe = await Recipe.create(recipe);
-        console.log(`Recipe "${savedRecipe.title}" added to the database.`);
+    // Add each valid recipe to the database
+    for (const recipe of recipes) {
+      // Check if the recipe meets the requirements
+      if (!recipe.title || !recipe.content || !recipe.images || recipe.images.length === 0) {
+        console.log(`Skipping recipe due to missing required fields: ${recipe.title}`);
+        continue; // Skip this recipe and move to the next one
       }
+
+      const savedRecipe = await Recipe.create(recipe);
+      console.log(`Recipe "${savedRecipe.title}" added to the database.`);
     }
 
     console.log('All recipes imported successfully.');
