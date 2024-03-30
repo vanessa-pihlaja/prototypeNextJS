@@ -35,13 +35,29 @@ export default function Recipe() {
         return Array.isArray(images) && images.length > 0 ? images[0] : '';
     };
 
-    function stripHtml(html) {
-        return html.replace(/<[^>]*>?/gm, '');
-    }      
+    function stripHtmlAndPrepareForSpacing(html) {
+        let modifiedHtml = html
+            .replace(/<ul>/g, '[EMPTY_LINE_HERE]<ul>')
+            .replace(/<\/ul>/g, '</ul>[EMPTY_LINE_HERE]')
+            .replace(/<ol>/g, '[EMPTY_LINE_HERE]<ol>')
+            .replace(/<\/ol>/g, '</ol>[EMPTY_LINE_HERE]');
+
+        const strippedHtml = modifiedHtml.replace(/<[^>]*>?/gm, '');
+        return strippedHtml;
+    }
 
     const renderContent = (content) => {
-        const lines = stripHtml(content).split('\n').filter(line => line.trim() !== '');
-        return lines.map((line, index) => <p key={index}>{line}</p>);
+        const lines = stripHtmlAndPrepareForSpacing(content)
+            .split('\n')
+            .filter(line => line.trim() !== '' || line.includes('[EMPTY_LINE_HERE]'));
+
+        return lines.map((line, index) => {
+            if (line.includes('[EMPTY_LINE_HERE]')) {
+                return <div key={index} className={styles.emptyLine}></div>;
+            } else {
+                return <p key={index}>{line}</p>;
+            }
+        });
     };
 
     if (!recipe) {

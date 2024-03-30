@@ -108,6 +108,11 @@
   padding-left: 5px;
 }
 
+.emptyLine {
+    height: 0.5em; /* Keep your existing style */
+}
+
+
 
 @media (max-width: 768px) {
   .recipeTitle {
