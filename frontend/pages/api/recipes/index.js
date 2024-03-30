@@ -26,7 +26,7 @@ export default async function handler(req, res) {
     await dbConnect();
   
     const { page = 1, seed = new Date().getTime() } = req.query; // Example seed
-    const batchSize = 30;
+    const batchSize = 20;
   
     let recipes = await Recipe.find({}).select('_id title owner images').lean();
   
