@@ -57,7 +57,7 @@ export default function SearchResultsComponent({ searchResults }) {
       {searchResults.length > visibleSets * 30 && (
         <div className={styles.loadMoreContainer}>
           <button onClick={loadMoreRecipes} className={styles.loadMoreButton}>
-            Load More
+           Näytä lisää
           </button>
         </div>
       )}
