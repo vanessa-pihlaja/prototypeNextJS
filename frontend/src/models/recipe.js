@@ -11,7 +11,7 @@ const recipeSchema = new mongoose.Schema({
     required: true
   },
   images: {
-    type: [String], // Assuming multiple image URLs per recipe
+    type: [String], 
     required: true
   },
   url: {

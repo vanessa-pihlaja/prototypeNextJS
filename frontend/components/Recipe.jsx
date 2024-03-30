@@ -40,9 +40,16 @@ export default function Recipe() {
     }      
 
     const renderContent = (content) => {
-        const lines = stripHtml(content).split('\n').filter(line => line.trim() !== '');
+        // Insert a newline before each <ul> and <ol> to ensure space is added before these elements
+        const preprocessedContent = content.replace(/(<ul>|<ol>)/g, '\n$1');
+      
+        // Strip HTML and split into lines, then filter out empty lines
+        const lines = stripHtml(preprocessedContent).split('\n').filter(line => line.trim() !== '');
+      
+        // Map each line to a <p> tag for rendering
         return lines.map((line, index) => <p key={index}>{line}</p>);
-    };
+      };
+      
 
     if (!recipe) {
         return <div>Loading...</div>;

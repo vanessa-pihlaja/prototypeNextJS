@@ -13,21 +13,19 @@ db = client[database_name]
 recipes_collection = db[collection_name]
 # Define a mapping of URL patterns to owner names
 
-url_to_owner_mapping = {
-    'https://www.anninuunissa.fi': 'Annin Uunissa',
-    'https://www.bellatable.fi/': 'Bella Table',
-    'https://liemessa.fi/': 'Liemessä',
-    'https://viimeistamuruamyoten.com/': 'Viimeistä Murua Myöten'
-}
+list_pattern = re.compile(r'(<ul>|<ol>)')
 
-# Iterate through the mapping and update the documents
-for url_pattern, owner_name in url_to_owner_mapping.items():
-    # Update all recipes matching the URL pattern with the new owner property
-    result = recipes_collection.update_many(
-        {'url': {'$regex': url_pattern}},
-        {'$set': {'owner': owner_name}}
-    )
+# Find recipes from "Viimeistä Murua Myöten" blog
+viimeista_recipes = recipes_collection.find({'url': {'$regex': 'https://viimeistamuruamyoten.com/'}})
+
+for recipe in viimeista_recipes:
+    # Insert <br> before each <ul> and <ol>
+    updated_content = re.sub(list_pattern, r'<br>\1', recipe['content'])
     
-    print(f"Updated {result.modified_count} recipes with owner '{owner_name}'.")
+    # Update the document with the new content
+    recipes_collection.update_one(
+        {'_id': recipe['_id']},
+        {'$set': {'content': updated_content}}
+    )
 
-print("Completed updating all recipes with their respective owners.")
+print("Completed inserting <br> tags before list elements in Viimeistä Murua Myöten blog recipes.")
