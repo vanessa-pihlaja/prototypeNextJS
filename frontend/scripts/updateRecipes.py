@@ -1,9 +1,14 @@
 from pymongo import MongoClient
 import re
 import certifi
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # MongoDB connection string
-mongo_uri = 'mongodb+srv://vanessapihlaja:0N0hvWBixwP6PQGO@cluster0.hum04qt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+mongo_uri = os.getenv('MONGODB_URI')
 database_name = 'test'
 collection_name = 'recipes'
 
@@ -11,16 +16,19 @@ collection_name = 'recipes'
 client = MongoClient(mongo_uri, tlsCAFile=certifi.where())
 db = client[database_name]
 recipes_collection = db[collection_name]
-# Define a mapping of URL patterns to owner names
 
-list_pattern = re.compile(r'(<ul>|<ol>)')
+# Define a mapping of URL patterns to owner names, now only for Yotam Ottolenghi
+url_to_owner_mapping = {
+    'https://ottolenghi.co.uk/': 'Ottolenghi',
+}
 
-# Find recipes from "Viimeistä Murua Myöten" blog
-viimeista_recipes = recipes_collection.find({'url': {'$regex': 'https://viimeistamuruamyoten.com/'}})
-
-for recipe in viimeista_recipes:
-    # Insert <br> before each <ul> and <ol>
-    updated_content = re.sub(list_pattern, r'<br>\1', recipe['content'])
+# Iterate through the mapping and update the documents for Ottolenghi only
+for url_pattern, owner_name in url_to_owner_mapping.items():
+    # Update all recipes matching the URL pattern with the new owner property
+    result = recipes_collection.update_many(
+        {'url': {'$regex': re.escape(url_pattern), '$options': 'i'}},  # Escape the pattern and make case insensitive
+        {'$set': {'owner': owner_name}}
+    )
     
     # Update the document with the new content
     recipes_collection.update_one(
@@ -28,4 +36,4 @@ for recipe in viimeista_recipes:
         {'$set': {'content': updated_content}}
     )
 
-print("Completed inserting <br> tags before list elements in Viimeistä Murua Myöten blog recipes.")
+print("Completed updating recipes for Yotam Ottolenghi.")

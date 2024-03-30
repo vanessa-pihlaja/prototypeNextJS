@@ -13,6 +13,9 @@ const nextConfig = {
             },
             {
                 hostname: 'viimeistamuruamyoten.com'
+            },
+            {
+                hostname: 'ottolenghi.co.uk'
             }
         ]
     }

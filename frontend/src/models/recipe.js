@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 // Define the schema for the recipe
 const recipeSchema = new mongoose.Schema({
   title: {
@@ -30,6 +31,10 @@ const recipeSchema = new mongoose.Schema({
 
 // Create a model from the schema
 // Use mongoose.models to avoid error on hot reload during development
+
 const Recipe = mongoose.models.Recipe || mongoose.model('Recipe', recipeSchema);
 
 export default Recipe;
+
+
+

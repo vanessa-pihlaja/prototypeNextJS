@@ -36,7 +36,7 @@
     font-weight: 600;
     text-align: center;
     text-decoration: none;
-    margin: 3px 0 20px 0;
+    margin: 12px 0 20px 0;
   }
 
   .recipeTitle a, .recipeTitle a:visited {
@@ -74,7 +74,7 @@
   .buttonAtFirst {
     position: absolute;
     bottom: 4px; 
-    right: 6px; 
+    right: 4px; 
     background-color: transparent;
     color: rgb(4, 19, 175);
     font-size: 40px;
@@ -82,15 +82,15 @@
     width: 40px;
     height: 40px;
     display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0px 0px 4px 0px;
     border: none;
   }
 
   .buttonAtFirst:hover {
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 500;
+    bottom: 7px; 
+    right: 6px; 
   }
 
   .ownerName {
@@ -155,26 +155,25 @@
     }
 
     .buttonAtFirst {
-      bottom: 2px; 
-      right: 1px; 
+      bottom: 3px; 
+      right: 0px; 
       font-size: 25px;
-      font-weight: 400;
+      font-weight: 500;
       width: 20px;
       height: 20px;
       display: flex;
-      align-items: center;
-      justify-content: center;
       margin: 0px 0px 4px 0px;
       border: none;
     }
   
     .buttonAtFirst:hover {
       font-size: 30px;
-      font-weight: 500;
+      font-weight: 600;
     }
   
     .recipeTitle {
       font-size: 15px;
+      margin: 6px 0 20px 0;
     }
 
     .ownerName {
@@ -183,7 +182,7 @@
     left: 8px;
     padding: 0px 0px; 
     font-size: 10px;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   }
