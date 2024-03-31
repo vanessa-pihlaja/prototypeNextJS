@@ -26,7 +26,7 @@ export default async function handler(req, res) {
       $limit: 500
     },
     {
-      $project: { title: 1, description: 1, images: 1 } // Specify which fields to include in the results
+      $project: { title: 1, description: 1, images: 1, owner: 1 } // Specify which fields to include in the results
     }
   ]);
 

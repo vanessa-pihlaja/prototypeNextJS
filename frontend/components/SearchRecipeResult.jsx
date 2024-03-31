@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/searchcategories.module.css'; // Import your CSS module
+import styles from '../styles/searchcategories.module.css'; 
 import SaveRecipeModal from './SaveButton';
 
 const getFirstImageUrl = (images) => {
@@ -46,6 +46,7 @@ export default function SearchResultsComponent({ searchResults }) {
                       priority
                     />
                   </Link>
+                  <div className={styles.ownerName}>{recipe.owner}</div>
                   <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
                 </div>
               </div>
