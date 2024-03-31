@@ -55,10 +55,10 @@ const SignupComponent = () => {
           <h1 className={styles.title}>miamia</h1>
           <div className={styles.formContainer}>
             <h2 className={styles.secondtitle}> Welcome to your culinary journey</h2>
-            <h3 className={styles.thirdtitle}>Sign up</h3>
+            <h3 className={styles.thirdtitle}>Rekisteröidy käyttäjäksi</h3>
             <form className={styles.form} onSubmit={handleSubmit}>
               <div>
-                <label className={styles.label} htmlFor="username">Username</label>
+                <label className={styles.label} htmlFor="username">Käyttäjänimi</label>
                 <input
                   type="text"
                   id="username"
@@ -70,7 +70,7 @@ const SignupComponent = () => {
                 />
               </div>
               <div>
-                <label className={styles.label} htmlFor="name">Name</label>
+                <label className={styles.label} htmlFor="name">Nimi</label>
                 <input
                   type="text"
                   id="name"
@@ -82,7 +82,7 @@ const SignupComponent = () => {
                 />
               </div>
               <div>
-                <label className={styles.label} htmlFor="password">Password</label>
+                <label className={styles.label} htmlFor="password">Salasana</label>
                 <input
                   type="password"
                   id="password"
@@ -93,7 +93,7 @@ const SignupComponent = () => {
                   required
                 />
               </div>
-              <button className={styles.submitButton} type="submit">Create Profile</button>
+              <button className={styles.submitButton} type="submit">Luo profiili</button>
             </form>
           </div>
         </div>

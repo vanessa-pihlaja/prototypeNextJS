@@ -30,11 +30,11 @@ const LoginComponent = () => {
         <div className={styles.container}>
             <h1 className={styles.title}>miamia</h1> 
             <div className={styles.formContainer}>
-            <h2 className={styles.secondtitle}> Lets bring magic back to the kitchen</h2>
-            <h3 className={styles.thirdtitle}>Login</h3>
+            <h2 className={styles.secondtitle}> Lets bring the magic back to the kitchen</h2>
+            <h3 className={styles.thirdtitle}>Kirjaudu sisään</h3>
               <form onSubmit={handleSubmit} className={styles.form}>
               <div>
-                  <label htmlFor="username" className={styles.label}>Username</label>
+                  <label htmlFor="username" className={styles.label}>Käyttäjänimi</label>
                   <input
                   id="username"
                   type="text"
@@ -44,7 +44,7 @@ const LoginComponent = () => {
                   />
               </div>
               <div>
-                  <label htmlFor="password" className={styles.label}>Password</label>
+                  <label htmlFor="password" className={styles.label}>Salasana</label>
                   <input
                   id="password"
                   type="password"
@@ -53,7 +53,7 @@ const LoginComponent = () => {
                   className={styles.inputfield}
                   />
               </div>
-              <button type="submit" className={styles.submitButton}>Log In</button>
+              <button type="submit" className={styles.submitButton}>Kirjaudu sisään</button>
               {error && <p className={styles.errorMessage}>{error}</p>}
               </form>
             </div>
