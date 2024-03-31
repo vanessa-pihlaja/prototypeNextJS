@@ -16,13 +16,14 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
 
   const userCategories = user?.categories || [];
 
-  // Merge user categories with suggested categories and ensure uniqueness
+  
   const allCategories = useMemo(() => Array.from(new Set([
     ...suggestedCategories,
     ...userCategories
   ])), [userCategories, suggestedCategories]);
 
   const handleSave = async () => {
+    let categoryName = '';
     try {
       const categoryName = selectedCategory === 'new' ? newCategory : selectedCategory;
 
@@ -41,7 +42,7 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
       setShowSaveModal(false);
     } catch (error) {
       console.error('Error saving recipe:', error);
-      alert('Failed to save recipe.');
+      alert(`Olet jo tallentanut kyseisen reseptin.`);
     }
   };
 
@@ -59,7 +60,7 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
         {selectedCategory === 'new' && (
           <input
             type="text"
-            placeholder="Category name"
+            placeholder=" Kategorian nimi"
             value={newCategory}
             onChange={(e) => setNewCategory(e.target.value)}
           />
