@@ -129,7 +129,7 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && (
               Array.from({ length: visibleRecipeSets[categoryData.category] || 1 }).map((_, setIndex) => (
                 <div key={setIndex} className={styles.recipesGrid}>
-                  {categoryData.recipes.slice(setIndex * 30, (setIndex + 1) * 30).map((recipe) => (
+                  {categoryData.recipes.slice(setIndex * 20, (setIndex + 1) * 20).map((recipe) => (
                     <div key={recipe.id} className={styles.recipeBlock}>
                       <div className={styles.recipeCard} style={{ position: 'relative' }}>
                         <Link href={`/${recipe.title}`}>

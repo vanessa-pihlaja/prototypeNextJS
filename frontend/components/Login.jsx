@@ -66,7 +66,7 @@ const LoginComponent = () => {
                     className={styles.togglePasswordButton}
                     aria-label="Toggle password visibility"
                   >
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye}/>
                 </button>
               </div>
               <button type="submit" className={styles.submitButton}>Kirjaudu sisään</button>

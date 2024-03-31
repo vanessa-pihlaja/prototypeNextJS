@@ -34,9 +34,9 @@ export default async function handler(req, res) {
     const { page = 1 } = req.query;
     const batchSize = 20;
     const currentTime = new Date().getTime();
-    const thirtyMinutes = 10 * 60 * 1000; // 30 minutes in milliseconds
+    const thirtyMinutes = 10 * 60 * 1000; // 10 minutes until updates
 
-    // Shuffle only if more than 30 minutes have passed or if cache is empty
+    // Shuffle only if more than 10 minutes have passed or if cache is empty
     if (!cache.lastShuffleTime || currentTime - cache.lastShuffleTime > thirtyMinutes) {
         let recipes = await Recipe.find({}).select('_id title owner images').lean();
         // Use a consistent seed based on the current half-hour to ensure the shuffle is consistent across requests
