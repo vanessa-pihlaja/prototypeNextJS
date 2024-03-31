@@ -96,8 +96,8 @@ const SignupComponent = () => {
               </div>
               <button className={styles.submitButton} type="submit">Luo profiili</button>
             </form>
-            <div className={styles.toOtherPage}
-              >Minulla on jo profiili. 
+            <div className={styles.toOtherPage}>
+              Minulla on jo profiili. 
                 <Link href="/login" className={styles.linkToOtherPage}>
                   Kirjaudu sisään.
                 </Link> 
