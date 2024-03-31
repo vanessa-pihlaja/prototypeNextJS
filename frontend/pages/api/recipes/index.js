@@ -22,19 +22,31 @@ function seededShuffle(array, seed) {
     return result;
 }
 
+// Cache for storing the shuffled recipes and the last shuffle time
+let cache = {
+    lastShuffleTime: null,
+    shuffledRecipes: []
+};
+
 export default async function handler(req, res) {
     await dbConnect();
   
-    const { page = 1, seed = new Date().getTime() } = req.query; // Example seed
+    const { page = 1 } = req.query;
     const batchSize = 20;
-  
-    let recipes = await Recipe.find({}).select('_id title owner images').lean();
-  
-    // Use the seed from query params or generate a new one
-    const shuffledRecipes = seededShuffle(recipes, parseInt(seed));
+    const currentTime = new Date().getTime();
+    const thirtyMinutes = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+    // Shuffle only if more than 30 minutes have passed or if cache is empty
+    if (!cache.lastShuffleTime || currentTime - cache.lastShuffleTime > thirtyMinutes) {
+        let recipes = await Recipe.find({}).select('_id title owner images').lean();
+        // Use a consistent seed based on the current half-hour to ensure the shuffle is consistent across requests
+        const seed = Math.floor(currentTime / thirtyMinutes);
+        cache.shuffledRecipes = seededShuffle(recipes, seed);
+        cache.lastShuffleTime = currentTime;
+    }
   
     const startIndex = (page - 1) * batchSize;
-    const selectedRecipes = shuffledRecipes.slice(startIndex, startIndex + batchSize).map(recipe => ({
+    const selectedRecipes = cache.shuffledRecipes.slice(startIndex, startIndex + batchSize).map(recipe => ({
         _id: recipe._id.toString(),
         title: recipe.title,
         owner: recipe.owner,
