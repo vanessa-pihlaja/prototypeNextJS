@@ -964,22 +964,18 @@ ID: 65f2efac80e28358636a99bf, Title: Soijarouhepyörykät Viski-kermakastikkeess
 ID: 65f2efac80e28358636a99c5, Title: Nyhtökaura-bataattipyttipannu (v, Gf)
 
 Category: Brunssi
-ID: 65f2ef9280e28358636a9120, Title: Puolukka-Kinuskikakku (G)
 ID: 65f2ef9380e28358636a9123, Title: Rapea Mansikkapaistos
 ID: 65f2ef9380e28358636a9127, Title: Helppo Marja-Rahkatorttu
 ID: 65f2ef9380e28358636a9129, Title: Raparperi-Myslikeikaus paahdetulla voilla
 ID: 65f2ef9380e28358636a9135, Title: Croissant-päivä & ihanimmat täytteet
 ID: 65f2ef9380e28358636a9137, Title: Mustikka-Sitruunamutakakku
-ID: 65f2ef9380e28358636a9141, Title: Maidoton Mansikkakakku (G)
 ID: 65f2ef9380e28358636a9143, Title: Chocolate Chip Pannarit
 ID: 65f2ef9380e28358636a9145, Title: Makumuistoja – Lohigalette
 ID: 65f2ef9580e28358636a9147, Title: Key Lime Pie – Helppo Limepiiras (G)
 ID: 65f2ef9580e28358636a914d, Title: Oton Japanilainen Maitoleipä
-ID: 65f2ef9580e28358636a914f, Title: Kuorrutettu Suklaa-Punajuurikakku (G)
 ID: 65f2ef9580e28358636a9157, Title: Kesäkurpitsarieskat
 ID: 65f2ef9580e28358636a9159, Title: Helppo Tuulihattutorni – Croquembouche
 ID: 65f2ef9580e28358636a915b, Title: Parhaimmat Ricottapannukakut
-ID: 65f2ef9580e28358636a915d, Title: Tahmean Mehevä Marmeladikakku
 ID: 65f2ef9580e28358636a915f, Title: Helppo Rahkavoitaikina (G)
 ID: 65f2ef9580e28358636a9161, Title: Rapea Raparperipiirakka kauramannasta
 ID: 65f2ef9580e28358636a9163, Title: Paras Vegaaninen Suklaakakku
@@ -1001,11 +997,9 @@ ID: 65f2ef9680e28358636a91d3, Title: Minipannarit ja Omena-pihlajanmarjahillo
 ID: 65f2ef9780e28358636a91dd, Title: Mehevä Raparperipiirakka (G)
 ID: 65f2ef9780e28358636a91df, Title: Paras Pullataikina ohje & vinkit
 ID: 65f2ef9780e28358636a91e1, Title: Mehevä Suklaa-kesäkurpitsakakku
-ID: 65f2ef9780e28358636a91e7, Title: Helpot Lantturieskat (6 kk+)
 ID: 65f2ef9780e28358636a91f3, Title: Helppo Juustopiirakka ja asiaa mausteista (arvonta)
 ID: 65f2ef9780e28358636a91f9, Title: Timjami-Mansikkakakku (G)
 ID: 65f2ef9780e28358636a920b, Title: Amerikkalainen Omenakeksipiirakka
-ID: 65f2ef9780e28358636a920f, Title: Upea Sitruuna-Kinuskitäytekakku (Ve)
 ID: 65f2ef9780e28358636a9215, Title: Caramel-Puolukkatuorepuuro (G)
 ID: 65f2ef9780e28358636a921b, Title: Terveellisemmät Kauracookiet (G)
 ID: 65f2ef9780e28358636a921d, Title: Kindermoussella täytetyt Croissant-tuutit

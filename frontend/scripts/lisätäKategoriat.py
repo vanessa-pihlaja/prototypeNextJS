@@ -28,13 +28,12 @@ def parse_recipe_file(file_path):
 
 recipe_ids = parse_recipe_file(file_path)
 
-category_name = 'Vege'
+category_name = 'Vappu'
 
-# Assuming 'category' is now an array field in your documents
 for recipe_id in recipe_ids:
     collection.update_one(
         {'_id': ObjectId(recipe_id)}, 
-        {'$addToSet': {'category': category_name}}  # Use '$addToSet' to add to the array
+        {'$addToSet': {'category': category_name}}  
     )
 
 print("Finished updating recipe categories.")
