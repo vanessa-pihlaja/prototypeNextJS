@@ -15,7 +15,6 @@ export default function Feed({ batches }) {
     setShowSaveModal(true);
   };
 
-
   return (
     <div>
       {batches.map((recipes, batchIndex) => (
@@ -24,7 +23,10 @@ export default function Feed({ batches }) {
             {recipes.map(recipe => (
               <div className={styles.recipeBlock} key={recipe._id || recipeIndex}>
                 <div className={styles.recipeCard} >
-                  <Link href={`/${recipe.title}`}>
+                  <Link href={`/${recipe.title}`} 
+                  onClick={() =>
+                    sessionStorage.setItem('scrollPosition', window.pageYOffset)
+                  }>
                     <Image
                       width={200}
                       height={500}
@@ -41,7 +43,11 @@ export default function Feed({ batches }) {
                   <div className={styles.ownerName}>{recipe.owner}</div>
                   <button className={styles.buttonAtFirst} onClick={() => handleSaveClick(recipe)}>+</button>
                 </div>
-                <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
+                <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}
+                onClick={() =>
+                    sessionStorage.setItem('scrollPosition', window.pageYOffset)
+                  }
+                  >{recipe.title}</Link></h2>
               </div>
             ))}
           </div>
