@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Router from 'next/router';
 import styles from '../styles/login.module.css';
 import { useUser } from '../contexts/UserContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const LoginComponent = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const { fetchUser } = useUser()
+    const [showPassword, setShowPassword] = useState(false)
   
     async function handleSubmit(e) {
       e.preventDefault();
@@ -25,6 +28,10 @@ const LoginComponent = () => {
         setError(errorData.error);
       }
     }
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+  };
   
     return (
         <div className={styles.container}>
@@ -47,11 +54,19 @@ const LoginComponent = () => {
                   <label htmlFor="password" className={styles.label}>Salasana</label>
                   <input
                   id="password"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className={styles.inputfield}
                   />
+                  <button 
+                    type="button" 
+                    onClick={togglePasswordVisibility} 
+                    className={styles.togglePasswordButton}
+                    aria-label="Toggle password visibility"
+                  >
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </button>
               </div>
               <button type="submit" className={styles.submitButton}>Kirjaudu sisään</button>
               {error && <p className={styles.errorMessage}>{error}</p>}

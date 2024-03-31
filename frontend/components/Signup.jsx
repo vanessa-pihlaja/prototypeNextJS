@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import styles from '../styles/signup.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const SignupComponent = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const [user, setUser] = useState({
-        username: '',
-        name: '',
-        password: '',
+          username: '',
+          name: '',
+          password: '',
       });
     
       const handleChange = (e) => {
@@ -16,6 +19,10 @@ const SignupComponent = () => {
           [name]: value,
         });
       };
+
+      const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
     
       const handleSubmit = async (e) => {
         e.preventDefault();
@@ -84,7 +91,7 @@ const SignupComponent = () => {
               <div>
                 <label className={styles.label} htmlFor="password">Salasana</label>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="password"
                   name="password"
                   value={user.password}
@@ -92,6 +99,14 @@ const SignupComponent = () => {
                   className= {styles.inputfield}
                   required
                 />
+               <button 
+                  type="button" 
+                  onClick={togglePasswordVisibility} 
+                  className={styles.togglePasswordButton}
+                  aria-label="Toggle password visibility"
+                >
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </button>
               </div>
               <button className={styles.submitButton} type="submit">Luo profiili</button>
             </form>

@@ -1,4 +1,4 @@
-/* Base styles for the container that will hold both the title and the form */
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap');
 .container {
     display: flex;
     flex-direction: row;
@@ -91,8 +91,8 @@
     margin-top: 25px;
     margin-left: auto; /* Center the button horizontally */
     margin-right: auto; /* Center the button horizontally */
+    font-family: "Ibarra Real Nova", serif;
   }
-
 
 
 
