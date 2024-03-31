@@ -40,7 +40,6 @@ ID: 6606c63a5fde1f26fa47adfa, Title: Gingerbread House
 ID: 6606c63a5fde1f26fa47adfe, Title: Turmeric fried eggs with tamarind dressing
 ID: 6606c63a5fde1f26fa47ae00, Title: Roasted pork belly with orange & star anise
 ID: 6606c63a5fde1f26fa47ae02, Title: Celebration tah chin with chicken and spinach
-ID: 6606c63a5fde1f26fa47ae0a, Title: Mont Blanc tarts (SWEET pg 235)
 ID: 6606c6395fde1f26fa47ad9e, Title: Gigli with chickpeas and za’atar (Simple)
 
 Category: Pastat ja risotot
@@ -599,17 +598,13 @@ ID: 6606c6385fde1f26fa47ad6e, Title: Tarragon gondi
 ID: 6606c6385fde1f26fa47ad72, Title: Pumpkin, saffron & orange soup with caramelised pumpkin seeds
 ID: 6606c6395fde1f26fa47ad84, Title: Red lentil and chard soup
 ID: 6606c6395fde1f26fa47adce, Title: Sweetcorn soup with chipotle and lime
-ID: 6606c63a5fde1f26fa47ade8, Title: Roasted pork belly with crushed butternut squash and apple and walnut salsa
-ID: 6606c63a5fde1f26fa47adf8, Title: Barbecue beef short ribs with black garlic and urfa chilli
 ID: 6606c63a5fde1f26fa47ae16, Title: Sea bass and turmeric potatoes in rasam broth
 ID: 6606c63a5fde1f26fa47ae24, Title: Cauliflower soup with mustard croutons
 
 Category: Salaatit
 ID: 6606c6335fde1f26fa47ab06, Title: Buckwheat and rice salad with dried cherries and hazelnuts
 ID: 6606c6335fde1f26fa47ab2c, Title: Kohlrabi, apple and beetroot salad
-ID: 6606c6335fde1f26fa47ab38, Title: Blackened sea bass with scotch bonnet sauce
 ID: 6606c6345fde1f26fa47ab50, Title: Pulled pork sandwich with pomegranate salad
-ID: 6606c6345fde1f26fa47ab5a, Title: Vegetable makloubeh
 ID: 6606c6345fde1f26fa47ab66, Title: Cucumber crunch salad with curried cashews
 ID: 6606c6345fde1f26fa47ab72, Title: Tomato and pomegranate salad
 ID: 6606c6345fde1f26fa47ab7c, Title: Potato and asparagus salad with black garlic and dukkah
@@ -621,8 +616,6 @@ ID: 6606c6355fde1f26fa47abfa, Title: Grilled sweetcorn slaw
 ID: 6606c6355fde1f26fa47ac12, Title: Kale tahini Caesar with za’atar chickpeas and roasted grapes
 ID: 6606c6365fde1f26fa47ac3c, Title: Caramelised fig, orange and feta salad
 ID: 6606c6365fde1f26fa47ac48, Title: Spring salad
-ID: 6606c6365fde1f26fa47ac4a, Title: Chickpea, tomato and bread soup
-ID: 6606c6365fde1f26fa47ac72, Title: Chicken with potatoes, prunes and pomegranate molasses
 ID: 6606c6365fde1f26fa47ac78, Title: Sweet summer salad
 ID: 6606c6365fde1f26fa47ac8c, Title: Smacked cucumber salad with sumac onions and radishes
 ID: 6606c6375fde1f26fa47aca2, Title: Coronation Cauliflower (curried egg and cauliflower salad)
@@ -631,24 +624,15 @@ ID: 6606c6375fde1f26fa47acc6, Title: Raw root vegetables
 ID: 6606c6375fde1f26fa47acca, Title: Grilled red mullet with lemon and celery salad
 ID: 6606c6375fde1f26fa47acce, Title: Nepalese potato salad
 ID: 6606c6375fde1f26fa47acd8, Title: Miso and peanut butter chickpea salad
-ID: 6606c6375fde1f26fa47acda, Title: Coronation quiche with jewelled salsa
-ID: 6606c6375fde1f26fa47ace0, Title: Gondi
 ID: 6606c6375fde1f26fa47ace8, Title: Mackerel and green bean salad with harissa dressing
 ID: 6606c6375fde1f26fa47acf0, Title: Pear and fennel salad with caraway and pecorino
-ID: 6606c6375fde1f26fa47acf8, Title: Coffee and chilli-rubbed chicken koftas with grilled onions
-ID: 6606c6375fde1f26fa47acfc, Title: Squid with sweet potato and lemon salsa
 ID: 6606c6385fde1f26fa47ad0a, Title: Chipotle-roasted chicken with plum and tarragon salad
 ID: 6606c6385fde1f26fa47ad14, Title: Globe artichoke salad with preserved lemon mayonnaise
 ID: 6606c6385fde1f26fa47ad20, Title: Lamb chops with pilpelchuma butter, tahini yoghurt and herb salad
-ID: 6606c6385fde1f26fa47ad30, Title: Ricotta hotcakes
-ID: 6606c6385fde1f26fa47ad38, Title: Mutabal (Burnt aubergine with tahini)
 ID: 6606c6385fde1f26fa47ad3a, Title: Tomato, rhubarb and elderflower salad
 ID: 6606c6385fde1f26fa47ad52, Title: Grilled radicchio and kale salad with orange and hazelnuts
-ID: 6606c6385fde1f26fa47ad58, Title: Grilled prawns and corn
 ID: 6606c6385fde1f26fa47ad6a, Title: Bourbon-glazed spare ribs with smoked corn salad
 ID: 6606c6385fde1f26fa47ad74, Title: Salt crusted fish with Mediterranean salad
-ID: 6606c6395fde1f26fa47ad88, Title: Candy beetroot with lentils and yuzu
-ID: 6606c6395fde1f26fa47adaa, Title: Baked ricotta with figs and lavender honey
 ID: 6606c6395fde1f26fa47adac, Title: Pork souvlaki with cucumber salad and tzatziki
 ID: 6606c6395fde1f26fa47adc4, Title: Cauliflower, pomegranate and pistachio salad (SIMPLE, pg 91)
 ID: 6606c6395fde1f26fa47add2, Title: Saffron chicken and herb salad
@@ -665,14 +649,10 @@ ID: 6606c6375fde1f26fa47acb8, Title: Watermelon and feta salad with marinated ol
 ID: 6606c6385fde1f26fa47ad7a, Title: Cheesy curry crepes
 
 Category: Pääruoka
-ID: 6606c6335fde1f26fa47aaf5, Title: Apricot and pecan stuffing with green sauce
 ID: 6606c6335fde1f26fa47aafc, Title: Chicken thighs with barberries and feta
 ID: 6606c6335fde1f26fa47aafe, Title: Sumac-marinated baby chickens stuffed with bulgar & lamb
 ID: 6606c6335fde1f26fa47ab00, Title: Chicken meatballs with preserved lemon and harissa relish
-ID: 6606c6335fde1f26fa47ab06, Title: Buckwheat and rice salad with dried cherries and hazelnuts
-ID: 6606c6335fde1f26fa47ab0a, Title: Roasted sweet potato with pecan and maple
 ID: 6606c6335fde1f26fa47ab0c, Title: Tomatoes and red rice with burrata
-ID: 6606c6335fde1f26fa47ab0e, Title: Membrillo and Stilton quiche
 ID: 6606c6335fde1f26fa47ab10, Title: Char-grilled squid with chana dal and preserved lemon
 ID: 6606c6335fde1f26fa47ab14, Title: Muhammara
 ID: 6606c6335fde1f26fa47ab16, Title: Cumin Lamb skewers
@@ -686,14 +666,11 @@ ID: 6606c6335fde1f26fa47ab3a, Title: BBQ lamb tacos with pineapple pickle and ch
 ID: 6606c6345fde1f26fa47ab3e, Title: Crab on toast with lime, cumin and pickled samphire
 ID: 6606c6345fde1f26fa47ab40, Title: Aubergine kuku
 ID: 6606c6345fde1f26fa47ab44, Title: Chilled red pepper soup with soured cream
-ID: 6606c6345fde1f26fa47ab4e, Title: French beans and mangetout with hazelnut and orange
-ID: 6606c6345fde1f26fa47ab50, Title: Pulled pork sandwich with pomegranate salad
 ID: 6606c6345fde1f26fa47ab52, Title: Crispy cumin lamb with aubergine and ginger
 ID: 6606c6345fde1f26fa47ab54, Title: Sticky pomegranate and pistachio pigs in blankets
 ID: 6606c6345fde1f26fa47ab56, Title: Iranian vegetable stew with dried lime
 ID: 6606c6345fde1f26fa47ab5c, Title: Aubergine curry
 ID: 6606c6345fde1f26fa47ab60, Title: Crispy roast potatoes with rosemary and za’atar and salsa verde
-ID: 6606c6345fde1f26fa47ab66, Title: Cucumber crunch salad with curried cashews
 ID: 6606c6345fde1f26fa47ab6c, Title: Ginataang kalabasa with ginger and prawn oil
 ID: 6606c6345fde1f26fa47ab74, Title: Roasted sweet potato, tomato sauce and feta
 ID: 6606c6345fde1f26fa47ab76, Title: Roasted goose with quince, cranberries & maple gravy
@@ -709,13 +686,9 @@ ID: 6606c6345fde1f26fa47ab8e, Title: Braised eggs with beef, smoked aubergine an
 ID: 6606c6345fde1f26fa47ab90, Title: Braised lamb with maftoul and chickpeas
 ID: 6606c6345fde1f26fa47ab92, Title: Roast butternut squash and red onion with tahini and za'atar
 ID: 6606c6345fde1f26fa47ab96, Title: Beetroot with green miso dressing and nori almonds
-ID: 6606c6345fde1f26fa47ab98, Title: Pecan and gingernut chocolate salami
 ID: 6606c6345fde1f26fa47ab9a, Title: Cauliflower steaks with zahter
-ID: 6606c6345fde1f26fa47ab9c, Title: Spicy nuts
 ID: 6606c6345fde1f26fa47aba2, Title: Charred Brussel sprouts with olive oil and lemon
-ID: 6606c6345fde1f26fa47aba6, Title: Tahini and halva brownies
 ID: 6606c6345fde1f26fa47aba8, Title: Date-stuffed whole mackerel
-ID: 6606c6355fde1f26fa47abae, Title: Crab and radish bruschetta with radish cress
 ID: 6606c6355fde1f26fa47abb2, Title: Lahmacun - Turkish pizza with spicy minced beef and salad topping
 ID: 6606c6355fde1f26fa47abb4, Title: Sweet spiced fishcakes with bread salad
 ID: 6606c6355fde1f26fa47abb6, Title: Veal, olive and pancetta stew with roasted red pepper
@@ -725,17 +698,14 @@ ID: 6606c6355fde1f26fa47abbe, Title: Cauliflower salad with miso dressing and pi
 ID: 6606c6355fde1f26fa47abc0, Title: Magical chicken and Parmesan soup with pappardelle - OTK Shelf Love
 ID: 6606c6355fde1f26fa47abc2, Title: Roasted cod with a coriander crust (Falastin, pg 204)
 ID: 6606c6355fde1f26fa47abca, Title: Chunky minestrone with basil paste and pecorino
-ID: 6606c6355fde1f26fa47abce, Title: Carrot and walnut cake
 ID: 6606c6355fde1f26fa47abd2, Title: Spicy mushroom lasagne (Flavour, pg 228)
 ID: 6606c6355fde1f26fa47abd4, Title: Roast sweet potatoes with pickled onions, coriander and goat's cheese
 ID: 6606c6355fde1f26fa47abda, Title: Spring roast chicken with preserved lemon
 ID: 6606c6355fde1f26fa47abdc, Title: Fish and prawn pirão
 ID: 6606c6355fde1f26fa47abe4, Title: Marinated turkey breast with cumin, coriander and white wine
 ID: 6606c6355fde1f26fa47abf0, Title: Spicy chicken and cabbage soup
-ID: 6606c6355fde1f26fa47abf2, Title: Mascarpone, cherry and grappa trifle
 ID: 6606c6355fde1f26fa47abf6, Title: Rigatoni with fennel sausage sauce and pecorino-and-anchovy pesto
 ID: 6606c6355fde1f26fa47abf8, Title: Pork belly bánh mì
-ID: 6606c6355fde1f26fa47abfc, Title: Devilled eggs with tangerine rayu
 ID: 6606c6355fde1f26fa47abfe, Title: Grilled pollack with cavolo nero and buckwheat polenta
 ID: 6606c6355fde1f26fa47ac00, Title: Seared beef with cucumber and seaweed
 ID: 6606c6355fde1f26fa47ac02, Title: Lamb, tomato and sweet spices
@@ -746,17 +716,14 @@ ID: 6606c6355fde1f26fa47ac12, Title: Kale tahini Caesar with za’atar chickpeas
 ID: 6606c6355fde1f26fa47ac14, Title: Confit and grilled parsnips with herbs and vinegar
 ID: 6606c6355fde1f26fa47ac16, Title: Butter bean purée with dukkah
 ID: 6606c6355fde1f26fa47ac18, Title: Roast chicken with dates, olives and capers
-ID: 6606c6365fde1f26fa47ac24, Title: Walnut and halva cake
 ID: 6606c6365fde1f26fa47ac26, Title: Pointed cabbage with nam prik
 ID: 6606c6365fde1f26fa47ac2c, Title: Roast cauliflower with yoghurt and spicy red pepper sauce
-ID: 6606c6365fde1f26fa47ac30, Title: Clementine & almond syrup cake
 ID: 6606c6365fde1f26fa47ac36, Title: Roasted aubergine with saffron yoghurt
 ID: 6606c6365fde1f26fa47ac38, Title: Red rice with mushrooms and cavolo nero
 ID: 6606c6365fde1f26fa47ac3a, Title: Roasted chicken with clementines & arak (Jerusalem, p 179)
 ID: 6606c6365fde1f26fa47ac3e, Title: Roasted figs with pomegranate molasses and orange zest
 ID: 6606c6365fde1f26fa47ac44, Title: Sumac and mint rubbed rabbit saddle with seared radicchio
 ID: 6606c6365fde1f26fa47ac4a, Title: Chickpea, tomato and bread soup
-ID: 6606c6365fde1f26fa47ac4c, Title: Roast peaches with makrut lime leaves, sabayon and raspberries
 ID: 6606c6365fde1f26fa47ac52, Title: Aubergine with black garlic (Plenty More, page 170)
 ID: 6606c6365fde1f26fa47ac58, Title: Roasted potatoes with caramel & Agen prunes
 ID: 6606c6365fde1f26fa47ac5e, Title: Whole black bream with pine nuts and lemon
@@ -767,13 +734,10 @@ ID: 6606c6365fde1f26fa47ac6e, Title: Chicken musakhan
 ID: 6606c6365fde1f26fa47ac70, Title: Spatchcock roasted turkey with chilli and curry leaf butter
 ID: 6606c6365fde1f26fa47ac72, Title: Chicken with potatoes, prunes and pomegranate molasses
 ID: 6606c6365fde1f26fa47ac74, Title: Roasted brussel sprouts with cinnamon-butter yoghurt and chestnuts
-ID: 6606c6365fde1f26fa47ac76, Title: Polenta crisps with avocado and yoghurt
-ID: 6606c6365fde1f26fa47ac7e, Title: Strawberry tiramisu cake
 ID: 6606c6365fde1f26fa47ac80, Title: Asparagus vichyssoise soup
 ID: 6606c6365fde1f26fa47ac84, Title: Sweet and smoky Mexican inspired chicken
 ID: 6606c6365fde1f26fa47ac86, Title: Couscous with grilled cherry tomatoes and fresh herbs
 ID: 6606c6365fde1f26fa47ac88, Title: Pork tenderloin with caramelised garlic and orange salsa
-ID: 6606c6365fde1f26fa47ac8e, Title: Louise cake with plum and coconut (SWEET pg 173)
 ID: 6606c6365fde1f26fa47ac92, Title: Butternut squash in cheesy custard with orange rayu
 ID: 6606c6375fde1f26fa47ac94, Title: Plum and rhubarb cobbler with star anise & vanilla
 ID: 6606c6375fde1f26fa47ac96, Title: Roasted fish with aromatic olive oil
@@ -798,7 +762,6 @@ ID: 6606c6375fde1f26fa47ace0, Title: Gondi
 ID: 6606c6375fde1f26fa47ace6, Title: Chaat masala potatoes with yoghurt and tamarind (Flavour, pg 193)
 ID: 6606c6375fde1f26fa47ace8, Title: Mackerel and green bean salad with harissa dressing
 ID: 6606c6375fde1f26fa47acea, Title: Pecan and coconut granola with roasted rhubarb and blackcurrants
-ID: 6606c6375fde1f26fa47acee, Title: Fig, yoghurt and almond cake with or without extra figs
 ID: 6606c6375fde1f26fa47acf2, Title: Curried Cauliflower Cheese Filo Pie - OTK Shelf Love
 ID: 6606c6375fde1f26fa47acf4, Title: Apricot and almond ensaimada
 ID: 6606c6375fde1f26fa47acf8, Title: Coffee and chilli-rubbed chicken koftas with grilled onions
@@ -816,17 +779,14 @@ ID: 6606c6385fde1f26fa47ad1a, Title: Chestnut and caramelised clementine trifle 
 ID: 6606c6385fde1f26fa47ad1e, Title: Hazelnut roly-poly with lemon custard
 ID: 6606c6385fde1f26fa47ad20, Title: Lamb chops with pilpelchuma butter, tahini yoghurt and herb salad
 ID: 6606c6385fde1f26fa47ad2c, Title: Bruschetta with aubergine
-ID: 6606c6385fde1f26fa47ad36, Title: Almond and aniseed nougat (SWEET pg 328)
 ID: 6606c6385fde1f26fa47ad3c, Title: Butternut squash and fondue pie with pickled red chillies
 ID: 6606c6385fde1f26fa47ad40, Title: Noor’s black lime tofu (Flavour pg 176)
 ID: 6606c6385fde1f26fa47ad44, Title: Roasted cauliflower and burnt aubergine with tomato salsa (Falastin, pg 110)
 ID: 6606c6385fde1f26fa47ad48, Title: Roasted pork belly
 ID: 6606c6385fde1f26fa47ad4c, Title: Olive oil flatbreads with three-garlic butter
-ID: 6606c6385fde1f26fa47ad4e, Title: Cheese, chorizo and spring onion pancakes
 ID: 6606c6385fde1f26fa47ad50, Title: Smoked haddock brandade cakes with lime yogurt
 ID: 6606c6385fde1f26fa47ad54, Title: Blackened chicken with caramel and clementine dressing
 ID: 6606c6385fde1f26fa47ad5c, Title: Stuffed Romano peppers with ricotta and mascarpone
-ID: 6606c6385fde1f26fa47ad5e, Title: Labneh cheesecake with roasted apricots, honey and cardamom (Falastin, pg 322)
 ID: 6606c6385fde1f26fa47ad60, Title: Roast turkey with ancho chilli gravy
 ID: 6606c6385fde1f26fa47ad62, Title: Vanilla custard with roasted strawberries and rhubarb
 ID: 6606c6385fde1f26fa47ad6a, Title: Bourbon-glazed spare ribs with smoked corn salad
@@ -835,13 +795,11 @@ ID: 6606c6385fde1f26fa47ad6e, Title: Tarragon gondi
 ID: 6606c6385fde1f26fa47ad70, Title: Smoky, creamy pasta with burnt aubergine and tahini
 ID: 6606c6385fde1f26fa47ad74, Title: Salt crusted fish with Mediterranean salad
 ID: 6606c6385fde1f26fa47ad76, Title: Warm mackerel with potato and wild garlic
-ID: 6606c6385fde1f26fa47ad78, Title: Roasted rhubarb with sweet labneh
 ID: 6606c6385fde1f26fa47ad7a, Title: Cheesy curry crepes
 ID: 6606c6385fde1f26fa47ad7c, Title: Turkey & courgette burgers with spring onion & cumin
 ID: 6606c6395fde1f26fa47ad7e, Title: Crispy duck with rye pancakes
 ID: 6606c6395fde1f26fa47ad8a, Title: Duck with rhubarb jam and pickled cucumber
 ID: 6606c6395fde1f26fa47ad90, Title: Roast red pepper dip with lemon and olive salsa
-ID: 6606c6395fde1f26fa47ad92, Title: Chocolate guinness cakes with baileys irish cream
 ID: 6606c6395fde1f26fa47ad94, Title: Lamb rump with vanilla-braised chicory and sorrel pesto
 ID: 6606c6395fde1f26fa47ad98, Title: Fried goat's cheese with tomato and basil salsa
 ID: 6606c6395fde1f26fa47ad9a, Title: Celebration rice with lamb, chicken and garlic yoghurt (OTK Shelf Love)
@@ -860,7 +818,6 @@ ID: 6606c6395fde1f26fa47adc0, Title: Machboos Rubyan
 ID: 6606c6395fde1f26fa47adc4, Title: Cauliflower, pomegranate and pistachio salad (SIMPLE, pg 91)
 ID: 6606c6395fde1f26fa47adc8, Title: Upside-down lemon, maple and vanilla pudding with lemon-maple butter
 ID: 6606c6395fde1f26fa47adca, Title: Hummus with grilled quail, pomegranate molasses and parsley salsa
-ID: 6606c6395fde1f26fa47adcc, Title: Sweet tahini rolls (Falastin, pg 287)
 ID: 6606c6395fde1f26fa47add2, Title: Saffron chicken and herb salad
 ID: 6606c6395fde1f26fa47add4, Title: Fish koftas with beetroot relish
 ID: 6606c6395fde1f26fa47adde, Title: Green herb salad
@@ -879,7 +836,6 @@ ID: 6606c63a5fde1f26fa47ae00, Title: Roasted pork belly with orange & star anise
 ID: 6606c63a5fde1f26fa47ae02, Title: Celebration tah chin with chicken and spinach
 ID: 6606c63a5fde1f26fa47ae04, Title: Roast cassava with roast garlic and coriander salsa
 ID: 6606c63a5fde1f26fa47ae06, Title: Farro and roasted red pepper salad
-ID: 6606c63a5fde1f26fa47ae08, Title: Spiced praline meringues (SWEET pg 323)
 ID: 6606c63a5fde1f26fa47ae12, Title: Swede gnocchi with miso butter
 ID: 6606c63a5fde1f26fa47ae16, Title: Sea bass and turmeric potatoes in rasam broth
 ID: 6606c63a5fde1f26fa47ae18, Title: Slow-cooked chicken with a crisp corn crust (SIMPLE, pg 236)
@@ -890,9 +846,7 @@ ID: 6606c63a5fde1f26fa47ae22, Title: Roast potatoes with green sauce and tahini
 ID: 6606c63a5fde1f26fa47ae24, Title: Cauliflower soup with mustard croutons
 ID: 6606c63a5fde1f26fa47ae2a, Title: Roasted lemon and fregola salad
 ID: 6606c63a5fde1f26fa47ae2c, Title: Portobello steaks and butter bean mash (Flavour, pg 210)
-ID: 6606c63a5fde1f26fa47ae2e, Title: Belinda's flourless coconut and chocolate cake (SWEET pg 109)
 ID: 6606c63a5fde1f26fa47ae38, Title: Roasted aubergine with curried yoghurt (Simple pg. 66)
-ID: 6606c63a5fde1f26fa47ae3a, Title: Lemon and labneh mascarpone layer cake
 ID: 6606c63a5fde1f26fa47ae3c, Title: Preserved lemon chicken
 ID: 6606c63a5fde1f26fa47ae3e, Title: Seared duck breast with blood orange and star anise
 ID: 6606c63a5fde1f26fa47ae42, Title: Chermoula-basted halibut with farro

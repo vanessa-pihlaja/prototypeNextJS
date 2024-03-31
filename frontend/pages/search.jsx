@@ -60,7 +60,8 @@ export async function getStaticProps() {
   await dbConnect();
 
   const aggregationPipeline = [
-    { $match: { category: { $ne: null } } },
+    { $match: { category: { $exists: true, $not: {$size: 0} } } },
+    { $unwind: "$category" }, 
     {
       $group: {
         _id: "$category",
@@ -75,14 +76,13 @@ export async function getStaticProps() {
         }
       }
     },
-    { $match: { "_id": { $ne: "" } } },
+    { $match: { "_id": { $ne: "" } } }, 
     {
       $project: {
         _id: 0,
         category: "$_id",
         coverImage: 1,
         recipes: 1,
-        owner: 1,
       }
     }
   ];

@@ -16,7 +16,7 @@ collection = db[collection_name]
 file_path = 'recipes.txt'
 
 def parse_recipe_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:  # Specify encoding here
+    with open(file_path, 'r', encoding='utf-8') as file: 
         lines = file.readlines()
     
     recipe_ids = []
@@ -28,14 +28,13 @@ def parse_recipe_file(file_path):
 
 recipe_ids = parse_recipe_file(file_path)
 
-category_name = 'Salaatit'
+category_name = 'Vege'
 
-recipes_to_update = {
-    category_name: recipe_ids,
-}
-
-for category, ids in recipes_to_update.items():
-    for recipe_id in ids:
-        collection.update_one({'_id': ObjectId(recipe_id)}, {'$set': {'category': category}})
+# Assuming 'category' is now an array field in your documents
+for recipe_id in recipe_ids:
+    collection.update_one(
+        {'_id': ObjectId(recipe_id)}, 
+        {'$addToSet': {'category': category_name}}  # Use '$addToSet' to add to the array
+    )
 
 print("Finished updating recipe categories.")
