@@ -30,6 +30,10 @@ for url_pattern, owner_name in url_to_owner_mapping.items():
         {'$set': {'owner': owner_name}}
     )
     
-    print(f"Updated {result.modified_count} recipes with owner '{owner_name}'.")
+    # Update the document with the new content
+    recipes_collection.update_one(
+        {'_id': recipe['_id']},
+        {'$set': {'content': updated_content}}
+    )
 
 print("Completed updating recipes for Yotam Ottolenghi.")
