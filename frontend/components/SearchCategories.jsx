@@ -159,7 +159,7 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && categoryData.recipes.length > (visibleRecipeSets[categoryData.category] || 1) * 30 && (
               <div className={styles.loadMoreContainer}>
                 <button onClick={() => loadMoreRecipes(categoryData.category)} className={styles.loadMoreButton}>
-                  Load More
+                  Näytä lisää
                 </button>
               </div>
             )}

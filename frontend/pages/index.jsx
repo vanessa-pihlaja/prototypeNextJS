@@ -48,7 +48,7 @@ export default function App() {
       <Navbar />
       <Feed batches={batches} />
       {showLoadMore && (
-      <button className={styles.loadMoreButton} onClick={loadMore}>Lataa lisää</button>
+      <button className={styles.loadMoreButton} onClick={loadMore}>Näytä lisää</button>
       )}
       <footer>
       </footer>

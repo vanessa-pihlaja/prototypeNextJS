@@ -32,6 +32,10 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
         category: categoryName,
       });
 
+      if (!allCategories.includes(categoryName)) {
+        userCategories.push(categoryName);
+      }
+
       setSelectedCategory('');
       setNewCategory('');
       setShowSaveModal(false);
