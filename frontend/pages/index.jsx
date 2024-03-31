@@ -10,6 +10,9 @@ export default function App() {
   const [batches, setBatches] = useState([]);
   const [showLoadMore, setShowLoadMore] = useState(false);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+
 
   useEffect(() => {
     // Generate a new seed on each component mount
@@ -25,19 +28,55 @@ export default function App() {
 
     window.addEventListener('scroll', handleScroll);
 
-    fetchRecipes(1, newSeed); 
+    const feedIndex = Number(sessionStorage.getItem('feedIndex'));
+
+    if (feedIndex) {
+      for (let i = 1; i <= feedIndex; i += 1) {
+        fetchRecipes(i, newSeed); 
+      } 
+    } else {
+      fetchRecipes(1, newSeed); 
+    }
+
+    setIsLoading(false); 
+    // fetchRecipes(1, newSeed); 
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+    
+
+  useEffect(() => {
+  const scrollPosition = sessionStorage.getItem('scrollPosition');
+  if (!isLoading && batches.length && scrollPosition) {
+    // Use a timeout to give the browser a chance to render
+    setTimeout(() => {
+      window.scrollTo({
+        top: scrollPosition,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 200); // You may need to adjust this delay
+    sessionStorage.removeItem('scrollPosition');
+  }
+}, [isLoading, batches]); // Add isLoading to the dependency array
+
+
 
   const fetchRecipes = async (page, seed) => {
     const response = await fetch(`/api/recipes?page=${page}&seed=${seed}`);
     const newRecipes = await response.json();
     setBatches(prevBatches => [...prevBatches, newRecipes]);
+
   };
 
   const loadMore = () => {
     setCurrentPage(prevPage => prevPage + 1);
     fetchRecipes(currentPage + 1, seed);
+    
+    const feedIndex = Number(sessionStorage.getItem('feedIndex'));
+    sessionStorage.setItem('feedIndex', feedIndex ? feedIndex + 1 : 2);
+
   };
 
   return (
