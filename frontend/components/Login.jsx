@@ -57,10 +57,11 @@ const LoginComponent = () => {
               <button type="submit" className={styles.submitButton}>Kirjaudu sisään</button>
               {error && <p className={styles.errorMessage}>{error}</p>}
               </form>
-              <div className={styles.toOtherPage}>Minulla ei ole vielä profiilia. 
-                <Link href="/signup" className={styles.linkToOtherPage}>
-                Luo profiili.
-                </Link> 
+              <div className={styles.toOtherPage}>
+                Minulla ei ole vielä profiilia. 
+                  <Link href="/signup" className={styles.linkToOtherPage}>
+                    Luo profiili.
+                  </Link> 
               </div>
             </div>
         </div>
