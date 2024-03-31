@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Router from 'next/router';
 import styles from '../styles/signup.module.css';
 
@@ -95,6 +96,11 @@ const SignupComponent = () => {
               </div>
               <button className={styles.submitButton} type="submit">Luo profiili</button>
             </form>
+            <p className={styles.toOtherPage}>Minulla on jo profiili 
+                <Link href="/login" className={styles.linkToOtherPage}>
+                Kirjaudu sisään.
+                </Link> 
+              </p>
           </div>
         </div>
       );

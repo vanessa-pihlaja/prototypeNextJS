@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Router from 'next/router';
 import styles from '../styles/login.module.css';
 import { useUser } from '../contexts/UserContext';
@@ -56,6 +57,11 @@ const LoginComponent = () => {
               <button type="submit" className={styles.submitButton}>Kirjaudu sisään</button>
               {error && <p className={styles.errorMessage}>{error}</p>}
               </form>
+              <div className={styles.toOtherPage}>Minulla ei ole vielä profiilia. 
+                <Link href="/signup" className={styles.linkToOtherPage}>
+                Luo profiili.
+                </Link> 
+              </div>
             </div>
         </div>
       );
