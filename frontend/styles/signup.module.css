@@ -52,7 +52,7 @@
 .form {
     font-size: 16px;
     color: rgb(255, 252, 238);
-    width: 30%;
+    width: 40%;
   }
 
 .label {
@@ -144,8 +144,8 @@
     }
 
     .form {
-      font-size: 17px;
-      width: 60%;
+      font-size: 13px;
+      width: 50%;
     }
 
     .secondtitle {
@@ -217,8 +217,9 @@
       }
 
     .form {
-        font-size: 19px;
+        font-size: 14px;
         text-align: left;
+        width: 60%;
       }
     
     .inputfield {
@@ -230,7 +231,7 @@
     .submitButton {
         width: 80%; /* Width of the button */
         padding: 10px 5px;
-        font-size: 15px;
+        font-size: 14px;
         margin-top: 25px;
       }
   }
