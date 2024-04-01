@@ -71,6 +71,7 @@ function CategoriesComponent({ categories }) {
   const handleSaveClick = (recipe) => {
     setCurrentRecipe(recipe);
     setShowSaveModal(true);
+    console.log(recipe)
   };
 
   const loadMoreRecipes = (category) => {

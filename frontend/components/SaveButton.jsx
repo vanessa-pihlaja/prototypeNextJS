@@ -23,20 +23,19 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   ])), [userCategories, suggestedCategories]);
 
   const handleSave = async () => {
-    let categoryName = '';
+    const recipeid = recipe._id || recipe.id;
     try {
       const categoryName = selectedCategory === 'new' ? newCategory : selectedCategory;
 
       await axios.post('/api/users/savedRecipe', {
         userId: user.id,
-        recipeId: recipe._id,
+        recipeId: recipeid,
         category: categoryName,
       });
 
       if (!allCategories.includes(categoryName)) {
         userCategories.push(categoryName);
       }
-
       setSelectedCategory('');
       setNewCategory('');
       setShowSaveModal(false);
