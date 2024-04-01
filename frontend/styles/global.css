@@ -53,6 +53,13 @@ footer {
   padding: 50px; 
 }
 
+.eiTulosta {
+  display: flex;
+  align-items: center;
+  color: rgba(81,135,218,255);
+}
+
+
 
 /* Color beige: rgb(232, 223, 211);     */
 /* Color yellow: rgb(249, 255, 98);     */

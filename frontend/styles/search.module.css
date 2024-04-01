@@ -55,6 +55,18 @@
   }
 
 
+  .eiTulosta {
+    display: flex;
+    justify-content: center;
+    color: rgba(81,135,218,255);
+  }
+
+  .eiTulosta p {
+    color: rgba(81,135,218,255);
+    font-family: "Ibarra Real Nova", serif;
+    font-weight: 600;
+    font-size: 20px;
+  }
 
 
   /* Mobile */
@@ -62,6 +74,10 @@
   @media (max-width: 768px) {
       .searchbar {
         max-width: 270px;
+      }
+
+      .eiTulosta p {
+        font-size: 16px;
       }
   }
   

@@ -6,23 +6,31 @@ import SearchResultsComponent from "@/components/SearchRecipeResult";
 import dbConnect from '../src/utils/dbConnect';
 import Recipe from '../src/models/recipe';
 import mongoose from 'mongoose';
+import styles from '../styles/search.module.css'; 
 
 export default function SearchPage({ categoriesWithRecipes }) {
   const [searchResults, setSearchResults] = useState([]);
+  const [query, setQuery] = useState('');
+  const [searching, setSearching] = useState(false); // Tracks whether a search is currently being performed
 
-  const handleSearch = async (query) => {
-    if (!query.trim()) {
+  const handleSearch = async (searchQuery) => {
+    setQuery(searchQuery);
+    if (!searchQuery.trim()) {
       setSearchResults([]);
+      setSearching(false); // Ensure searching is false if the query is empty
       return;
     }
 
+    setSearching(true); // Set searching to true when starting the search
     try {
-      const response = await fetch(`/api/search?query=${encodeURIComponent(query)}`);
+      const response = await fetch(`/api/search?query=${encodeURIComponent(searchQuery)}`);
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
       console.error("Error fetching search results:", error);
       setSearchResults([]);
+    } finally {
+      setSearching(false); // Ensure searching is set to false when the search is completed
     }
   };
 
@@ -31,8 +39,14 @@ export default function SearchPage({ categoriesWithRecipes }) {
       <header><h1>miamia</h1></header>
       <Navbar />
       <SearchComponent onSearch={handleSearch} />
-      {searchResults.length > 0 ? (
+      {searching ? (
+        <p></p> 
+      ) : searchResults.length > 0 ? (
         <SearchResultsComponent searchResults={searchResults} />
+      ) : query.trim() && !searching && searchResults.length === 0 ? (
+        <div className={styles.eiTulosta}>
+         <p>  Ei hakutuloksia </p>
+        </div>
       ) : (
         <CategoriesComponent categories={categoriesWithRecipes} />
       )}
