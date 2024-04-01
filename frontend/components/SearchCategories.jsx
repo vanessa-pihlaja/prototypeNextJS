@@ -6,18 +6,26 @@ import SaveRecipeModal from './SaveButton';
 
 function shuffle(array) {
   let currentIndex = array.length, randomIndex;
-
   while (currentIndex !== 0) {
-
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
-    // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
-
   return array;
+}
+
+function getShuffledCategories(categories) {
+  // Shuffle categories
+  return categories.map(category => {
+    // Shuffle recipes within each category
+    const shuffledRecipes = shuffle([...category.recipes]);
+    return {
+      ...category,
+      recipes: shuffledRecipes,
+      coverImage: shuffledRecipes[0] ? shuffledRecipes[0].firstImage : null // Use the first recipe's image as cover
+    };
+  });
 }
 
 
@@ -29,20 +37,23 @@ function CategoriesComponent({ categories }) {
   const [visibleRecipeSets, setVisibleRecipeSets] = useState({});
 
   useEffect(() => {
-    // Shuffle categories
-    const shuffledCategories = categories.map(category => {
-      // Shuffle recipes within each category
-      const shuffledRecipes = shuffle([...category.recipes]);
-      
-      return {
-        ...category,
-        recipes: shuffledRecipes,
-        coverImage: shuffledRecipes[0] ? shuffledRecipes[0].firstImage : null // Use the first recipe's image as cover
-      };
-    });
-  
-    setShuffledCategories(shuffle(shuffledCategories)); 
-  }, [categories]);
+      const tenMinutes = 10 * 60 * 1000; // 10 minutes until updates
+      const cachedData = localStorage.getItem('shuffledCategoriesCache');
+      const now = new Date().getTime();
+      let data = cachedData ? JSON.parse(cachedData) : null;
+
+      // Check if cache exists and it hasn't expired
+      if (data && (now - data.timestamp) < tenMinutes) {
+        setShuffledCategories(data.shuffledCategories);
+      } else {
+        const newShuffledCategories = getShuffledCategories(categories);
+        setShuffledCategories(shuffle(newShuffledCategories));
+        localStorage.setItem('shuffledCategoriesCache', JSON.stringify({
+          shuffledCategories: newShuffledCategories,
+          timestamp: now
+        }));
+      }
+    }, [categories]);
   
 
   const handleCategoryClick = (category) => {
@@ -129,7 +140,7 @@ function CategoriesComponent({ categories }) {
             {selectedCategory === categoryData.category && (
               Array.from({ length: visibleRecipeSets[categoryData.category] || 1 }).map((_, setIndex) => (
                 <div key={setIndex} className={styles.recipesGrid}>
-                  {categoryData.recipes.slice(setIndex * 30, (setIndex + 1) * 30).map((recipe) => (
+                  {categoryData.recipes.slice(setIndex * 20, (setIndex + 1) * 20).map((recipe) => (
                     <div key={recipe.id} className={styles.recipeBlock}>
                       <div className={styles.recipeCard} style={{ position: 'relative' }}>
                         <Link href={`/${recipe.title}`}>
