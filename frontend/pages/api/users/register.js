@@ -4,10 +4,12 @@ import bcrypt from 'bcrypt';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
+    
     try {
       await dbConnect();
 
       const { username, name, password } = req.body;
+
 
       if (!password || password.length < 3) {
         return res.status(400).json({ error: 'password missing or too short' });

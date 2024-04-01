@@ -46,7 +46,7 @@ const SignupComponent = () => {
             body: JSON.stringify(user),
           });
           if (!response.ok) {
-            throw new Error('Failed to register. Please try again.');
+            throw new Error('Käyttäjänimi on jo käytössä. Valitse toinen.');
           }
           const data = await response.json();
           console.log(data);
