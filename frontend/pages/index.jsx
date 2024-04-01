@@ -19,10 +19,10 @@ export default function App() {
       let currentSeed = Cookies.get('recipeFeedSeed');
       const lastSeedUpdateTime = Cookies.get('lastSeedUpdateTime');
       const currentTime = Date.now();
-      const tenMinutes = 10 * 60 * 1000;
+      const sevenMinutes = 7 * 60 * 1000;
 
       // Update seed if necessary
-      if (!currentSeed || !lastSeedUpdateTime || currentTime - parseInt(lastSeedUpdateTime, 10) > tenMinutes) {
+      if (!currentSeed || !lastSeedUpdateTime || currentTime - parseInt(lastSeedUpdateTime, 7) > sevenMinutes) {
         currentSeed = generateNewSeed();
         Cookies.set('recipeFeedSeed', currentSeed, { expires: 1 });
         Cookies.set('lastSeedUpdateTime', currentTime.toString(), { expires: 1 });
