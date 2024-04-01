@@ -30,6 +30,14 @@ let cache = {
 
 export default async function handler(req, res) {
     await dbConnect();
+
+    const urlParams = new URLSearchParams(req.url);
+
+    // Get the 'seed' parameter from the URL
+    const seedRaw = urlParams.get('seed');
+
+    // If needed, convert the seed to an integer
+    const seed = parseInt(seedRaw, 10);
   
     const { page = 1 } = req.query;
     const batchSize = 20;
@@ -40,7 +48,7 @@ export default async function handler(req, res) {
     if (!cache.lastShuffleTime || currentTime - cache.lastShuffleTime > thirtyMinutes) {
         let recipes = await Recipe.find({}).select('_id title owner images').lean();
         // Use a consistent seed based on the current half-hour to ensure the shuffle is consistent across requests
-        const seed = Math.floor(currentTime / thirtyMinutes);
+        // const seed = Math.floor(currentTime / thirtyMinutes);
         cache.shuffledRecipes = seededShuffle(recipes, seed);
         cache.lastShuffleTime = currentTime;
     }

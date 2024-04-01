@@ -5,7 +5,7 @@ import Navbar from '@/components/Navbar';
 import jwt from 'jsonwebtoken';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
   const [seed, setSeed] = useState('');
   const [batches, setBatches] = useState([]);
   const [showLoadMore, setShowLoadMore] = useState(false);
@@ -71,10 +71,14 @@ export default function App() {
   };
 
   const loadMore = () => {
-    setCurrentPage(prevPage => prevPage + 1);
-    fetchRecipes(currentPage + 1, seed);
+    // setCurrentPage(prevPage => prevPage + 1);
+
+    const currentFeedIndex = Number(sessionStorage.getItem('feedIndex'));
+
+    const feedIndex = currentFeedIndex == 0 ? 1 : currentFeedIndex
+
+    fetchRecipes(feedIndex + 1, seed);
     
-    const feedIndex = Number(sessionStorage.getItem('feedIndex'));
     sessionStorage.setItem('feedIndex', feedIndex ? feedIndex + 1 : 2);
 
   };
