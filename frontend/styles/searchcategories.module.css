@@ -41,7 +41,8 @@
   
   .categoryTitle {
     cursor: pointer;
-    margin-top: 20px; /* Adjusted for more space above the title */
+    margin-top: 15px;
+    margin-bottom: 10px;
     font-size: 24px; /* Larger font size */
     line-height: 1.2; /* Adjust line height for better readability */
     color: rgba(81,135,218,255);
@@ -206,7 +207,7 @@
     }
     .catgoryWrapper{
       margin: 10px 0 0 0; /* Small margin to ensure there is space around items */
-      padding: 0px 5px;
+      padding: 0px 10px;
     }
     .categoryImageWrapper { 
       width: 200px;
@@ -243,7 +244,7 @@
     }
     .categoryTitle {
       margin-top: 5px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       font-size: 20px;
     }
     .categoryTitle:hover {
@@ -282,23 +283,56 @@
         width: 180px;
         height: calc(180px * (13 / 9)); 
       }
+
+      .catgoryWrapper{
+        padding: 0px 8px;
+      }
+
+      .categoryTitle {
+        font-size: 19px;
+      }
+
+      .categoryTitle:hover {
+        font-size: 20px;
+      }
       
     }
   
-  /* Iphone 8 - 13 */
+  /* Iphone 11 - 13 */
   @media (max-width: 415px) {
     .categoryImageWrapper { 
-      width: 160px;
-      height: calc(160px * (13 / 9)); 
+      width: 158px;
+      height: calc(158px * (13 / 9)); 
+    }
+
+    .catgoryWrapper{
+      padding: 0px 7px;
     }
     
   }
 
-    /*Samsung galazy etc*/
-  @media (max-width: 374px) {
-    .categoryImageWrapper { 
-      width: 150px;
-      height: calc(160px * (13 / 9));
+    /*Iphone 7, 8, XS,*/
+    @media (max-width: 376px) {
+      .categoryWrapper { 
+        padding: 0px 5px;
+      }
+
+      .categoryImageWrapper { 
+        width: 150px;
+        height: calc(150px * (13 / 9));
+      }
+      
     }
-    
-  }
+
+    /*Samsung galaxy  */
+    @media (max-width: 365px) {
+      .categoryWrapper { 
+        padding: 0px 6px;
+      }
+
+      .categoryImageWrapper { 
+        width: 145px;
+        height: calc(150px * (13 / 9));
+      }
+      
+    }
