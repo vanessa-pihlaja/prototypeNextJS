@@ -15,7 +15,7 @@
   .categoryItem {
     display: flex;
     flex-direction: column;
-    padding: 10px; 
+    padding: 0px 10px; 
     border-radius: 8px;
     text-align: center; 
     width: fit-content;
@@ -23,11 +23,10 @@
   
   .categoryImageWrapper {
     width: 300px;
-    height: 100px;
-    padding-top: 100%; /* 16:9 aspect ratio */
-    position: relative; /* Relative positioning for the absolute child */
-    border-radius: 8px; /* Optional: round corners for the wrapper */
-    overflow: hidden; /* Ensures the image does not overflow the square */
+    height: calc(300px * (12 / 9)); /* This calculates to 320px for a 180px width */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
   }
   
   .categoryImage {
@@ -189,10 +188,9 @@
 
   }
   
-  
-  @media (max-width: 650px) {
+  @media (max-width: 730px) {
     .gridContainer {
-      width: 100%; /* Use the full viewport width */
+      width: 100%;
       padding: 0; /* Reset any horizontal padding */
       margin: 0px auto; /* Center the container */
       justify-content: center; /* Center flex items horizontally */
@@ -203,23 +201,19 @@
       left: 15px; 
     }
     .categoryItem {
-      width: 100%; /* Adjust the width to fit two items per row, accounting for gap */
-      margin: 0; /* Reset margin to use gap from gridContainer */
-      padding: 0px; /* Keep padding to ensure content is not too cramped */
-      box-sizing: border-box; /* Include padding and border in the element's total width and height */
+      margin: 0px; 
+      padding: 0px 0px; 
     }
     .catgoryWrapper{
-      width: 100%; /* Adjust width to fit two items per row, accounting for a small gap */
       margin: 10px 0 0 0; /* Small margin to ensure there is space around items */
-      padding: 5px;
+      padding: 0px 5px;
     }
     .categoryImageWrapper { 
-      width: 100%; /* Ensure it takes the full width of its parent */
-      height: 0; /* Reset the height */
-      padding-top: 100%; /* Maintain a 1:1 aspect ratio */
+      width: 200px;
+      height: calc(200px * (13 / 9)); /* This calculates to 320px for a 180px width */
       position: relative;
-      border-radius: 8px; /* Maintain rounded corners */
-      overflow: hidden; /* Ensure the image does not overflow its wrapper */
+      border-radius: 8px;
+      overflow: hidden;
     }
     .recipesGrid {
       column-count: 2; /* Maintain two columns */
@@ -250,7 +244,7 @@
     .categoryTitle {
       margin-top: 5px;
       margin-bottom: 10px;
-      font-size: 22px;
+      font-size: 20px;
     }
     .categoryTitle:hover {
       font-size: 23px; /* Larger font size */
@@ -279,4 +273,32 @@
       font-size: 10px;
       font-weight: 500;
     }
+
+  }
+
+    /* Iphone 14 and 15 plus */
+    @media (max-width: 440px) {
+      .categoryImageWrapper { 
+        width: 180px;
+        height: calc(180px * (13 / 9)); 
+      }
+      
+    }
+  
+  /* Iphone 8 - 13 */
+  @media (max-width: 415px) {
+    .categoryImageWrapper { 
+      width: 160px;
+      height: calc(160px * (13 / 9)); 
+    }
+    
+  }
+
+    /*Samsung galazy etc*/
+  @media (max-width: 374px) {
+    .categoryImageWrapper { 
+      width: 150px;
+      height: calc(160px * (13 / 9));
+    }
+    
   }

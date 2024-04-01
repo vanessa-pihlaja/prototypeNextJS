@@ -63,32 +63,34 @@ const UserCategories = () => {
 
         return (
           <div key={index} className={styles.categoryItem}>
-            <h2 
-              className={styles.categoryTitle} 
-              onClick={() => handleCategoryClick(category)} 
-              role="button" 
-              tabIndex={0}
-            >
-              {category}
-            </h2>
-
-            {/* Conditional rendering to not show the category image if this category is selected */}
-            {!selectedCategory && categoryImages[category] && (
-              <div 
-                className={styles.categoryImageWrapper} 
+            <div className={styles.catgoryWrapper}>
+              <h2 
+                className={styles.categoryTitle} 
                 onClick={() => handleCategoryClick(category)} 
                 role="button" 
                 tabIndex={0}
               >
-                <Image
-                  src={categoryImages[category]}
-                  alt={`${category} cover`}
-                  layout="fill"
-                  objectFit="cover"
-                  className={styles.categoryImage}
-                />
-              </div>
-            )}
+                {category}
+              </h2>
+
+              {/* Conditional rendering to not show the category image if this category is selected */}
+              {!selectedCategory && categoryImages[category] && (
+                <div 
+                  className={styles.categoryImageWrapper} 
+                  onClick={() => handleCategoryClick(category)} 
+                  role="button" 
+                  tabIndex={0}
+                >
+                  <Image
+                    src={categoryImages[category]}
+                    alt={`${category} cover`}
+                    layout="fill"
+                    objectFit="cover"
+                    className={styles.categoryImage}
+                  />
+                </div>
+              )}
+            </div>
 
             {selectedCategory === category && (
               <div className={styles.recipesGrid}>

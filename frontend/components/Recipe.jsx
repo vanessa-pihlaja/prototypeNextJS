@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/recipe.module.css'; // Make sure your styles are correctly linked
+import styles from '../styles/recipe.module.css';
 import Image from 'next/image';
 import SaveRecipeModal from './SaveButton';
 
