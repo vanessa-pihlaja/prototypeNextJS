@@ -312,20 +312,20 @@
   }
 
     /*Iphone 7, 8, XS,*/
-    @media (max-width: 385px) {
+    @media (max-width: 390px) {
       .categoryWrapper { 
-        padding: 0px 5px;
+        padding: 0px 4px;
       }
 
       .categoryImageWrapper { 
-        width: 150px;
+        width: 160px;
         height: calc(150px * (13 / 9));
       }
       
     }
 
     /*Samsung galaxy  */
-    @media (max-width: 365px) {
+    @media (max-width: 372px) {
       .categoryWrapper { 
         padding: 0px 6px;
       }
