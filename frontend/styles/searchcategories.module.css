@@ -278,7 +278,7 @@
   }
 
     /* Iphone 14 and 15 plus */
-    @media (max-width: 440px) {
+    @media (max-width: 456px) {
       .categoryImageWrapper { 
         width: 180px;
         height: calc(180px * (13 / 9)); 
