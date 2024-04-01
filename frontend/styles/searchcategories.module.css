@@ -301,8 +301,8 @@
   /* Iphone 11 - 13 */
   @media (max-width: 415px) {
     .categoryImageWrapper { 
-      width: 158px;
-      height: calc(158px * (13 / 9)); 
+      width: 160px;
+      height: calc(160px * (13 / 9)); 
     }
 
     .catgoryWrapper{
@@ -312,7 +312,7 @@
   }
 
     /*Iphone 7, 8, XS,*/
-    @media (max-width: 385px) {
+    @media (max-width: 389px) {
       .categoryWrapper { 
         padding: 0px 5px;
       }
