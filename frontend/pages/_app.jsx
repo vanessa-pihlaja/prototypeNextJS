@@ -9,6 +9,7 @@ export default function MyApp({ Component, pageProps }) {
         {/* Google tag (gtag.js) */}
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-DLHKESPVZT"></Script>
         <Script
+          id="gtag-init"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
