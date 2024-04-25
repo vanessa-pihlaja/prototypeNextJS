@@ -13,6 +13,7 @@ const SignupComponent = () => {
           password: '',
       });
     
+      // Handles changes in input fields and updates the user state
       const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({
@@ -21,13 +22,14 @@ const SignupComponent = () => {
         });
       };
 
+      // Toggles the visibility of the password in the input field
       const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    
+
+      // Handles the form submission for user registration
       const handleSubmit = async (e) => {
         e.preventDefault();
-        // Basic validation example
         if (!user.username || !user.name || !user.password) {
           alert('Please fill in all fields.');
           return;
@@ -38,6 +40,7 @@ const SignupComponent = () => {
         }
     
         try {
+          // Makes a POST request to the registration API endpoint
           const response = await fetch('/api/users/register', {
             method: 'POST',
             headers: {
@@ -50,11 +53,10 @@ const SignupComponent = () => {
           }
           const data = await response.json();
           console.log(data);
-          // Handle success
-          Router.push('/login'); // Redirect to login after successful registration
+          Router.push('/login'); 
         } catch (error) {
           console.error('Registration Error:', error);
-          alert(error.message); // Show error message to the user
+          alert(error.message); 
         }
       };
     

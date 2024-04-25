@@ -13,6 +13,7 @@ const LoginComponent = () => {
     const { fetchUser } = useUser()
     const [showPassword, setShowPassword] = useState(false)
   
+    // Handles form submission for user login
     async function handleSubmit(e) {
       e.preventDefault();
       const loginResponse = await fetch('/api/users/login', {
@@ -21,6 +22,7 @@ const LoginComponent = () => {
         body: JSON.stringify({ username, password }),
       });
   
+      // Navigate to home if login is successful, otherwise display error
       if (loginResponse.ok) {
         await fetchUser();
         Router.push('/');
@@ -30,6 +32,7 @@ const LoginComponent = () => {
       }
     }
 
+    // Toggles the visibility of the password field
     const togglePasswordVisibility = () => {
       setShowPassword(!showPassword);
   };

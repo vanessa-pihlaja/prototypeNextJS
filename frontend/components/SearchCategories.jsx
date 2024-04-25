@@ -15,15 +15,14 @@ function shuffle(array) {
   return array;
 }
 
+// Helper function to shuffle categories and their respective recipes
 function getShuffledCategories(categories) {
-  // Shuffle categories
   return categories.map(category => {
-    // Shuffle recipes within each category
     const shuffledRecipes = shuffle([...category.recipes]);
     return {
       ...category,
       recipes: shuffledRecipes,
-      coverImage: shuffledRecipes[0] ? shuffledRecipes[0].firstImage : null // Use the first recipe's image as cover
+      coverImage: shuffledRecipes[0] ? shuffledRecipes[0].firstImage : null
     };
   });
 }
@@ -55,7 +54,7 @@ function CategoriesComponent({ categories }) {
       }
     }, [categories]);
   
-
+  // Handles category selection to toggle display of recipes
   const handleCategoryClick = (category) => {
     if (selectedCategory === category) {
       setSelectedCategory(null); 
@@ -68,12 +67,14 @@ function CategoriesComponent({ categories }) {
     }
   };
 
+  // Function to handle recipe save button click
   const handleSaveClick = (recipe) => {
     setCurrentRecipe(recipe);
     setShowSaveModal(true);
     console.log(recipe)
   };
 
+  // Function to load more recipes for a given category
   const loadMoreRecipes = (category) => {
     // Increment the number of visible recipe sets for the category
     setVisibleRecipeSets({

@@ -16,6 +16,7 @@ export default function Recipe() {
         setShowSaveModal(true);
     };
 
+    // Fetches recipe data based on the title from the API
     useEffect(() => {
         if (title) {
             fetch(`/api/recipes/${encodeURIComponent(title)}`)
@@ -31,10 +32,12 @@ export default function Recipe() {
         }
     }, [title]);
 
+    // Function to extract the first image URL from an array of images
     const getFirstImageUrl = (images) => {
         return Array.isArray(images) && images.length > 0 ? images[0] : '';
     };
 
+    // Function to strip HTML and insert placeholders for rendering
     function stripHtmlAndPrepareForSpacing(html) {
         let modifiedHtml = html
             .replace(/<ul>/g, '[EMPTY_LINE_HERE]<ul>')
@@ -46,6 +49,7 @@ export default function Recipe() {
         return strippedHtml;
     }
 
+    // Function to render the content
     const renderContent = (content) => {
         const lines = stripHtmlAndPrepareForSpacing(content)
             .split('\n')

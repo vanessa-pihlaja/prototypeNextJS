@@ -8,31 +8,36 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
   const [newCategory, setNewCategory] = useState('');
   const { user } = useUser(); 
 
+  // Preset categories suggested to the user
   const suggestedCategories = [
     'Nopeat arkiruoat',
     'Jälkkärit',
     'Brunssi',
   ]
 
+  // Retrieve user's own categories or use an empty array if none
   const userCategories = user?.categories || [];
 
-  
+  // Combines suggested and user categories ensuring all are unique
   const allCategories = useMemo(() => Array.from(new Set([
     ...suggestedCategories,
     ...userCategories
   ])), [userCategories, suggestedCategories]);
 
+  // Function to handle saving the recipe to the selected category
   const handleSave = async () => {
     const recipeid = recipe._id || recipe.id;
     try {
       const categoryName = selectedCategory === 'new' ? newCategory : selectedCategory;
 
+      // Send a POST request to save the recipe under the chosen category
       await axios.post('/api/users/savedRecipe', {
         userId: user.id,
         recipeId: recipeid,
         category: categoryName,
       });
 
+      // If the category is new and not already listed, add it to user categories
       if (!allCategories.includes(categoryName)) {
         userCategories.push(categoryName);
       }
@@ -45,6 +50,7 @@ const SaveRecipeModal = ({ recipe, setShowSaveModal }) => {
     }
   };
 
+  // Renders the modal for saving recipes with category selection and the option to add a new category
   return (
     <div className={styles.modalBackdrop} onClick={() => setShowSaveModal(false)}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>

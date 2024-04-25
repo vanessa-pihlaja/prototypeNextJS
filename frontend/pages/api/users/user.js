@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     const jwtSecret = process.env.JWT_SECRET
 
     const decoded = jwt.verify(token, jwtSecret);
-    const user = await User.findById(decoded.id).select('-password'); // Exclude password
+    const user = await User.findById(decoded.id).select('-password');
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });

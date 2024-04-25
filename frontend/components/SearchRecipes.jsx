@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import styles from '../styles/search.module.css'; // Ensure you have this CSS file
+import styles from '../styles/search.module.css';
 
 const SearchComponent = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,7 +13,7 @@ const SearchComponent = ({ onSearch }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the form from causing a page reload
+    e.preventDefault(); 
     onSearch(searchTerm); // Trigger the search in the parent component
   };
 

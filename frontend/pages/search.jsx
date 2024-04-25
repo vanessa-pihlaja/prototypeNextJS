@@ -11,17 +11,18 @@ import styles from '../styles/search.module.css';
 export default function SearchPage({ categoriesWithRecipes }) {
   const [searchResults, setSearchResults] = useState([]);
   const [query, setQuery] = useState('');
-  const [searching, setSearching] = useState(false); // Tracks whether a search is currently being performed
+  const [searching, setSearching] = useState(false);
 
+// Function to handle the search process
   const handleSearch = async (searchQuery) => {
     setQuery(searchQuery);
     if (!searchQuery.trim()) {
       setSearchResults([]);
-      setSearching(false); // Ensure searching is false if the query is empty
+      setSearching(false);
       return;
     }
 
-    setSearching(true); // Set searching to true when starting the search
+    setSearching(true);
     try {
       const response = await fetch(`/api/search?query=${encodeURIComponent(searchQuery)}`);
       const data = await response.json();
@@ -30,10 +31,11 @@ export default function SearchPage({ categoriesWithRecipes }) {
       console.error("Error fetching search results:", error);
       setSearchResults([]);
     } finally {
-      setSearching(false); // Ensure searching is set to false when the search is completed
+      setSearching(false);
     }
   };
 
+  // Render the search UI
   return (
     <div>
       <header><h1>miamia</h1></header>
@@ -55,6 +57,7 @@ export default function SearchPage({ categoriesWithRecipes }) {
   );
 }
 
+// Helper function to convert MongoDB ObjectId to string in nested objects
 const objectIdToString = (value) => {
   if (Array.isArray(value)) {
     return value.map(v => objectIdToString(v));
@@ -70,9 +73,11 @@ const objectIdToString = (value) => {
   return value;
 };
 
+// Function to fetch data from the database at build time
 export async function getStaticProps() {
   await dbConnect();
 
+  // MongoDB aggregation pipeline to fetch categories with recipes
   const aggregationPipeline = [
     { $match: { category: { $exists: true, $not: {$size: 0} } } },
     { $unwind: "$category" }, 

@@ -10,6 +10,7 @@ export default function Feed({ batches }) {
   const [showSaveModal, setShowSaveModal] = useState(false);
   const [currentRecipe, setCurrentRecipe] = useState(null);
 
+  // Function to handle click event for saving a recipe
   const handleSaveClick = (recipe) => {
     setCurrentRecipe(recipe);
     setShowSaveModal(true);
@@ -53,7 +54,6 @@ export default function Feed({ batches }) {
           </div>
         </div>
       ))}
-      {/* Modal or dropdown for saving the recipe to a category */}
       {showSaveModal && <SaveRecipeModal recipe={currentRecipe} setShowSaveModal={setShowSaveModal} />}
     </div>
   );

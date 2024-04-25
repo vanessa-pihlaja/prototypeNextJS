@@ -8,12 +8,13 @@ import jwt from 'jsonwebtoken';
 export default function App() {
   const [seed, setSeed] = useState('');
   const [batches, setBatches] = useState([]);
-  const [showLoadMore, setShowLoadMore] = useState(true); // Initially true, assume there's something to load
+  const [showLoadMore, setShowLoadMore] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Generate a new seed function
+  // Generate a new seed based on the current timestamp
   const generateNewSeed = () => Date.now().toString();
 
+  // UseEffect hook to load batches of recipes on component mount
   useEffect(() => {
     const loadBatchesSequentially = async () => {
       let currentSeed = Cookies.get('recipeFeedSeed');
@@ -21,7 +22,7 @@ export default function App() {
       const currentTime = Date.now();
       const sevenMinutes = 7 * 60 * 1000;
 
-      // Update seed if necessary
+      // Update seed if it's stale or missing
       if (!currentSeed || !lastSeedUpdateTime || currentTime - parseInt(lastSeedUpdateTime, 7) > sevenMinutes) {
         currentSeed = generateNewSeed();
         Cookies.set('recipeFeedSeed', currentSeed, { expires: 1 });
@@ -30,7 +31,7 @@ export default function App() {
 
       setSeed(currentSeed);
 
-      // Load batches based on feedIndex or just the first batch
+      // Fetch recipes in batches based on feed index
       const feedIndex = Number(sessionStorage.getItem('feedIndex')) || 1;
       for (let i = 1; i <= feedIndex; i++) {
         await fetchRecipes(i, currentSeed);
@@ -40,31 +41,33 @@ export default function App() {
     };
 
     loadBatchesSequentially();
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
+   // Function to fetch recipes from the server
   const fetchRecipes = async (page, seed) => {
     const response = await fetch(`/api/recipes?page=${page}&seed=${seed}`);
     const newRecipes = await response.json();
     setBatches(prevBatches => [...prevBatches, newRecipes]);
   };
 
+  // Function to load more recipes
   const loadMore = async () => {
-    setShowLoadMore(false); // Disable the button to prevent multiple clicks
+    setShowLoadMore(false); 
 
     const currentFeedIndex = Number(sessionStorage.getItem('feedIndex')) || 0;
     const newFeedIndex = currentFeedIndex + 1;
 
     try {
       await fetchRecipes(newFeedIndex, seed);
-      sessionStorage.setItem('feedIndex', newFeedIndex.toString()); // Update feedIndex only after successful fetch
+      sessionStorage.setItem('feedIndex', newFeedIndex.toString());
     } catch (error) {
       console.error("Failed to fetch more recipes:", error);
-      // Optionally handle the error, e.g., by showing an error message
     } finally {
-      setShowLoadMore(true); // Re-enable the button
+      setShowLoadMore(true); 
     }
   };
 
+  // UseEffect to restore scroll position after data loads
   useEffect(() => {
     const scrollPosition = sessionStorage.getItem('scrollPosition');
     if (!isLoading && batches.length && scrollPosition) {
@@ -74,7 +77,7 @@ export default function App() {
           left: 0,
           behavior: "smooth",
         });
-      }, 200); // You may need to adjust this delay
+      }, 200); 
       sessionStorage.removeItem('scrollPosition');
     }
   }, [isLoading, batches]);
@@ -95,6 +98,7 @@ export default function App() {
 }
 
 
+// Function to handle server-side rendering and authentication checks
 export async function getServerSideProps(context) {
   
   const token = context.req.cookies.token;

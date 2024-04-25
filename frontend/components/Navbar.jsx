@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import styles from '../styles/navbar.module.css'
-import { useRouter } from 'next/router'; // Import useRouter from Next.js
+import { useRouter } from 'next/router'; 
 import React, { useState } from 'react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const router = useRouter(); // Use the useRouter hook to get the current route information
+  const router = useRouter(); 
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

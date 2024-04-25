@@ -1,6 +1,5 @@
-// pages/api/search.js
 import dbConnect from '../../src/utils/dbConnect';
-import Recipe from '../../src/models/recipe'; // Adjust the import path based on your project structure
+import Recipe from '../../src/models/recipe';
 
 export default async function handler(req, res) {
   const { query } = req.query;
@@ -11,14 +10,14 @@ export default async function handler(req, res) {
 
   await dbConnect();
 
-  // Perform the search query
+  // Performs the search query
   const results = await Recipe.aggregate([
     {
       $search: {
-        index: 'default', // Use the name of the index you created
+        index: 'default',
         text: {
           query: query,
-          path: ['title', 'content', 'owner'], // Specify the fields you want to search in
+          path: ['title', 'content', 'owner'], 
         }
       }
     },
@@ -26,7 +25,7 @@ export default async function handler(req, res) {
       $limit: 500
     },
     {
-      $project: { title: 1, description: 1, images: 1, owner: 1 } // Specify which fields to include in the results
+      $project: { title: 1, description: 1, images: 1, owner: 1 }
     }
   ]);
 

@@ -1,5 +1,5 @@
-import dbConnect from '../../../src/utils/dbConnect'; // Adjust the path as necessary
-import User from '../../../src/models/user'; // Adjust the path to your User model as necessary
+import dbConnect from '../../../src/utils/dbConnect'; 
+import User from '../../../src/models/user';
 import bcrypt from 'bcrypt';
 
 export default async function handler(req, res) {

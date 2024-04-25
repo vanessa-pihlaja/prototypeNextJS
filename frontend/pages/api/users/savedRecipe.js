@@ -1,7 +1,6 @@
 import dbConnect from '../../../src/utils/dbConnect';
 import User from '../../../src/models/user';
 import Recipe from '../../../src/models/recipe';
-import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
   await dbConnect();
@@ -69,6 +68,7 @@ export default async function handler(req, res) {
     }
   }
   else {
+    // If the request is not a POST or a GET request, return 405 Method Not Allowed
     res.setHeader('Allow', ['POST', 'GET']);
     res.status(405).end('Method Not Allowed');
   }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import styles from '../styles/searchcategories.module.css'; // Use the same style sheet
+import styles from '../styles/searchcategories.module.css';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import Link from 'next/link';
@@ -10,7 +10,9 @@ const UserCategories = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
   const { user } = useUser();
 
+
   useEffect(() => {
+     // Fetches saved recipes for the logged-in user
     const fetchSavedRecipes = async () => {
       if (!user?.id) return;
       try {
@@ -24,8 +26,9 @@ const UserCategories = () => {
       }
     };
     fetchSavedRecipes();
-  }, [user?.id]);
+  }, [user?.id]); // Dependency array includes user id to re-fetch when it changes
 
+  // Builds an object of category names to their corresponding image URLs
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
     if (recipe.images?.length > 0) {
       acc[recipe.category] = recipe.images[0];
@@ -33,10 +36,12 @@ const UserCategories = () => {
     return acc;
   }, {});
 
+  // Filters categories that actually contain recipes
   const categoriesWithRecipes = Object.keys(categoryImages).filter(category =>
     savedRecipes.some(recipe => recipe.category === category)
   );
 
+  // Handles category selection, toggling between selected and not selected
   const handleCategoryClick = (category) => {
     setSelectedCategory(selectedCategory === category ? null : category);
   };
@@ -73,7 +78,6 @@ const UserCategories = () => {
                 {category}
               </h2>
 
-              {/* Conditional rendering to not show the category image if this category is selected */}
               {!selectedCategory && categoryImages[category] && (
                 <div 
                   className={styles.categoryImageWrapper} 

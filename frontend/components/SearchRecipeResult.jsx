@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/searchcategories.module.css'; 
 import SaveRecipeModal from './SaveButton';
 
+// Helper function to get the first image URL from an array of images
 const getFirstImageUrl = (images) => {
   if (Array.isArray(images) && images.length > 0) {
     return images[0];
@@ -16,11 +17,13 @@ export default function SearchResultsComponent({ searchResults }) {
   const [currentRecipe, setCurrentRecipe] = useState(null);
   const [visibleSets, setVisibleSets] = useState(1);
 
+  // Handles the click event on the save button, setting the current recipe and showing the save modal
   const handleSaveClick = (recipe) => {
     setCurrentRecipe(recipe);
     setShowSaveModal(true);
   };
 
+  // Function to load more recipes as the user scrolls or requests more
   const loadMoreRecipes = () => {
     setVisibleSets(prevVisibleSets => prevVisibleSets + 1);
   };
