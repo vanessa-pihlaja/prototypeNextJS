@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-# List of recipe URLs
 recipe_urls = [
     "https://viimeistamuruamyoten.com/kantarellikeitto/",
     "https://viimeistamuruamyoten.com/paahdettu-zaatar-kukkakaali-viinirypalesalaatti-v-gf/",
@@ -646,57 +645,43 @@ recipe_urls = [
     "https://viimeistamuruamyoten.com/barbeque-oumph-hodarit-mangosalsalla-vegaani/",
 ]
 
-
-# Helper function to format titles
 def format_title(title):
     words = title.split()
     formatted_words = [word.capitalize() if word.lower() not in ['eli', 'ja'] else word.lower() for word in words]
     return ' '.join(formatted_words)
 
-# Function to scrape and process content from a recipe URL
 def scrape_recipe(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     
-    # Find and format the recipe title
     title_tag = soup.find('h1', class_='post-title single-post-title entry-title')
     title = format_title(title_tag.text) if title_tag else "No Title Found"
     
-    # Extract content from the specified div
     content_elements = []
     found_matching_h2 = False
     excluded_words = {'eli', 'ja'}
     entry_title_words = set(title_tag.text.lower().split()) - excluded_words
     content_div = soup.find('div', class_='inner-post-entry entry-content')
 
-    # Check if content_div exists
     if content_div:
-        # Iterate through elements to capture relevant content
         for elem in content_div.find_all(['h2', 'p', 'ol', 'ul', 'h3']):
-            # Check for matching <h2>
             if elem.name == 'h2' and not found_matching_h2:
                 element_words = set(elem.get_text(strip=True).lower().split())
                 if element_words & entry_title_words:
                     found_matching_h2 = True
-                    continue  # Skip the matching <h2> itself
+                    continue
             
             if found_matching_h2:
-                # Only add text content, excluding <img> tags
                 if elem.name == 'p' or elem.name == 'ol' or elem.name == 'ul' or elem.name == 'h2' or elem.name == 'h4':
-                    # Create a copy of the element to manipulate
                     elem_copy =  BeautifulSoup(str(elem), 'html.parser')
-                    # Exclude images from <p> elements
                     for img_tag in elem_copy.find_all('img'):
-                        img_tag.extract()  # Remove <img> tags
+                        img_tag.extract()
                     for tag in elem_copy.find_all(class_=True):
-                        tag.unwrap()  # Remove elements with classes
+                        tag.unwrap()
                     content_elements.append(str(elem_copy))
                 
-    
-    # Joining content elements into a single string
     content = ' '.join(content_elements)
 
-    # Scrape images within the specified div after finding the matching h2
     image_urls = []
     if found_matching_h2:
         if content_div:
@@ -710,14 +695,10 @@ def scrape_recipe(url):
         'images': image_urls,
     }
 
-
-
-# Main script to scrape the recipes
 recipes_content = []
 
 unique_recipe_urls = set()
 
-# Scrape each recipe
 for url in recipe_urls:
     unique_recipe_urls.add(url)
 
@@ -725,11 +706,8 @@ for url in unique_recipe_urls:
     print(f"Scraping content from {url}")
     recipe_data = scrape_recipe(url)
     recipes_content.append(recipe_data)
-
-# Print total number of recipes scraped
 print(f"Total number of recipes scraped: {len(recipes_content)}")
 
-# Convert the list of recipe data to JSON and save
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
 with open('viimeistamuruamyoten.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

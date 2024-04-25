@@ -1,13 +1,15 @@
 from pymongo import MongoClient
 import certifi
 from bson import ObjectId
+from dotenv import load_dotenv
+import os
 
-# Your MongoDB connection details
-mongo_uri = 'mongodb+srv://vanessapihlaja:0N0hvWBixwP6PQGO@cluster0.hum04qt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+load_dotenv()
+
+mongo_uri = os.getenv('MONGODB_URI')
 database_name = 'test'
 collection_name = 'recipes'
 
-# Connect to MongoDB
 client = MongoClient(mongo_uri, tlsCAFile=certifi.where())
 db = client[database_name]
 collection = db[collection_name]

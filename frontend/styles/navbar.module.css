@@ -1,7 +1,7 @@
     .nav {
       display: flex;
       justify-content: center;
-      width: 100%; /* Ensures it takes the full width */
+      width: 100%;
     }
    
     .ulList {
@@ -12,7 +12,7 @@
       border-bottom: 2px solid rgb(255, 59, 0);
       width: 88%;
       text-align: center;
-      padding: 0; /* Remove default padding */
+      padding: 0;
     }
   
   .liItem {
@@ -38,50 +38,3 @@
     font-weight: 1000;
     padding: 0 3px 0 3px
   }
-
-  /* Hamburger Menu 
-.hamburger {
-  display: none; 
-  cursor: pointer;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 25px; 
-  width: 30px;
-}
-
-.hamburgerLine {
-  background-color: #000; 
-  height: 2px;
-  width: 100%;
-}
-
-     desktop 
-@media (min-width: 1950px ) {
-  .ulList {
-    width: 62%;
-  }
-}
-
-
-
-
- Mobile view 
-@media (max-width: 768px) {
-  .ulList {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .ulList.show {
-    display: flex; 
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-  
-
-
-*/

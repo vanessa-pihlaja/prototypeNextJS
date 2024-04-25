@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-# List of recipe URLs
 recipe_urls = [
     "https://www.anninuunissa.fi/puolukka-kinuskikakku-g/",
     "https://www.anninuunissa.fi/vegaaninen-mansikka-raparperijuustokakku-g/",
@@ -185,41 +184,31 @@ def scrape_recipe(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     
-    # Scrape the title of the recipe
     title_tag = soup.find('h1', class_='entry-title')
     title = title_tag.get_text(strip=True) if title_tag else 'No Title Found'
     
-    # Initialize content storage
     content_elements = []
     
-  # Find the <h2> element that matches the title
     h2_tag = soup.find('h2', string=title)
     
     if h2_tag:
-        # Get all next siblings and filter by <p>, <ul>, and <ol> tags
         for sibling in h2_tag.find_next_siblings():
             if sibling.name in ['p', 'ul', 'ol']:
                 content_elements.append(str(sibling))
             else:
-                break  # Stop if the next sibling is not a <p>, <ul>, or <ol>
+                break 
     else:
         print(f"No matching <h2> element found for title '{title}' in {url}")
     
-    # Concatenate all elements into a single string
     all_content_html = "".join(content_elements)
     
-    # Find the container <div> with class "entry-content single-content"
     content_div = soup.find('div', class_='entry-content single-content')
     
-    # Initialize an empty list for image URLs
     image_urls = []
     
-    # If the container is found
     if content_div:
-        # Find all <img> elements with a class attribute within the container
         images = content_div.find_all('img', class_=lambda x: x and x.startswith('wp'))
-        
-        # Extract the 'src' attribute of each <img> tag
+
         image_urls = [img['src'] for img in images]
 
     
@@ -227,15 +216,13 @@ def scrape_recipe(url):
         'url': url,
         'title': title,
         'content': all_content_html,
-        'images': image_urls  # Direct URLs of the images, excluding the specified one
+        'images': image_urls
     }
 
-# List to store the content of each recipe
 recipes_content = []
 
 recipe_count = 0
 
-# Iterate through URLs and scrape content, title, and images for each, excluding specific images
 for url in recipe_urls:
     print(f"Scraping content from {url}")
     recipe_data = scrape_recipe(url)
@@ -244,9 +231,7 @@ for url in recipe_urls:
 
 print(f"Total number of recipes scraped: {recipe_count}")
 
-# Convert the list of recipe data to JSON
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
 
-# Optionally, save the JSON to a file
 with open('anninuunissa.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

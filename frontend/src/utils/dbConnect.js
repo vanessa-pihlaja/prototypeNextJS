@@ -4,7 +4,7 @@ const connection = {}; // To prevent multiple db connections
 
 export default async function dbConnect() {
   if (connection.isConnected) {
-    console.log('Using existing database connection'); // Log for existing connection
+    console.log('Using existing database connection');
     return;
   }
 
@@ -16,8 +16,8 @@ export default async function dbConnect() {
   connection.isConnected = db.connections[0].readyState;
 
   if (connection.isConnected) {
-    console.log('Database connected successfully'); // Log for successful connection
+    console.log('Database connected successfully');
   } else {
-    console.log('Database connection failed'); // Log for failed connection
+    console.log('Database connection failed');
   }
 }

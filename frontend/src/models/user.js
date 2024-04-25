@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
       recipeId: { type: mongoose.Schema.Types.ObjectId, ref: 'Recipe' },
       category: { type: String, required: true }
     }],
-    default: [] // Ensure it's always initialized
+    default: []
   }
 })
 

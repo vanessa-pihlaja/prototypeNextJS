@@ -18,12 +18,10 @@ for path in category_paths:
     response = requests.get(full_url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Target <a> tags that are children of <h2 class="entry-title">
     recipe_links = soup.select('h2.entry-title a')
     
     for link in recipe_links:
         href = link['href']
-        # No need to construct full URL here because your example shows absolute URLs
         full_recipe_url = href
         
         if (full_recipe_url.startswith(base_url) and

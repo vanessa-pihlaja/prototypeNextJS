@@ -3,16 +3,16 @@
 .recipeContainer {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the content */
-  max-width: 700px; /* Matches the image's max width */
+  align-items: center;
+  max-width: 700px;
   margin: 0 auto;
   padding: 15px;
 }
 
 .recipeImage {
-  max-width: 700px; /* Adjust based on your preference */
+  max-width: 700px;
   width: 100%;
-  margin: 0 auto; /* Center the image */
+  margin: 0 auto;
 }
 
 .recipeTitle {
@@ -109,11 +109,10 @@
 }
 
 .emptyLine {
-    height: 0.5em; /* Keep your existing style */
+    height: 0.5em;
 }
 
-
-
+/* Mobile */
 @media (max-width: 768px) {
   .recipeTitle {
     font-size: 26px;

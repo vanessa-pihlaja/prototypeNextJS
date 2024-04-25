@@ -25,7 +25,6 @@ category_paths = [
     "/reseptit/category/Snacks"
 ]
 
-# Use a set to store recipe URLs to automatically avoid duplicates
 unique_recipe_urls = set()
 
 for path in category_paths:
@@ -33,19 +32,15 @@ for path in category_paths:
     response = requests.get(full_url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Find all <a> tags. Adjust this as necessary to target only recipe links.
     recipe_links = soup.find_all('a', href=True)
     
     for link in recipe_links:
         href = link['href']
-        # Construct full URL if not already complete
         full_recipe_url = href if href.startswith('http') else base_url + href
-        # Filter conditions
         if ("/reseptit/" in full_recipe_url and
             not any(excluded in full_recipe_url for excluded in ["?category=", "/category", "/kysymys", "spotify.com"]) and
             full_recipe_url.startswith(base_url)):
             unique_recipe_urls.add(full_recipe_url)
 
-# Print the unique recipe URLs
 for recipe_url in unique_recipe_urls:
     print(recipe_url)

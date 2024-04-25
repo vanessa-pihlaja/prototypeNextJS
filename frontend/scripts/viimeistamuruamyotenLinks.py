@@ -33,7 +33,7 @@ def scrape_category(category_path, page=1):
     full_url = f"{base_url}{category_path}page/{page}/" if page > 1 else f"{base_url}{category_path}"
     response = requests.get(full_url)
     if response.status_code != 200:
-        return  # Stop if we don't get a successful response
+        return
 
     soup = BeautifulSoup(response.text, 'html.parser')
     recipe_links = soup.find_all('a', href=True)

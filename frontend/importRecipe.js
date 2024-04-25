@@ -2,22 +2,18 @@ const fs = require('fs');
 const path = require('path');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const Recipe = require('./src/models/recipe.js'); // Adjust the path as necessary
+const Recipe = require('./src/models/recipe.js');
 
-// Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("Connected successfully to MongoDB"))
   .catch(error => console.error("Connection error:", error));
 
 async function importRecipes() {
   try {
-    // Ensure database connection is established
     await mongoose.connection;
 
-    // Define the path to the JSON file directly
     const filePath = path.join(process.cwd(), 'data/ottolenghi.json');
 
-    // Read the JSON file's content
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const recipes = JSON.parse(fileContents);
 
@@ -37,10 +33,8 @@ async function importRecipes() {
   } catch (error) {
     console.error('Error importing recipes:', error);
   } finally {
-    // Close the MongoDB connection
     mongoose.disconnect();
   }
 }
 
-// Run the importRecipes function
 importRecipes();

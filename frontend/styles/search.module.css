@@ -3,37 +3,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15px auto; /* Center the search bar horizontally */
-    width: 100%; /* Adjust as needed */
-    max-width: 600px; /* Maximum width of the search bar */
-    position: relative; /* For positioning the magnifier icon */
+    margin: 15px auto;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
   }
 
-  
   .searchInput {
     width: 100%;
-    padding: 10px 10px 10px 40px; /* Make space for the magnifier icon */
+    padding: 10px 10px 10px 40px;
     border: 1px solid #ccc;
     border-radius: 20px;
-    font-size: 16px; /* Adjust as needed */
+    font-size: 16px;
     font-family: "Ibarra Real Nova", serif;
     font-weight: 600;
-    position: relative; /* Ensure the input is above the pseudo-element */
+    position: relative;
   }
   
   .searchInput::before {
-    content: "\1F50D"; /* Unicode for magnifier symbol */
+    content: "\1F50D";
     position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 20px; /* Adjust as needed */
-    color: #ccc; /* Color of the magnifier symbol */
+    font-size: 20px;
+    color: #ccc;
     border: 1px solid #ccc;
   }
   
   .searchButton {
-    display: none; /* Initially hide the button */
+    display: none;
     position: absolute;
     right: 5px;
     top: 50%;
@@ -41,17 +40,17 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
-    font-size: 20px; /* Adjust as needed */
+    font-size: 20px;
   }
   
   .searchInput:focus + .searchButton,
   .searchInput:not(:placeholder-shown) + .searchButton {
-    display: block; /* Show button when input is focused or not empty */
+    display: block;
   }
   
   .searchButton::before {
-    content: "\27A4"; /* Unicode for arrow symbol */
-    color: rgb(255, 59, 0); /* Color of the arrow */
+    content: "\27A4";
+    color: rgb(255, 59, 0);
   }
 
 
@@ -70,7 +69,6 @@
 
 
   /* Mobile */
-
   @media (max-width: 768px) {
       .searchbar {
         max-width: 270px;

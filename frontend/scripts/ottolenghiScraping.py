@@ -2,7 +2,6 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-# List of recipe URLs
 recipe_urls = [
 "https://ottolenghi.co.uk/recipes/apricot-and-pecan-stuffing-with-green-sauce",
 "https://ottolenghi.co.uk/recipes/marinated-mushrooms-with-walnut-and-tahini-yogurt",
@@ -435,37 +434,29 @@ def scrape_recipe(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     
-    # Scrape the title of the recipe
     title_tag = soup.find('h1', class_='ct-field ct-field-field post-title')
     title = title_tag.get_text(strip=True) if title_tag else 'No Title Found'
     
-    # Scrape the content paragraphs
     content_elements = soup.find_all(class_=["cooking-ingredients", "cooking-method"])
     all_content_text = "\n\n".join(element.get_text(separator='\n', strip=True) for element in content_elements)
-    
-    # Scrape the image URLs, excluding a specific image if found
-    image_div = soup.find('div', class_='ct-field ct-field-image')  # Adjust if there are multiple divs or varying IDs
-    image_urls = image_div.find('a')['href'] if image_div else None  # Assuming there's only one image per recipe
+
+    image_div = soup.find('div', class_='ct-field ct-field-image')
+    image_urls = image_div.find('a')['href'] if image_div else None
     
     return {
         'url': url,
         'title': title,
         'content': all_content_text.strip(),
-        'images': image_urls  # Direct URLs of the images, excluding the specified one
+        'images': image_urls
     }
 
-# List to store the content of each recipe
 recipes_content = []
 
-# Iterate through URLs and scrape content, title, and images for each, excluding specific images
 for url in recipe_urls:
     print(f"Scraping content from {url}")
     recipe_data = scrape_recipe(url)
     recipes_content.append(recipe_data)
 
-# Convert the list of recipe data to JSON
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
-
-# Optionally, save the JSON to a file
 with open('ottolenghi.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

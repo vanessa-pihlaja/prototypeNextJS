@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 
-// Define the schema for the recipe
 const recipeSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -28,9 +27,6 @@ const recipeSchema = new mongoose.Schema({
     required: false
   }
 });
-
-// Create a model from the schema
-// Use mongoose.models to avoid error on hot reload during development
 
 const Recipe = mongoose.models.Recipe || mongoose.model('Recipe', recipeSchema);
 

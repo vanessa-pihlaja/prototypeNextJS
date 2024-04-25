@@ -5,17 +5,16 @@
 /*Feed recipes*/
 
   .feedcontainer {
-    /* Adjust the gap and number of columns as desired */
     column-gap: 1rem;
-    column-count: 3; /* You can adjust this number based on your desired layout */
+    column-count: 3;
     max-width: 1500px;
     margin: 20px 0 0 0 auto;
     padding: 0.5rem 4rem;
   }
 
   .recipeBlock {
-    break-inside: avoid; /* Prevent this block from being split across columns */
-    margin-bottom: 1rem; /* Adjust as needed */
+    break-inside: avoid;
+    margin-bottom: 1rem;
   }
   
   .recipeCard {
@@ -63,12 +62,12 @@
     font-family: "Noto Serif Hebrew", serif;
     font-weight: 600;
     color: rgba(81,135,218,255);
-    padding: 10px 20px; /* Example padding */
-    border: none; /* Example border removal */
-    font-size: 1rem; /* Example font size */
-    cursor: pointer; /* Changes cursor to indicate button */
-    border-radius: 5px; /* Rounds corners of the button */
-    transition: background-color 0.3s; /* Smooth transition for background color change */
+    padding: 10px 20px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
   }
 
   .buttonAtFirst {
@@ -104,8 +103,6 @@
     font-weight: 600;
   }
 
-  
-  /* Responsive adjustments */
 
   /* desktop */
 @media (min-width: 1924px) {
@@ -131,11 +128,10 @@
       padding: 0.6rem 2rem
     }
   }
-  /* mobile */
-  /*this first media shoud probably be included in the second one*/
+  /* Mobile */
   @media (max-width: 768px) {
     .recipeImage {
-      max-height: 700px; /* Smaller height on smaller screens */
+      max-height: 700px;
     }
   }
   @media (max-width: 650px) {

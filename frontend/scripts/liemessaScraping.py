@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-# List of recipe URLs
 recipe_urls = [
     "https://liemessa.fi/2021/02/hapanjuurileivonta/",
     "https://liemessa.fi/2018/05/piknik-brunssi/",
@@ -411,23 +410,18 @@ recipe_urls = [
     "https://liemessa.fi/2018/05/lohi-pesto-nakuvoileipakakku/"
 ]
 
-# Helper function to format titles
 def format_title(title):
     words = title.split()
     formatted_words = [word.capitalize() if word.lower() not in ['eli', 'ja'] else word.lower() for word in words]
     return ' '.join(formatted_words)
 
-# Function to check if the URL is from 2015 or later
 def is_recent(url):
     year = int(url.split('/')[3])
     return year >= 2015
 
-# Function to scrape and process content from a recipe URL
 def scrape_recipe(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
-    
-    # Find and format the recipe title
     title_tag = soup.find('h1', class_='entry-title')
     title = format_title(title_tag.text) if title_tag else "No Title Found"
     
@@ -436,7 +430,6 @@ def scrape_recipe(url):
     excluded_words = {'eli', 'ja'}
     entry_title_words = set(title_tag.text.lower().split()) - excluded_words
     
-    # Scrape images within the specified div
     image_urls = []
     content_div = soup.find('div', class_='post-area col span_9')
     if content_div:
@@ -444,44 +437,35 @@ def scrape_recipe(url):
         image_urls = [img['src'] for img in images]
 
 
-    # Iterate through elements to capture relevant content
     for elem in soup.find_all(['h1', 'h2', 'p']):
-        # Check for matching <h1> or <h2>
         if elem.name in ['h1', 'h2'] and not found_matching_h1_or_h2:
             element_words = set(elem.get_text(strip=True).lower().split())
             if element_words & entry_title_words:
                 found_matching_h1_or_h2 = True
-                continue  # Skip the matching <h1> or <h2> itself
+                continue
         
         if found_matching_h1_or_h2:
-            # Only add text content, excluding <img> tags
             if elem.name == 'p':
-                # Create a copy of the element to manipulate
                 elem_copy = BeautifulSoup(str(elem), 'html.parser')
                 for img_tag in elem_copy.find_all('img'):
-                    img_tag.decompose()  # Remove <img> tags
+                    img_tag.decompose()
                 content_elements.append(str(elem_copy))
             else:
                 content_elements.append(str(elem))
     
-    # Joining content elements into a single string
     content = ' '.join(content_elements)
 
     return {
         'url': url,
         'title': title,
         'content': content,
-        'images': image_urls  # Direct URLs of the images
+        'images': image_urls
     }
 
-
-# Main script to scrape the recipes
 recipes_content = []
 
 unique_recipe_urls = set()
         
-
-# Scrape each recipe
 for url in recipe_urls:
     if is_recent(url):
         unique_recipe_urls.add(url)
@@ -491,10 +475,8 @@ for url in unique_recipe_urls:
     recipe_data = scrape_recipe(url)
     recipes_content.append(recipe_data)
 
-# Print total number of recipes scraped
 print(f"Total number of recipes scraped: {len(recipes_content)}")
 
-# Convert the list of recipe data to JSON and save
 json_content = json.dumps(recipes_content, indent=4, ensure_ascii=False)
 with open('liemessa.json', 'w', encoding='utf-8') as f:
     f.write(json_content)

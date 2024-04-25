@@ -26,8 +26,6 @@ for path in category_paths:
     full_url = base_url + path
     response = requests.get(full_url)
     soup = BeautifulSoup(response.text, 'html.parser')
-    
-    # Target the specific div and ul containing the recipe links
     target_div = soup.find('div', class_="page-products page-layout-category-default block widget contents-grid grid ct-view ct-listing-recipes")
     if target_div:
         recipe_links = target_div.find_all('a', href=True)
