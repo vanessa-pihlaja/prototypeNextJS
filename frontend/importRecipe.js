@@ -17,12 +17,10 @@ async function importRecipes() {
     const fileContents = fs.readFileSync(filePath, 'utf-8');
     const recipes = JSON.parse(fileContents);
 
-    // Add each valid recipe to the database
     for (const recipe of recipes) {
-      // Check if the recipe meets the requirements
       if (!recipe.title || !recipe.content || !recipe.images || recipe.images.length === 0) {
         console.log(`Skipping recipe due to missing required fields: ${recipe.title}`);
-        continue; // Skip this recipe and move to the next one
+        continue;
       }
 
       const savedRecipe = await Recipe.create(recipe);
