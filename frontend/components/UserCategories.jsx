@@ -28,6 +28,20 @@ const UserCategories = () => {
     fetchSavedRecipes();
   }, [user?.id]); // Dependency array includes user id to re-fetch when it changes
 
+  // Function for removing a recipe from a category
+  const handleRemoveRecipe = async (recipeId) => {
+    console.log(recipeId)
+    try {
+      await axios.delete(`/api/users/savedRecipe`, {
+        headers: { 'X-User-ID': user.id, 'X-Recipe-ID': recipeId },
+      });
+      const updatedRecipes = savedRecipes.filter(recipe => recipe._id !== recipeId);
+      setSavedRecipes(updatedRecipes);
+    } catch (error) {
+      console.error('Failed to remove recipe:', error);
+    }
+  };
+
   // Builds an object of category names to their corresponding image URLs
   const categoryImages = savedRecipes.reduce((acc, recipe) => {
     if (recipe.images?.length > 0) {
@@ -112,6 +126,12 @@ const UserCategories = () => {
                         />
                       </Link> 
                       <div className={styles.ownerName}>{recipe.owner}</div>
+                      <button 
+                        className={styles.removeButton} 
+                        onClick={() => handleRemoveRecipe(recipe._id)}
+                      >
+                        poista
+                      </button>
                     </div>
                     <h2 className={styles.recipeTitle}><Link href={`/${recipe.title}`}>{recipe.title}</Link></h2>
                   </div>

@@ -141,6 +141,31 @@
     right: 6px; 
   }
 
+  .removeButton {
+    position: absolute;
+    bottom: 1px; 
+    right: 22px; 
+    background-color: transparent;
+    color: rgb(4, 19, 175);
+    font-size: 15px;
+    font-weight: 900;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    margin: 0px 0px 0px 0px;
+    border: none;
+    height: 32px;
+
+  }
+
+  .removeButton:hover {
+    font-size: 17px;
+    font-weight: 1000; 
+    bottom: 2px; 
+    right: 25px; 
+  }
+
+
   .loadMoreContainer {
     display: flex;
     justify-content: center;
@@ -264,6 +289,19 @@
     .buttonAtFirst:hover {
       font-size: 30px;
       font-weight: 600;
+    }
+    .removeButton{
+      font-size: 12px;
+      bottom: 0px;
+      right: 6px;
+      padding: 0px;
+      margin-bottom: 0px;
+      height: 25px;
+    }
+    .removeButton:hover{
+      font-size: 12px;
+      bottom: 0px;
+      right: 6px; 
     }
     .ownerName {
       position: absolute;

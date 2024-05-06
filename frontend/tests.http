@@ -31,6 +31,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjMxZmFmM
   "category": "jälkiruoka"
 }
 
+### Delete saved recipe
+
+DELETE http://localhost:3000/api/users/savedRecipe
+Content-Type: application/json
+
+{
+  "userId": "65f30f03613628ba90be9377",
+  "recipeId": "65f2efaa80e28358636a98ff"
+  
+}
 
 ###
 

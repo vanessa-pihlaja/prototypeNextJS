@@ -59,17 +59,40 @@ export default async function handler(req, res) {
         images: recipeId.images,
         url: recipeId.url,
         category,
-        owner: recipeId.owner
+        owner: recipeId.owner,
+        _id: recipeId._id
       }));
 
       res.status(200).json(savedRecipes);
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
-  }
-  else {
-    // If the request is not a POST or a GET request, return 405 Method Not Allowed
-    res.setHeader('Allow', ['POST', 'GET']);
+  } else if (req.method === 'DELETE') {
+    const userId = req.headers['x-user-id']
+    const recipeId = req.headers['x-recipe-id']
+
+
+    try {
+      const user = await User.findById(userId);
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+
+      // Remove the recipe from savedRecipes array
+      const initialLength = user.savedRecipes.length;
+      user.savedRecipes = user.savedRecipes.filter(savedRecipe => !savedRecipe.recipeId.equals(recipeId));
+      
+      if (initialLength === user.savedRecipes.length) {
+        return res.status(404).json({ error: 'Recipe not found in saved list' });
+      }
+
+      await user.save();
+      res.status(200).json({ message: 'Recipe removed successfully' });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  } else {
+    res.setHeader('Allow', ['POST', 'GET', 'DELETE']);
     res.status(405).end('Method Not Allowed');
   }
 }  
