@@ -17,6 +17,8 @@ NOTE: To use the app, you need to sign up or log in.
 
 
 ## Link to the working hours:
+   [Resepti app tuntikirjanpito - Taulukko2.pdf](https://github.com/miamiaco/prototypeNextJS/files/15235932/Resepti.app.tuntikirjanpito.-.Taulukko2.pdf)
+
 
  
  NOTE: Multiple commits might be from user #vanessa-pihlaja as we have occasionally worked from the same computer.
