@@ -21,5 +21,4 @@ NOTE: To use the app, you need to sign up or log in.
  
  NOTE: Multiple commits might be from user #vanessa-pihlaja as we have occasionally worked from the same computer.
 
- Before changing to NextJS, we started with a React app, which you can find from here: 
- https://github.com/miamiaco/prototype.
+ Before changing to NextJS, we started with a React app.
