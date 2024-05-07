@@ -50,7 +50,7 @@ NOTE: To use the app, you need to sign up or log in.
 | 25.4.2024  | Kommenttien siistimistä, ja käyttöohjeen kirjoittaminen                       | 1                | Kommenttien siistimistä, ja käyttöohjeen kirjoittaminen    | 1              |
 | 6.5.2024   | Poisto-ominaisuuden lisääminen                            | 2                | Poisto-ominaisuuden lisääminen         | 1              |
 | 7.5.2024  |          –             |     –            | Eslint-fix     | 1              |
-| yht        |                                                          | 183              |                                       | 183            |
+| yht        |                                                          | 183              |                                       | 184            |
 
 
  
