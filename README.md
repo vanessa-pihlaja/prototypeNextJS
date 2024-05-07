@@ -51,11 +51,11 @@ Backendin refaktorointi Next.js mukaiseksi (api paths)
 Login, logout, signup ominaisuuksien luominen  | 9 | Käyttäjäprofiilin luominen 
 Backendin refaktorointi Next.js mukaiseksi (api paths)
 Login, logout, signup ominaisuuksien luominen  | 9 |
-| 15.3.2024  | Käyttöliittymien suunnittelua (css)                      | 8                |     | 8              |
-| 16.3.2024  |                            | 8                | Reseptien tallennus ominaisuus
+| 15.3.2024  | Käyttöliittymien suunnittelua (css)                      | 8                |  –   | –              | 
+| 16.3.2024  |    –                        | –                | Reseptien tallennus ominaisuus
 Käyttäjän tallennettujen kategorioiden parantelua | 8 |
 | 18.3.2024  | Sivujen käyttöliittymien suunnittelu                      | 7                | Navigointi sivulla, kategoriahaku      | 7              |
-| 19.3.2024  |                                  |                | Kategoriahaun parantelua                                      | 3              |
+| 19.3.2024  | –                                 |    –            | Kategoriahaun parantelua                                      | 3              |
 | 20.3.2024  | Sivujen käyttöliittymien suunnittelua ja toteutusta (css)
 Kategoriahaku toiminnnon parantelua                        | 8                | Sivujen käyttöliittymien suunnittelua ja toteutusta (css)
 Kategoriahaku toiminnnon parantelua      | 8              |
@@ -86,7 +86,7 @@ Käyttöliittymän viimeistelyä                               | 7              
 Käyttöliittymän viimeistelyä           | 8              |
 | 25.4.2024  | Kommenttien siistimistä, ja käyttöohjeen kirjoittaminen                       | 1                | Kommenttien siistimistä, ja käyttöohjeen kirjoittaminen    | 1              |
 | 6.5.2024   | Poisto-ominaisuuden lisääminen                            | 2                | Poisto-ominaisuuden lisääminen         | 1              |
-| 7.5.2024  |                       |                 | Eslint-fix     | 1              |
+| 7.5.2024  |          –             |     –            | Eslint-fix     | 1              |
 | yht        |                                                          | 183              |                                       | 183            |
 
 
